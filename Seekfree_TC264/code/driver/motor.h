@@ -1,21 +1,21 @@
 /*
  * motor.h
  *
- *  Created on: 2024Äê11ÔÂ10ÈÕ
+ *  Created on: 2024å¹´11æœˆ10æ—¥
  *      Author: lizhi
  */
 
 #ifndef USER_DRIVER_MOTOR_H_
 #define USER_DRIVER_MOTOR_H_
 
-//===========Í·ÎÄ¼ş°üº¬==========
+//===========å¤´æ–‡ä»¶åŒ…å«==========
 #include<zf_driver_pwm.h>
 
-//===========²ÎÊı¶¨Òå============
+//===========å‚æ•°å®šä¹‰============
 
-#define motor0_PWM_Pin 000000000000; //µç»ú0pwmÊä³öÒı½Å
-#define motor1_PWM_Pin 000000000000; //µç»ú1pwmÊä³öÒı½Å
-#define motor0_PWM_fre 111111111111; //µç»ú0ÆµÂÊ
-#define motor1_PWM_fre 111111111111; //µç»ú1ÆµÂÊ
+#define motor0_PWM_Pin 000000000000; //ç”µæœº0pwmè¾“å‡ºå¼•è„š
+#define motor1_PWM_Pin 000000000000; //ç”µæœº1pwmè¾“å‡ºå¼•è„š
+#define motor0_PWM_fre 111111111111; //ç”µæœº0é¢‘ç‡
+#define motor1_PWM_fre 111111111111; //ç”µæœº1é¢‘ç‡
 
 #endif /* USER_DRIVER_MOTOR_H_ */

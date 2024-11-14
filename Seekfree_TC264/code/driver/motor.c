@@ -1,11 +1,11 @@
 /*
  * motor.c
  *
- *  Created on: 2024Äê11ÔÂ10ÈÕ
+ *  Created on: 2024å¹´11æœˆ10æ—¥
  *      Author: lizhi
  */
 #include "motor.h"
-//===========µç»úPWM===============
+//===========ç”µæœºPWM===============
 
 void MotorPWM_init(){
     //pwm_init();
