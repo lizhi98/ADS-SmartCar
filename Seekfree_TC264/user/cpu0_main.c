@@ -37,6 +37,7 @@
 #include<zf_device_mt9v03x.h>
 #include<zf_device_ips200.h>
 #pragma section all "cpu0_dsram"
+#include<Test/encoderTest01.h>
 // 将本语句与#pragma section all restore语句之间的全局变量都放在CPU0的RAM中
 
 // 本例程是开源库空工程 可用作移植或者测试各类内外设
@@ -52,30 +53,19 @@ int core0_main(void)
 
 
     //=============================初始化各种外设==========================
-
-    //屏幕初始化
-    ips200_init(IPS200_TYPE_PARALLEL8);
-
-    ips200_show_string(0,0,"ips200 init OK!");
-
-
-
-    //摄像头初始化
-    ips200_show_string(0,0,"mt9v03x init Start...");
-    mt9v03x_init();
-    ips200_show_string(0,0,"mt9v03x init OK!");
-
     // 此处编写用户代码 例如外设初始化代码等
     cpu_wait_event_ready();         // 等待所有核心初始化完毕
+
+    //延迟函数初始化
+    system_delay_init();
+    //测试函数
+    encoderTest01();
+
+
     while (TRUE)
     {
         // 此处编写需要循环执行的代码
 
-        //当摄像头采集完成时
-        if(mt9v03x_finish_flag){
-            ips200_displayimage03x(mt9v03x_image[0],MT9V03X_W,MT9V03X_H);   //将图形显示到屏幕
-            mt9v03x_finish_flag = 0;  //标志位清零
-        }
 
         // 此处编写需要循环执行的代码
     }
