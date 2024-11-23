@@ -13,7 +13,7 @@
     <booleanAttribute key="isShutDownWinIdeaAfterTerminate" value="true"/>
     <booleanAttribute key="isVerboseMode" value="false"/>
     <booleanAttribute key="isVerifyAfterDownload" value="true"/>
-    <intAttribute key="org.eclipse.cdt.launch.ATTR_BUILD_BEFORE_LAUNCH_ATTR" value="2"/>
+    <intAttribute key="org.eclipse.cdt.launch.ATTR_BUILD_BEFORE_LAUNCH_ATTR" value="1"/>
     <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_ID" value="IConnectDebugger.winIdea"/>
     <booleanAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN" value="true"/>
     <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN_SYMBOL" value="core0_main"/>

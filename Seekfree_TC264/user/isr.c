@@ -40,12 +40,23 @@
 // 简单点说实际上进入中断后TC系列的硬件自动调用了 interrupt_global_disable(); 来拒绝响应任何的中断，因此需要我们自己手动调用 interrupt_global_enable(0); 来开启中断的响应。
 
 // **************************** PIT中断函数 ****************************
+
+//=====================自己写的s==========================
+
+int16 encoder1_temp = 0;
+int16 encoder2_temp = 0;
+
+//=====================自己写的e==========================
 IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
 {
     interrupt_global_enable(0);                     // 开启中断嵌套
     pit_clear_flag(CCU60_CH0);
-
-
+    //==========自己写的s
+    int16 temp;
+    temp = encoder_get_count(TIM2_ENCODER);
+    printf("%d",temp - encoder1_temp);
+    encoder1_temp = temp;
+    //==========自己写的e
 
 }
 

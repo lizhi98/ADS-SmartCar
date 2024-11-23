@@ -32,12 +32,9 @@
 * 日期              作者                备注
 * 2022-09-15       pudding            first version
 ********************************************************************************************************************/
-#include "zf_common_headfile.h"
-//#include<cpu0_main.h>
-#include<zf_device_mt9v03x.h>
-#include<zf_device_ips200.h>
+
+#include<cpu0_main.h>
 #pragma section all "cpu0_dsram"
-#include<Test/encoderTest01.h>
 // 将本语句与#pragma section all restore语句之间的全局变量都放在CPU0的RAM中
 
 // 本例程是开源库空工程 可用作移植或者测试各类内外设
@@ -47,29 +44,25 @@
 // **************************** 代码区域 ****************************
 int core0_main(void)
 {
+
     clock_init();                   // 获取时钟频率<务必保留>
     debug_init();                   // 初始化默认调试串口
+    interrupt_global_enable(0);
     // 此处编写用户代码 例如外设初始化代码等
 
 
     //=============================初始化各种外设==========================
     // 此处编写用户代码 例如外设初始化代码等
     cpu_wait_event_ready();         // 等待所有核心初始化完毕
+    ips200_init(IPS200_TYPE_SPI);
 
     //延迟函数初始化
     system_delay_init();
-    //测试函数
-    encoderTest01();
+    camera_test();
 
-
-    while (TRUE)
-    {
-        // 此处编写需要循环执行的代码
-
-
-        // 此处编写需要循环执行的代码
-    }
+    return 0;
 }
+
 
 #pragma section all restore
 // **************************** 代码区域 ****************************
