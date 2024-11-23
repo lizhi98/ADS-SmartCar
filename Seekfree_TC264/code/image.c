@@ -5,21 +5,26 @@
  *      Author: lizhi
  */
 
-#include"camera.h"
+#include "camera.h"
 
-struct Control {
+typedef const uint8 * ImageData;
 
-};
+typedef enum ElementType {
+    Normal,
+    Cross,
+    Island,
+} ElementType;
 
-Control getControl(*uint8[MT9V03X_W] image) {
-    while (1) {
-        if (mt9v03x_finish_flag) {
+typedef struct ImageResult {
+    int8 midline_delta;
+    ElementType element_type;
+} ImageResult;
 
+ImageResult process_image(ImageData image) {
+    ImageResult result;
 
-            ips200_show_gray_image(0, 0, mt9v03x_image[0], MT9V03X_W, MT9V03X_H, MT9V03X_W, MT9V03X_H, 0);
+    result.midline_delta = 0;
+    result.element_type = Normal;
 
-            mt9v03x_finish_flag = 0;
-            //system_delay_ms(3000);
-        }
-    }
+    return result;
 }
