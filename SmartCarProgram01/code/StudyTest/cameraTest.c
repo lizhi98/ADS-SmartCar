@@ -21,7 +21,7 @@ void camera_test(void) {
         if (mt9v03x_finish_flag) {
 
 
-            ips200_show_gray_image(0, 0, mt9v03x_image[0], MT9V03X_W, MT9V03X_H, MT9V03X_W, MT9V03X_H, 0);
+            ips200_show_gray_image(0, 0, mt9v03x_image[0], MT9V03X_W, MT9V03X_H, ips200_width_max, ips200_height_max, 0);
 
             mt9v03x_finish_flag = 0;
             //system_delay_ms(3000);

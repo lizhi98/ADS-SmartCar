@@ -1,11 +1,15 @@
 /*
- * camera.c
+ * image.h
  *
  *  Created on: 2024年11月23日
  *      Author: lizhi
  */
 
-#include "camera.h"
+#ifndef CODE_IMAGE_H_
+#define CODE_IMAGE_H_
+
+
+#include<zf_device_mt9v03x.h>
 
 typedef const uint8 * ImageData;
 
@@ -20,11 +24,7 @@ typedef struct ImageResult {
     ElementType element_type;
 } ImageResult;
 
-ImageResult process_image(ImageData image) {
-    ImageResult result;
 
-    result.midline_delta = 0;
-    result.element_type = Normal;
+ImageResult process_image(ImageData image);
 
-    return result;
-}
+#endif /* CODE_IMAGE_H_ */

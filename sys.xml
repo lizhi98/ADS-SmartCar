@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cdtprojectproperties>
+  <section name="org.eclipse.cdt.internal.ui.wizards.settingswizards.IncludePaths">
+    <language id="org.eclipse.cdt.core.g++" name="C++ Source File">
+      <includepath workspace_path="true">/${ProjName}/</includepath>
+      <includepath workspace_path="true">/${ProjName}/code</includepath>
+      <includepath workspace_path="true">/${ProjName}/code/StudyTest</includepath>
+      <includepath workspace_path="true">/${ProjName}/code/driver</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Configurations</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Infra</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Infra/Platform</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Infra/Platform/Tricore</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Infra/Platform/Tricore/Compilers</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Infra/Sfr</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Infra/Sfr/TC26B</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Infra/Sfr/TC26B/_Reg</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Service</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Service/CpuGeneric</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Service/CpuGeneric/If</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Service/CpuGeneric/If/Ccu6If</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Service/CpuGeneric/StdIf</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Service/CpuGeneric/SysSe</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Service/CpuGeneric/SysSe/Bsp</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Service/CpuGeneric/SysSe/Math</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Service/CpuGeneric/_Utilities</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Asclin</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Asclin/Asc</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Asclin/Std</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Ccu6</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Ccu6/Std</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Ccu6/Timer</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Cpu</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Cpu/CStart</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Cpu/Irq</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Cpu/Std</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Dma</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Dma/Dma</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Dma/Std</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Flash</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Flash/Std</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Gpt12</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Gpt12/IncrEnc</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Gpt12/Std</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Gtm</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Gtm/Atom</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Gtm/Atom/Pwm</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Gtm/Std</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Mtu</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Mtu/Std</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Port</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Port/Std</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Qspi</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Qspi/SpiMaster</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Qspi/Std</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Scu</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Scu/Std</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Src</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Src/Std</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Stm</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Stm/Std</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Vadc</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Vadc/Adc</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Vadc/Std</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/_Impl</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/_Lib</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/_Lib/DataHandling</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/_PinMap</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/zf_common</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/zf_components</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/zf_device</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/zf_driver</includepath>
+      <includepath workspace_path="true">/${ProjName}/user</includepath>
+    </language>
+    <language id="org.eclipse.cdt.core.gcc" name="C Source File">
+      <includepath workspace_path="true">/${ProjName}/</includepath>
+      <includepath workspace_path="true">/${ProjName}/code</includepath>
+      <includepath workspace_path="true">/${ProjName}/code/StudyTest</includepath>
+      <includepath workspace_path="true">/${ProjName}/code/driver</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Configurations</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Infra</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Infra/Platform</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Infra/Platform/Tricore</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Infra/Platform/Tricore/Compilers</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Infra/Sfr</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Infra/Sfr/TC26B</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Infra/Sfr/TC26B/_Reg</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Service</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Service/CpuGeneric</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Service/CpuGeneric/If</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Service/CpuGeneric/If/Ccu6If</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Service/CpuGeneric/StdIf</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Service/CpuGeneric/SysSe</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Service/CpuGeneric/SysSe/Bsp</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Service/CpuGeneric/SysSe/Math</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/Service/CpuGeneric/_Utilities</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Asclin</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Asclin/Asc</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Asclin/Std</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Ccu6</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Ccu6/Std</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Ccu6/Timer</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Cpu</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Cpu/CStart</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Cpu/Irq</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Cpu/Std</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Dma</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Dma/Dma</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Dma/Std</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Flash</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Flash/Std</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Gpt12</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Gpt12/IncrEnc</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Gpt12/Std</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Gtm</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Gtm/Atom</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Gtm/Atom/Pwm</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Gtm/Std</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Mtu</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Mtu/Std</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Port</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Port/Std</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Qspi</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Qspi/SpiMaster</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Qspi/Std</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Scu</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Scu/Std</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Src</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Src/Std</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Stm</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Stm/Std</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Vadc</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Vadc/Adc</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/Vadc/Std</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/_Impl</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/_Lib</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/_Lib/DataHandling</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/infineon_libraries/iLLD/TC26B/Tricore/_PinMap</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/zf_common</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/zf_components</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/zf_device</includepath>
+      <includepath workspace_path="true">/${ProjName}/libraries/zf_driver</includepath>
+      <includepath workspace_path="true">/${ProjName}/user</includepath>
+    </language>
+    <language name="src"/>
+  </section>
+  <section name="org.eclipse.cdt.internal.ui.wizards.settingswizards.Macros">
+    <language id="org.eclipse.cdt.core.g++" name="C++ Source File">
+      <macro>
+        <name>__CPU__</name>
+        <value>tc26xb</value>
+      </macro>
+    </language>
+    <language id="org.eclipse.cdt.core.gcc" name="C Source File">
+      <macro>
+        <name>__CPU__</name>
+        <value>tc26xb</value>
+      </macro>
+    </language>
+    <language name="src"/>
+  </section>
+</cdtprojectproperties>

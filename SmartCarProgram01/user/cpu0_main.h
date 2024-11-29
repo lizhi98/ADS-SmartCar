@@ -53,13 +53,9 @@
 
 #include "zf_common_headfile.h"
 
-#include<zf_device_ips200.h>
-#include<zf_device_mt9v03x.h>
+#include"steer.h"
 
-#include"StudyTest/cameraTest.h"
 /******************************************************************************/
-
-
 #include "Cpu/Std/Ifx_Types.h"
 /******************************************************************************/
 /*-----------------------------------Macros-----------------------------------*/

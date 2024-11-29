@@ -47,18 +47,24 @@ int core0_main(void)
 
     clock_init();                   // 获取时钟频率<务必保留>
     debug_init();                   // 初始化默认调试串口
-    interrupt_global_enable(0);
-    // 此处编写用户代码 例如外设初始化代码等
 
+    // 此处编写用户代码 例如外设初始化代码等
 
     //=============================初始化各种外设==========================
+    steer_init();
+
+
+
     // 此处编写用户代码 例如外设初始化代码等
     cpu_wait_event_ready();         // 等待所有核心初始化完毕
-    ips200_init(IPS200_TYPE_SPI);
+    
+    //==========开始===========
 
-    //延迟函数初始化
-    system_delay_init();
-    camera_test();
+    //steer_plus_duty(100);
+
+    while(1){
+
+    }
 
     return 0;
 }
