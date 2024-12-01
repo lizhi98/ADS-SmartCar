@@ -54,6 +54,9 @@
 #include "zf_common_headfile.h"
 
 #include"steer.h"
+#include"screen.h"
+#include"motor.h"
+#include<stdio.h>
 
 /******************************************************************************/
 #include "Cpu/Std/Ifx_Types.h"

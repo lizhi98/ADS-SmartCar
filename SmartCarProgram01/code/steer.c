@@ -5,43 +5,54 @@
  *      Author: lizhi
  */
 #include"steer.h"
-static uint16 steerCurrentDuty = steerPwmInitDuty;
+
+static uint16 steerCurrentDuty;
 
 void steer_init(void){
-    pwm_init(steerPwmPin, steerPwmInitFreq, steerPwmInitDuty);
-    printf("steerInit OK!");
+    pwm_init(STEER_PWM_PIN, STEER_PWM_FREQ_STD, STEER_PWM_DUTY_MID);
+    steerCurrentDuty = STEER_PWM_DUTY_MID;
+    steer_print_duty();
 }
 
 //强烈不建议使用，逐飞没有提供更改频率的接口，需要重新初始化
 void steer_set_freq(uint32 freq){
-    pwm_init(steerPwmPin, freq, steerCurrentDuty);
+    pwm_init(STEER_PWM_PIN, freq, steerCurrentDuty);
 }
 
+/*
+ * 函数作用：让占空比变为duty
+ * 注意事项：
+ *          1. 若预期占空比超过了左极限，则会赋值左极限
+ *          2. 若预期占空比小于右极限，则会赋值右极限
+ */
 void steer_set_duty(uint32 duty){
-    if(duty > PWM_DUTY_MAX){
-        return;
+    if(duty > STEER_PWM_DUTY_LEFT_LIM){
+        pwm_set_duty(STEER_PWM_PIN,STEER_PWM_DUTY_LEFT_LIM);
+        steerCurrentDuty = STEER_PWM_DUTY_LEFT_LIM;
+    }else if(duty < STEER_PWM_DUTY_RIGHT_LIM){
+        pwm_set_duty(STEER_PWM_PIN,STEER_PWM_DUTY_RIGHT_LIM);
+        steerCurrentDuty = STEER_PWM_DUTY_RIGHT_LIM;
+    }else{
+        pwm_set_duty(STEER_PWM_PIN,duty);
+        steerCurrentDuty = duty;
     }
-    pwm_set_duty(steerPwmPin,duty);
+    steer_print_duty();
 }
 
 /*
  * 函数作用：让占空比变为 当前占空比频率+plusDuty
  * 参数说明：如果需要减少duty请让plusDuty为负数
- *          最大占空比为PWM_DUTY_MAX （10000）
- * 注意事项：若预期占空比超过10000，将会赋最大占空比
- *          若预期占空比小于0，将会赋0
+ *          调用steer_set_duty函数来实现占空比设置
+ * 注意事项：
+ *          1. 若预期占空比超过了左极限，则会赋值左极限
+ *          2. 若预期占空比小于右极限，则会赋值右极限
  */
 void steer_plus_duty(int16 plusDuty){
-    int16 dutyTemp = steerCurrentDuty + plusDuty;
-    if(dutyTemp > PWM_DUTY_MAX){
-        pwm_set_duty(steerPwmPin,PWM_DUTY_MAX);
-    }else if(dutyTemp < 0){
-        pwm_set_duty(steerPwmPin,0);
-    }else{
-        pwm_set_duty(steerPwmPin,dutyTemp);
-        steerCurrentDuty = dutyTemp;
-        printf("set OK");
-    }
-
+    steer_set_duty(steerCurrentDuty + plusDuty);
 }
 
+void steer_print_duty(void){
+    char arg[16];
+    sprintf(arg,"steerDuty:%d",steerCurrentDuty);
+    screen_show_string(arg);
+}

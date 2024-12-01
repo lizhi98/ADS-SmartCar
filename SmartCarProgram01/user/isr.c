@@ -51,12 +51,7 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
 {
     interrupt_global_enable(0);                     // 开启中断嵌套
     pit_clear_flag(CCU60_CH0);
-    //==========自己写的s
-    int16 temp;
-    temp = encoder_get_count(TIM2_ENCODER);
-    printf("%d",temp - encoder1_temp);
-    encoder1_temp = temp;
-    //==========自己写的e
+
 
 }
 
