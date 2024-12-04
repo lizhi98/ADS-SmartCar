@@ -15,14 +15,14 @@
 #define MOTOR_LEFT_BACKWARD_PWM_PIN         ATOM1_CH6_P02_6 	    //左电机的PWM引脚
 #define MOTOR_LEFT_FORWARD_PWM_STD_FREQ     17000           	    //左电机的PWM频率
 #define MOTOR_LEFT_BACKWARD_PWM_STD_FREQ    17000           	    //左电机的PWM频率
-#define MOTOR_LEFT_FORWARD_PWM_INIT_DUTY    1000              	    //左电机的PWM初始占空比
+#define MOTOR_LEFT_FORWARD_PWM_INIT_DUTY    1500              	    //左电机的PWM初始占空比
 #define MOTOR_LEFT_BACKWARD_PWM_INIT_DUTY   0                	//左电机的PWM初始占空比
 
 #define MOTOR_RIGHT_FORWARD_PWM_PIN          ATOM1_CH7_P02_7         //左电机的PWM引脚
 #define MOTOR_RIGHT_BACKWARD_PWM_PIN         ATOM1_CH5_P02_5         //左电机的PWM引脚
 #define MOTOR_RIGHT_FORWARD_PWM_STD_FREQ     17000                   //左电机的PWM频率
 #define MOTOR_RIGHT_BACKWARD_PWM_STD_FREQ    17000                   //左电机的PWM频率
-#define MOTOR_RIGHT_FORWARD_PWM_INIT_DUTY    1000                    //左电机的PWM初始占空比
+#define MOTOR_RIGHT_FORWARD_PWM_INIT_DUTY    1500                    //左电机的PWM初始占空比
 #define MOTOR_RIGHT_BACKWARD_PWM_INIT_DUTY   0                    //左电机的PWM初始占空比
 
 #define MOTOR_PWM_DUTY_MAX                  (PWM_DUTY_MAX * 0.5)    //电机PWM占空比最大值

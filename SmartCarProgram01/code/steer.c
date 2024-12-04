@@ -6,7 +6,8 @@
  */
 #include"steer.h"
 
-uint32 steerPresentDuty;
+uint32   steerPresentDuty;
+int8     steerSetAngle;
 
 void steer_init(void){
     pwm_init(STEER_PWM_PIN, STEER_PWM_FREQ_STD, STEER_PWM_DUTY_MID);

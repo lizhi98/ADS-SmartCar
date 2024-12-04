@@ -10,19 +10,24 @@
 
 #include"motor.h"
 #include"encoder.h"
+#include"steer.h"
 #include"stdlib.h"
 
-#define MOTOR_PWM_PLUS_PER_RUN          20
+#define MOTOR_PWM_PLUS_PER_RUN          25
 #define MOTOR_MAKE_STOP_PWM_DUTY        (PWM_DUTY_MAX*0.5)
 
-extern int16 motorLeftSetSpeed;
-extern int16 motorRightSetSpeed;
-extern uint32 motorLeftForwardPwmPresentDuty;
-extern uint32 motorLeftBackwardPwmPresentDuty;
-extern uint32 motorRightForwardPwmPresentDuty;
-extern uint32 motorRightBackwardPwmPresentDuty;
-extern int16 motorLeftSpeed;
-extern int16 motorRightSpeed;
+extern int16 	motorLeftSetSpeed;
+extern int16 	motorRightSetSpeed;
+extern int16    motorLeftSpeed;
+extern int16    motorRightSpeed;
+
+extern uint32 	motorLeftForwardPwmPresentDuty;
+extern uint32 	motorLeftBackwardPwmPresentDuty;
+extern uint32 	motorRightForwardPwmPresentDuty;
+extern uint32 	motorRightBackwardPwmPresentDuty;
+
+//-25°——25°
+extern int8 	steerSetAngle;
 
 //让电机速度调整到设定值(增量式)
 void motor_make_same_with_seting(void);

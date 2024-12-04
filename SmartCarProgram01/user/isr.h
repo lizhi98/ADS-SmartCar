@@ -43,6 +43,6 @@
 
 extern int16 motorLeftSpeed;
 extern int16 motorRightSpeed;
-
+extern uint8 gameFlag;
 #endif
 

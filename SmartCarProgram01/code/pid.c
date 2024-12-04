@@ -6,7 +6,9 @@
  */
 #include"pid.h"
 
-//让电机速度调整到设定值(增量式)
+//===========超简单开环PID===========
+
+//让电机速度调整到设定值
 void motor_make_same_with_seting(void){
     //左电机
     if (motorLeftSpeed == motorLeftSetSpeed || (abs(motorLeftSpeed - motorLeftSetSpeed) <= 200 && motorLeftSetSpeed != 0 )){
@@ -39,7 +41,8 @@ void motor_make_same_with_seting(void){
         motor_pwm_plus_duty(MOTOR_RIGHT_FORWARD_PWM_PIN, -MOTOR_PWM_PLUS_PER_RUN);
     }
 }
-//让舵机角度调整到设定值(位置式)
+//让舵机角度调整到设定值
 void steer_make_same_with_setting(void){
-
+    uint32 duty = steerSetAngle * 2 + STEER_PWM_DUTY_MID;
+    steer_set_duty(duty);
 }

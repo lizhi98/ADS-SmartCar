@@ -8,11 +8,10 @@ void init_image_sending() {
 
 ElementType element_type = Normal;
 
-const int HEIGHT = 120;
-const int WIDTH = 188;
-const int PIXELS = HEIGHT * WIDTH;
+int HEIGHT = 120;
+int WIDTH = 188;
+int PIXELS = 120 * 188;
 
-typedef int (*Image)[188];
 
 ImageResult process_image(Image image) {
     ImageResult result;
@@ -86,7 +85,7 @@ void search_bound(Image image) {
 		image[i][(left_j + right_j) / 2] = MID_LINE;
 	}
 }
-
+/*
 int main() {
     binarize_image_otsu(image);
 	search_bound(image);
@@ -100,3 +99,4 @@ int main() {
 
     return 0;
 }
+*/
