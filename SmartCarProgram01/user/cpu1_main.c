@@ -15,6 +15,8 @@ extern uint8 gameFlag;
 extern int8 steerSetAngle;
 extern int16 motorLeftSetSpeed;
 extern int16 motorRightSetSpeed;
+extern double angle;
+extern ElementType element_type;
 
 void core1_main(void)
 {
@@ -31,12 +33,13 @@ void core1_main(void)
     
     while(1){
         if(mt9v03x_finish_flag){
-            ImageResult result = process_image(mt9v03x_image);
-            steerSetAngle = 0;
-            if(result.element_type == Normal){
+            process_image(mt9v03x_image);
+
+            steerSetAngle = angle;
+            if(element_type == Normal){
                 motorLeftSetSpeed = 3000;
                 motorRightSetSpeed = 3000;
-            }else if(result.element_type == Curve || result.element_type == Cross){
+            }else if(element_type == Curve){
                 motorLeftSetSpeed = 2000;
                 motorRightSetSpeed = 2000;
             }

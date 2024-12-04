@@ -9,7 +9,7 @@ double angle = 0;
 void process_image(Image image) {
     binarize_image_otsu(image);
 	angle = search_bound(image);
-	element_type = angle < 0.5 ? Normal : Curve;
+	element_type = abs(angle) < 0.5 ? Normal : Curve;
 }
 
 void binarize_image_otsu(Image image) {
@@ -48,13 +48,13 @@ void binarize_image_otsu(Image image) {
     return;
 }
 
-const int EMPTY = 0;
-const int ROAD = 1;
-const int LEFT_BOUND = 2;
-const int RIGHT_BOUND = 3;
-const int INVALID_LINE = 4;
-const int MID_LINE = 5;
-const int TERMINAL = 6;
+const uint8 EMPTY = 0;
+const uint8 ROAD = 1;
+const uint8 LEFT_BOUND = 2;
+const uint8 RIGHT_BOUND = 3;
+const uint8 INVALID_LINE = 4;
+const uint8 MID_LINE = 5;
+const uint8 TERMINAL = 6;
 
 double search_bound(Image image) {
 	int target_i = HEIGHT / 2;
@@ -97,7 +97,7 @@ double search_bound(Image image) {
 	}
 
 	int dj = j_end - j_start;
-	double angle = dj ? atan(25. / (double) dj) : 0;
+	double angle = dj ? atan(35. / (double) dj) : 0;
 
 	return angle;
 }

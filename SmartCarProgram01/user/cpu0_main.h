@@ -57,6 +57,7 @@
 #include"steer.h"
 #include"motor.h"
 #include"encoder.h"
+#include "image.h"
 
 #include<stdio.h>
 
@@ -93,6 +94,8 @@ extern int16 motorRightSetSpeed;
 extern int16 motorLeftSpeed;
 extern int16 motorRightSpeed;
 
+extern double angle;
+extern ElementType element_type;
 /******************************************************************************/
 
 IFX_EXTERN App_Cpu0 g_AppCpu0;

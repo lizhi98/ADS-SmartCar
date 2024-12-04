@@ -44,6 +44,8 @@ int core0_main(void)
         sprintf(str,"left:%d,right:%d\n",motorLeftSpeed,motorRightSpeed);
         wireless_uart_send_string(str);
         //printf(str);
+        sprintf(str,"angle:%lf,ele:%d\n",angle,element_type);
+        wireless_uart_send_string(str);
         sprintf(str,"leftSet:%d,rightSet:%d\n",motorLeftSetSpeed,motorRightSetSpeed);
         wireless_uart_send_string(str);
         //printf(str);
