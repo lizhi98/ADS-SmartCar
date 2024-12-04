@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <math.h>
 
-const int COLORS[] = { '0', '7', '2', '2', '1', '2', '5' };
+const int COLORS[] = { '0', '7', '2', '2', '1', '3', '5', '6', '6' };
 
 int main() {
     binarize_image_otsu(image);

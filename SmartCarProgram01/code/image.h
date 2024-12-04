@@ -22,8 +22,10 @@ double search_bound(Image image);
 extern ElementType element_type;
 extern double angle;
 
+#define PI 3.14159265
 #define HEIGHT 120
-#define WIDTH 188
-#define PIXELS 22560 // 120 * 188
+#define WIDTH 187 // 188 - 1 最右侧有一条黑边
+#define MAX_J 186 // 187 - 1
+#define PIXELS 22440 // 120 * 187
 
 #endif /* CODE_IMAGE_H_ */
