@@ -1,27 +1,13 @@
-#include "image.h"
-#include <zf_device_mt9v03x.h>
+#include <stdio.h>
 #include <math.h>
-
-void init_image_sending() {
-
-}
-
-ElementType element_type = Normal;
+//#include "./Data/normal_01.c"
+#include "./Data/curve_01.c"
 
 const int HEIGHT = 120;
 const int WIDTH = 188;
 const int PIXELS = HEIGHT * WIDTH;
 
 typedef int (*Image)[188];
-
-ImageResult process_image(Image image) {
-    ImageResult result;
-
-    result.midline_delta = 0;
-    result.element_type = Normal;
-
-    return result;
-}
 
 void binarize_image_otsu(Image image) {
     double var_max = 0;
