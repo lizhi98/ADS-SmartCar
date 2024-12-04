@@ -49,7 +49,7 @@ int core0_main(void)
         sprintf(str,"leftSet:%d,rightSet:%d\n",motorLeftSetSpeed,motorRightSetSpeed);
         wireless_uart_send_string(str);
         //printf(str);
-        system_delay_ms(100);
+        system_delay_ms(500);
     }
 
 

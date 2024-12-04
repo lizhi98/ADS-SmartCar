@@ -43,6 +43,12 @@ void motor_make_same_with_seting(void){
 }
 //让舵机角度调整到设定值
 void steer_make_same_with_setting(void){
-    uint32 duty = steerSetAngle * 8 + STEER_PWM_DUTY_MID;
+    uint32 duty;
+    if(element_type == Normal){
+        duty = steerSetAngle * 2 + STEER_PWM_DUTY_MID;
+    }else if(element_type == Curve){
+        duty = -steerSetAngle * 2 + STEER_PWM_DUTY_MID;
+    }
+
     steer_set_duty(duty);
 }

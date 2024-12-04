@@ -12,6 +12,7 @@
 #include"encoder.h"
 #include"steer.h"
 #include"stdlib.h"
+#include"image.h"
 
 #define MOTOR_PWM_PLUS_PER_RUN          25
 #define MOTOR_MAKE_STOP_PWM_DUTY        (PWM_DUTY_MAX*0.5)

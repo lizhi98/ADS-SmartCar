@@ -9,7 +9,7 @@ double angle = 0;
 void process_image(Image image) {
     binarize_image_otsu(image);
 	angle = search_bound(image);
-	element_type = fabs(angle) < 0.5 ? Normal : Curve;
+	element_type = fabs(angle) < 10. ? Normal : Curve;
 }
 
 void binarize_image_otsu(Image image) {
