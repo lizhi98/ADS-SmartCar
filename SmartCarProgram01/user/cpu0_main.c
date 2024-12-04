@@ -34,6 +34,7 @@
 ********************************************************************************************************************/
 
 #include<cpu0_main.h>
+
 #pragma section all "cpu0_dsram"
 // 将本语句与#pragma section all restore语句之间的全局变量都放在CPU0的RAM中
 
@@ -51,34 +52,28 @@ int core0_main(void)
     //=============================初始化S==========================
     system_delay_init();
     //screen_init();
-    //steer_init();
-//    motor_all_init();
+    steer_init();
+    motor_all_init();
+    wireless_uart_init();
+    system_delay_ms(100);
+    pit_ms_init(CCU60_CH0, 100);
+    encoder_init();
+    pit_ms_init(CCU60_CH1, 100);
     //=============================初始化E==========================
     cpu_wait_event_ready();         // 等待所有核心初始化完毕
 
-    //=============================调参数代码S=======================
-#if(0)
-    // 用来调舵机的代码
-    for(int i =0;i<25;i++){
-        system_delay_ms(1000);
-        steer_plus_duty(-2);
-
-    }
-#endif
-#if(0)
-    // 用来调电机舵机的代码
-    pwm_init(ATOM0_CH4_P02_4, 17000, 3000);
-    pwm_init(ATOM0_CH7_P02_7, 17000, 3000);
+    motorLeftSetSpeed = 3000;
+    motorRightSetSpeed = 3000;
     system_delay_ms(2000);
-    pwm_all_channel_close();
-#endif
-    //=============================调参数代码E=======================
-
-    //==========开始===========
-
+    motorLeftSetSpeed = 1000;
+    motorRightSetSpeed = 1000;
     while(1){
-
+        char str[25];
+        sprintf(str,"left:%d , right:%d\n",motorLeftSpeed,motorRightSpeed);
+        wireless_uart_send_string(str);
+        system_delay_ms(100);
     }
+
 
     return 0;
 }

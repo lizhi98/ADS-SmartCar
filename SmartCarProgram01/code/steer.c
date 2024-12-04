@@ -6,17 +6,17 @@
  */
 #include"steer.h"
 
-static uint16 steerCurrentDuty;
+uint32 steerPresentDuty;
 
 void steer_init(void){
     pwm_init(STEER_PWM_PIN, STEER_PWM_FREQ_STD, STEER_PWM_DUTY_MID);
-    steerCurrentDuty = STEER_PWM_DUTY_MID;
+    steerPresentDuty = STEER_PWM_DUTY_MID;
     steer_print_duty();
 }
 
 //强烈不建议使用，逐飞没有提供更改频率的接口，需要重新初始化
 void steer_set_freq(uint32 freq){
-    pwm_init(STEER_PWM_PIN, freq, steerCurrentDuty);
+    pwm_init(STEER_PWM_PIN, freq, steerPresentDuty);
 }
 
 /*
@@ -28,13 +28,13 @@ void steer_set_freq(uint32 freq){
 void steer_set_duty(uint32 duty){
     if(duty > STEER_PWM_DUTY_LEFT_LIM){
         pwm_set_duty(STEER_PWM_PIN,STEER_PWM_DUTY_LEFT_LIM);
-        steerCurrentDuty = STEER_PWM_DUTY_LEFT_LIM;
+        steerPresentDuty = STEER_PWM_DUTY_LEFT_LIM;
     }else if(duty < STEER_PWM_DUTY_RIGHT_LIM){
         pwm_set_duty(STEER_PWM_PIN,STEER_PWM_DUTY_RIGHT_LIM);
-        steerCurrentDuty = STEER_PWM_DUTY_RIGHT_LIM;
+        steerPresentDuty = STEER_PWM_DUTY_RIGHT_LIM;
     }else{
         pwm_set_duty(STEER_PWM_PIN,duty);
-        steerCurrentDuty = duty;
+        steerPresentDuty = duty;
     }
     steer_print_duty();
 }
@@ -48,11 +48,13 @@ void steer_set_duty(uint32 duty){
  *          2. 若预期占空比小于右极限，则会赋值右极限
  */
 void steer_plus_duty(int16 plusDuty){
-    steer_set_duty(steerCurrentDuty + plusDuty);
+    steer_set_duty(steerPresentDuty + plusDuty);
 }
 
 void steer_print_duty(void){
+#if(0)
     char arg[16];
-    sprintf(arg,"steerDuty:%d",steerCurrentDuty);
+    sprintf(arg,"steerDuty:%ld",steerPresentDuty);
     screen_show_string(arg);
+#endif
 }

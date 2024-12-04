@@ -10,7 +10,7 @@
 
 
 void init_image_sending() {
-    seekfree_assistant_camera_boundary_config();
+
 }
 
 ImageResult process_image(ImageData image) {

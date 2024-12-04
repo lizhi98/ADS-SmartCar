@@ -17,8 +17,10 @@
 #define ENCODER_RIGHT_DIR_PIN TIM6_ENCODER_CH2_P20_0
 #define ENCODER_RIGHT_TIM TIM6_ENCODER
 
+#define get_left_motor_speed()      encoder_get_count(ENCODER_LEFT_TIM)
+#define get_right_motor_speed()     encoder_get_count(ENCODER_RIGHT_TIM)
+
 void encoder_init(void);
-float32 encoder_get_speed(uint8 encoderTIM);
 void encoder_all_clear(void);
 
 #endif /* CODE_ENCODER_H_ */

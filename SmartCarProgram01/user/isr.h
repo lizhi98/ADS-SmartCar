@@ -38,15 +38,11 @@
 
 #include "zf_common_headfile.h"
 
+#include"pid.h"
+#include"encoder.h"
 
-
-#include "zf_driver_encoder.h"
-
-
-
-
-
-
+extern int16 motorLeftSpeed;
+extern int16 motorRightSpeed;
 
 #endif
 

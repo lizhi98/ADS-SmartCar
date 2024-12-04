@@ -41,16 +41,13 @@
 
 // **************************** PIT中断函数 ****************************
 
-//=====================自己写的s==========================
 
-int16 encoder1_temp = 0;
-int16 encoder2_temp = 0;
-
-//=====================自己写的e==========================
 IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
 {
     interrupt_global_enable(0);                     // 开启中断嵌套
     pit_clear_flag(CCU60_CH0);
+
+    motor_make_same_with_seting();
 
 
 }
@@ -61,7 +58,9 @@ IFX_INTERRUPT(cc60_pit_ch1_isr, 0, CCU6_0_CH1_ISR_PRIORITY)
     interrupt_global_enable(0);                     // 开启中断嵌套
     pit_clear_flag(CCU60_CH1);
 
-
+    motorLeftSpeed  = -get_left_motor_speed();
+    motorRightSpeed = get_right_motor_speed();
+    encoder_all_clear();
 
 
 }

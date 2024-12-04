@@ -53,9 +53,11 @@
 
 #include "zf_common_headfile.h"
 
+#include"pid.h"
 #include"steer.h"
-#include"screen.h"
 #include"motor.h"
+#include"encoder.h"
+
 #include<stdio.h>
 
 /******************************************************************************/
@@ -84,6 +86,13 @@ typedef struct
 
 /******************************************************************************/
 /*------------------------------Global variables------------------------------*/
+
+extern int16 motorLeftSetSpeed;
+extern int16 motorRightSetSpeed;
+
+extern int16 motorLeftSpeed;
+extern int16 motorRightSpeed;
+
 /******************************************************************************/
 
 IFX_EXTERN App_Cpu0 g_AppCpu0;
