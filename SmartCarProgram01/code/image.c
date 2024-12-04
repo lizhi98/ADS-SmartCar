@@ -100,7 +100,8 @@ double search_bound(Image image) {
 	}
 
 	int dj = j_end - j_start;
-	double angle = 90. - (dj ? atan((double) SEC_I_DELTA / (double) dj) : 0) / M_PI * 180.;
+	double phi = dj ? atan((double) SEC_I_DELTA / (double) dj) / M_PI * 180 : 90;
+    double angle = (phi < 0 ? - 90 : 90) - phi;
 
 	return angle;
 }
