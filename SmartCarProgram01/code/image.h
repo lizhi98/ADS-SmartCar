@@ -19,6 +19,9 @@ void process_image(Image image);
 void binarize_image_otsu(Image image);
 double search_bound(Image image);
 
+extern ElementType element_type;
+extern double angle;
+
 #define HEIGHT 120
 #define WIDTH 188
 #define PIXELS 22560 // 120 * 188
