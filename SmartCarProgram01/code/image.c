@@ -87,7 +87,7 @@ const uint8 SEC_I_DELTA = 30;
 // }
 
 double search_bound(Image image) {
-    uint8 i_start = HEIGHT - 10;
+    uint8 i_start = HEIGHT - 4;
 	uint8 i_end = HEIGHT / 3;
 	uint8 mid_j = WIDTH / 2;
 	uint8 left_j = 0, right_j = MAX_J;
@@ -118,8 +118,9 @@ double search_bound(Image image) {
                     image[i][j] = LEFT_BOUND;
                 }
                 else if (! left_blind) {
-                    if (left_i_start - i < 10) {
+                    if (left_i_start - i < 7) {
                         left_valid = false;
+                        left_valid_count = 0;
                     }
                     else {
                         left_blind = true;
@@ -181,8 +182,9 @@ double search_bound(Image image) {
                     image[i][j] = RIGHT_BOUND;
                 }
                 else if (! right_blind) {
-                    if (left_i_start - i < 10) {
-                        left_valid = false;
+                    if (right_i_start - i < 7) {
+                        right_valid = false;
+                        right_valid_count = 0;
                     }
                     else {
                         right_blind = true;
@@ -240,6 +242,7 @@ double search_bound(Image image) {
 				mid_i_end = i;
 				mid_j_end = j_mid;
 				image[i][j_mid] = TERMINAL;
+                break;
 			}
 			else {
 				image[i][j_mid] = MID_LINE;
