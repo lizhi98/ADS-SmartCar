@@ -113,7 +113,7 @@ double search_bound(Image image) {
                 else left_valid_count = 0;
             }
 			if (left_valid) {
-                if (j && left_j - j < 5) {
+                if (j && left_j - j < 5 && (left_j == 0 || left_j - j > - 5)) {
 			        left_j = j;
                     image[i][j] = LEFT_BOUND;
                 }
@@ -177,7 +177,7 @@ double search_bound(Image image) {
                 else right_valid_count = 0;
             }
 			if (right_valid) {
-                if (MAX_J - j && right_j - j > - 5) {
+                if (MAX_J - j && right_j - j > - 5 && (right_j == MAX_J || right_j - j < 5)) {
 			        right_j = j;
                     image[i][j] = RIGHT_BOUND;
                 }
@@ -191,6 +191,7 @@ double search_bound(Image image) {
                         right_i_end = i + 1;
                         right_j_end = right_j;
                         right_m = (double) (right_j_end - right_j_start) / (double) (right_i_end - right_i_start);
+                        if (i == 90) printf("OK\n");
                         image[i][j] = INVALID_LINE;
                     }
                 }
