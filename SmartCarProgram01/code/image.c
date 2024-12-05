@@ -48,18 +48,18 @@ void binarize_image_otsu(Image image) {
     return;
 }
 
-const uint8 EMPTY = 0;
-const uint8 ROAD = 1;
-const uint8 LEFT_BOUND = 2;
-const uint8 RIGHT_BOUND = 3;
-const uint8 INVALID_LINE = 4;
-const uint8 MID_LINE = 5;
-const uint8 TERMINAL = 6;
-const uint8 LEFT_BOUND_ATTEMPT = 7;
-const uint8 RIGHT_BOUND_ATTEMPT = 8;
+const int EMPTY = 0;
+const int ROAD = 1;
+const int LEFT_BOUND = 2;
+const int RIGHT_BOUND = 3;
+const int INVALID_LINE = 4;
+const int MID_LINE = 5;
+const int TERMINAL = 6;
+const int LEFT_BOUND_ATTEMPT = 7;
+const int RIGHT_BOUND_ATTEMPT = 8;
 
-const uint8 SEC_I_START = HEIGHT - 6;
-const uint8 SEC_I_DELTA = 30;
+const int SEC_I_START = HEIGHT - 6;
+const int SEC_I_DELTA = 30;
 
 #ifdef IMAGE_DEBUG
 const bool digits[10][15] = {
@@ -137,21 +137,21 @@ const bool digits[10][15] = {
 #endif
 
 double search_bound(Image image) {
-    uint8 i_start = HEIGHT - 4;
-	uint8 i_end = HEIGHT / 3;
-	uint8 mid_j = WIDTH / 2;
-	uint8 left_j = 0, right_j = MAX_J;
-	uint8 left_valid_count = 0, right_valid_count = 0;
+    int i_start = HEIGHT - 4;
+	int i_end = HEIGHT / 3;
+	int mid_j = WIDTH / 2;
+	int left_j = 0, right_j = MAX_J;
+	int left_valid_count = 0, right_valid_count = 0;
 	bool left_valid = false, right_valid = false;
     bool left_blind = false, right_blind = false;
 	bool secant_start_set = false;
-	uint8 mid_i_start, mid_j_start, mid_i_end, mid_j_end;
-	uint8 left_i_start, left_j_start, left_i_end, left_j_end;
-	uint8 right_i_start, right_j_start, right_i_end, right_j_end;
+	int mid_i_start, mid_j_start, mid_i_end, mid_j_end;
+	int left_i_start, left_j_start, left_i_end, left_j_end;
+	int right_i_start, right_j_start, right_i_end, right_j_end;
     double left_m, right_m;
 
-	for (uint8 i = i_start; i >= i_end; i --) {
-		for (uint8 j = 0; j < mid_j; j ++) if (image[i][j]) {
+	for (int i = i_start; i >= i_end; i --) {
+		for (int j = 0; j < mid_j; j ++) if (image[i][j]) {
 			if (! left_valid) {
                 if (j) {
                     if (++ left_valid_count == 5) {
@@ -190,7 +190,7 @@ double search_bound(Image image) {
                 bool bound_found = false;
                 if (left_j_attempt < 0 || left_j_attempt > MAX_J) break;
                 if (image[i][left_j_attempt]) {
-                    for (uint8 dj = 0; dj < 3; dj ++) {
+                    for (int dj = 0; dj < 3; dj ++) {
                         sint8 j = left_j_attempt - dj;
                         if (j < 0) break;
                         if (! image[i][j]) {
@@ -204,7 +204,7 @@ double search_bound(Image image) {
                     }
                 }
                 else {
-                    for (uint8 dj = 0; dj < 3; dj ++) {
+                    for (int dj = 0; dj < 3; dj ++) {
                         sint8 j = left_j_attempt + dj;
                         if (image[i][j]) {
                             left_j = j;
@@ -225,7 +225,7 @@ double search_bound(Image image) {
             }
 			break;
 		}
-		for (uint8 j = MAX_J; j > mid_j; j --) if (image[i][j]) {
+		for (int j = MAX_J; j > mid_j; j --) if (image[i][j]) {
 			if (! right_valid) {
                 if (MAX_J - j) {
                     if (++ right_valid_count == 5) {
@@ -265,7 +265,7 @@ double search_bound(Image image) {
                 if (right_j_attempt < 0 || right_j_attempt > MAX_J) break;
                 bool bound_found = false;
                 if (image[i][right_j_attempt]) {
-                    for (uint8 dj = 0; dj < 3; dj ++) {
+                    for (int dj = 0; dj < 3; dj ++) {
                         sint8 j = right_j_attempt + dj;
                         if (j > MAX_J) break;
                         if (! image[i][j]) {
@@ -279,7 +279,7 @@ double search_bound(Image image) {
                     }
                 }
                 else {
-                    for (uint8 dj = 0; dj < 3; dj ++) {
+                    for (int dj = 0; dj < 3; dj ++) {
                         sint8 j = right_j_attempt - dj;
                         if (image[i][j]) {
                             right_j = j;
@@ -302,9 +302,9 @@ double search_bound(Image image) {
 		}
 		if (left_valid && right_valid) {
 #ifdef IMAGE_DEBUG
-		    if (! left_blind && ! right_blind) for (uint8 j = left_j + 1; j < right_j - 1; j ++) image[i][j] = ROAD;
+		    if (! left_blind && ! right_blind) for (int j = left_j + 1; j < right_j - 1; j ++) image[i][j] = ROAD;
 #endif
-			uint8 j_mid = (left_j + right_j) / 2;
+			int j_mid = (left_j + right_j) / 2;
 			if (! secant_start_set && i < SEC_I_START) {
 				secant_start_set = true;
 				mid_i_start = i;
