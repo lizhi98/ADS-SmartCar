@@ -1,7 +1,7 @@
 #ifndef CODE_IMAGE_H_
 #define CODE_IMAGE_H_
 
-#define IMAGE_DEBUG
+// #define IMAGE_DEBUG
 
 #ifndef __linux__
 	#include<zf_common_typedef.h>
@@ -10,7 +10,7 @@
     #define sint8 int
 #endif
 
-typedef int (*Image)[188];
+typedef uint8 (*Image)[188];
 
 typedef enum ElementType {
     Normal,

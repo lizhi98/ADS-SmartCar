@@ -9,7 +9,7 @@ double angle = 0;
 void process_image(Image image) {
     binarize_image_otsu(image);
 	angle = search_bound(image);
-	element_type = fabs(angle) < 10 ? Normal : Curve;
+	element_type = fabs(angle) < 100 ? Normal : Curve;
 }
 
 void binarize_image_otsu(Image image) {
@@ -59,7 +59,7 @@ const int LEFT_BOUND_ATTEMPT = 7;
 const int RIGHT_BOUND_ATTEMPT = 8;
 
 const int SEC_I_START = HEIGHT - 6;
-const int SEC_I_DELTA = 30;
+const int SEC_I_DELTA = 15;
 
 #ifdef IMAGE_DEBUG
 const bool digits[10][15] = {
@@ -138,7 +138,7 @@ const bool digits[10][15] = {
 
 double search_bound(Image image) {
     int i_start = HEIGHT - 4;
-	int i_end = HEIGHT / 3;
+	int i_end = HEIGHT * 2 / 3;
 	int mid_j = WIDTH / 2;
 	int left_j = 0, right_j = MAX_J;
 	int left_valid_count = 0, right_valid_count = 0;
