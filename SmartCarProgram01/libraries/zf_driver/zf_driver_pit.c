@@ -212,7 +212,7 @@ void pit_init (pit_index_enum pit_index, uint32 time)
 
     Ifx_CPU_DBGSR debug_index;
     debug_index.U = __mfcr(CPU_DBGSR);
-    if(1 == debug_index.B.DE)
+    if(1 == debug_index)
     {
         IfxCcu6_setSuspendMode(module, IfxCcu6_SuspendMode_hard);
     }

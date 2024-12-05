@@ -49,7 +49,7 @@ void binarize_image_otsu(Image image) {
 }
 
 const uint8 EMPTY = 0;
-const uint8 ROAD = 1;
+const uint8 ROAD = 255;
 const uint8 LEFT_BOUND = 2;
 const uint8 RIGHT_BOUND = 3;
 const uint8 INVALID_LINE = 4;
@@ -85,6 +85,80 @@ const uint8 SEC_I_DELTA = 30;
 //         }
 //     }
 // }
+
+
+const bool digits[10][15] = {
+    {
+        1, 1, 1,
+        1, 0, 1,
+        1, 0, 1,
+        1, 0, 1,
+        1, 1, 1
+    },
+    {
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1
+    },
+    {
+        1, 1, 1,
+        0, 0, 1,
+        1, 1, 1,
+        1, 0, 0,
+        1, 1, 1
+    },
+    {
+        1, 1, 1,
+        0, 0, 1,
+        1, 1, 1,
+        0, 0, 1,
+        1, 1, 1
+    },
+    {
+        1, 0, 1,
+        1, 0, 1,
+        1, 1, 1,
+        0, 0, 1,
+        0, 0, 1
+    },
+    {
+        1, 1, 1,
+        1, 0, 0,
+        1, 1, 1,
+        0, 0, 1,
+        1, 1, 1
+    },
+    {
+        1, 1, 1,
+        1, 0, 0,
+        1, 1, 1,
+        1, 0, 1,
+        1, 1, 1
+    },
+    {
+        1, 1, 1,
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1
+    },
+    {
+        1, 1, 1,
+        1, 0, 1,
+        1, 1, 1,
+        1, 0, 1,
+        1, 1, 1
+    },
+    {
+        1, 1, 1,
+        1, 0, 1,
+        1, 1, 1,
+        0, 0, 1,
+        1, 1, 1
+    }
+};
 
 double search_bound(Image image) {
     uint8 i_start = HEIGHT - 4;
@@ -132,12 +206,12 @@ double search_bound(Image image) {
                 }
             }
             if (left_blind) {
-                uint8 left_j_attempt = left_j_end + (i - left_i_end) * left_m;
+                sint8 left_j_attempt = left_j_end + (i - left_i_end) * left_m;
                 bool bound_found = false;
                 if (left_j_attempt < 0 || left_j_attempt > MAX_J) break;
                 if (image[i][left_j_attempt]) {
                     for (uint8 dj = 0; dj < 3; dj ++) {
-                        uint8 j = left_j_attempt - dj;
+                        sint8 j = left_j_attempt - dj;
                         if (j < 0) break;
                         if (! image[i][j]) {
                             left_j = j + 1;
@@ -149,7 +223,7 @@ double search_bound(Image image) {
                 }
                 else {
                     for (uint8 dj = 0; dj < 3; dj ++) {
-                        uint8 j = left_j_attempt + dj;
+                        sint8 j = left_j_attempt + dj;
                         if (image[i][j]) {
                             left_j = j;
                             image[i][left_j] = LEFT_BOUND;
@@ -197,12 +271,12 @@ double search_bound(Image image) {
                 }
             }
             if (right_blind) {
-                uint8 right_j_attempt = right_j_end + (i - right_i_end) * right_m;
+                sint8 right_j_attempt = right_j_end + (i - right_i_end) * right_m;
                 if (right_j_attempt < 0 || right_j_attempt > MAX_J) break;
                 bool bound_found = false;
                 if (image[i][right_j_attempt]) {
                     for (uint8 dj = 0; dj < 3; dj ++) {
-                        uint8 j = right_j_attempt + dj;
+                        sint8 j = right_j_attempt + dj;
                         if (j > MAX_J) break;
                         if (! image[i][j]) {
                             right_j = j - 1;
@@ -214,7 +288,7 @@ double search_bound(Image image) {
                 }
                 else {
                     for (uint8 dj = 0; dj < 3; dj ++) {
-                        uint8 j = right_j_attempt - dj;
+                        int8 j = right_j_attempt - dj;
                         if (image[i][j]) {
                             right_j = j;
                             image[i][right_j] = RIGHT_BOUND;
@@ -253,9 +327,22 @@ double search_bound(Image image) {
 
     if (! left_valid || ! right_valid) return 0;
 
-	uint8 dj = mid_j_end - mid_j_start;
+	sint8 dj = mid_j_end - mid_j_start;
 	double phi = dj ? atan((double) SEC_I_DELTA / (double) dj) / PI * 180 : 90;
     double angle = (phi < 0 ? - 90 : 90) - phi;
+
+#ifdef IMAGE_DEBUG
+    for (int i = 0; i < 3; i ++) {
+        for (int j = 0; j < 5; j ++) {
+            image[j + 5][i + 5] = digits[(int) angle / 10][j * 3 + i] * 255;
+        }
+    }
+    for (int i = 0; i < 3; i ++) {
+        for (int j = 0; j < 5; j ++) {
+            image[j + 5][i + 10] = digits[(int) angle % 10][j * 3 + i] * 255;
+        }
+    }
+#endif
 
 	return angle;
 }

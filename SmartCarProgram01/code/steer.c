@@ -27,13 +27,15 @@ void steer_set_freq(uint32 freq){
  *          2. 若预期占空比小于右极限，则会赋值右极限
  */
 void steer_set_duty(uint32 duty){
-    if(duty > STEER_PWM_DUTY_LEFT_LIM){
+    if (duty > STEER_PWM_DUTY_LEFT_LIM) {
         pwm_set_duty(STEER_PWM_PIN,STEER_PWM_DUTY_LEFT_LIM);
         steerPresentDuty = STEER_PWM_DUTY_LEFT_LIM;
-    }else if(duty < STEER_PWM_DUTY_RIGHT_LIM){
+    }
+    else if (duty < STEER_PWM_DUTY_RIGHT_LIM){
         pwm_set_duty(STEER_PWM_PIN,STEER_PWM_DUTY_RIGHT_LIM);
         steerPresentDuty = STEER_PWM_DUTY_RIGHT_LIM;
-    }else{
+    }
+    else {
         pwm_set_duty(STEER_PWM_PIN,duty);
         steerPresentDuty = duty;
     }

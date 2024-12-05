@@ -28,25 +28,35 @@ void core1_main(void)
     cpu_wait_event_ready();                 // 等待所有核心初始化完毕
     mt9v03x_init();
     //等待开始发车
-    printf("mt9v03x_init();");
-    while(gameFlag != 1){}
+    while (gameFlag != 1);
     
-    while(1){
-        if(mt9v03x_finish_flag){
-            process_image(mt9v03x_image);
+    uint8 image_copy[MT9V03X_H][MT9V03X_W];
 
+#ifdef IMAGE_DEBUG
+    seekfree_assistant_interface_init(SEEKFREE_ASSISTANT_DEBUG_UART);
+    seekfree_assistant_camera_information_config(SEEKFREE_ASSISTANT_MT9V03X, image_copy[0], MT9V03X_W, MT9V03X_H);
+#endif
+
+    while (1) {
+        if (mt9v03x_finish_flag) {
+#ifdef IMAGE_DEBUG
+            memcpy(image_copy[0], mt9v03x_image[0], MT9V03X_IMAGE_SIZE);
+            process_image(image_copy);
+            seekfree_assistant_camera_send();
+#endif
+            mt9v03x_finish_flag = 0;
             steerSetAngle = angle;
             if(element_type == Normal){
                 motorLeftSetSpeed = 3000;
                 motorRightSetSpeed = 3000;
-            }else if(element_type == Curve){
+            }
+            else if(element_type == Curve){
                 motorLeftSetSpeed = 2000;
                 motorRightSetSpeed = 2000;
             }
-            mt9v03x_finish_flag = 0;
         }
-        if(gameFlag == 0){
-            motorLeftSetSpeed =  0;
+        if (gameFlag == 0){
+            motorLeftSetSpeed = 0;
             motorRightSetSpeed = 0;
             break;
         }
