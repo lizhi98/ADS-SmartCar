@@ -1,5 +1,5 @@
-#include "./Data/curve_1.c"
 #include "../SmartCarProgram01/code/image.h"
+#include "./Data/curve_1.c"
 #include <stdio.h>
 #include <math.h>
 
@@ -11,7 +11,7 @@ int main() {
 
     for (int i = 0; i < HEIGHT; i ++) {
         for (int j = 0; j < WIDTH; j ++) {
-            printf("\x1B[4%cm \x1B[0m", COLORS[image[i][j]]);
+            printf("\x1B[4%cm%c\x1B[0m", COLORS[image[i][j]], image[i][j] + '0');
         }
         printf("\n");
     }

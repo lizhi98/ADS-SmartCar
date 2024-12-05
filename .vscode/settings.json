@@ -3,7 +3,8 @@
         "image.h": "c",
         "zf_common_typedef.h": "c",
         "stdbool.h": "c",
-        "math.h": "c"
+        "math.h": "c",
+        "stdio.h": "c"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }

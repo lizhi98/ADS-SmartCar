@@ -5,6 +5,7 @@
 	#include<zf_common_typedef.h>
 #else
 	#define uint8 int
+    #define sint8 int
 #endif
 
 typedef uint8 (*Image)[188];

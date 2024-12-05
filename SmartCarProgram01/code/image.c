@@ -9,7 +9,7 @@ double angle = 0;
 void process_image(Image image) {
     binarize_image_otsu(image);
 	angle = search_bound(image);
-	element_type = fabs(angle) < 10. ? Normal : Curve;
+	element_type = fabs(angle) < 10 ? Normal : Curve;
 }
 
 void binarize_image_otsu(Image image) {
@@ -49,7 +49,7 @@ void binarize_image_otsu(Image image) {
 }
 
 const uint8 EMPTY = 0;
-const uint8 ROAD = 255;
+const uint8 ROAD = 1;
 const uint8 LEFT_BOUND = 2;
 const uint8 RIGHT_BOUND = 3;
 const uint8 INVALID_LINE = 4;
@@ -61,32 +61,7 @@ const uint8 RIGHT_BOUND_ATTEMPT = 8;
 const uint8 SEC_I_START = HEIGHT - 6;
 const uint8 SEC_I_DELTA = 30;
 
-// #define SEARCH_J_STEP 6
-// #define SEARCH_J_START (HEIGHT - 1)
-// #define SEARCH_J_POINT_NUM 6
-// #define SEARCH_J_SEG_NUM 5 // 6 - 1
-// #define MID_J 93 // 186 / 2
-// double search_bound(Image image) {
-//     uint8 left_js[SEARCH_J_POINT_NUM];
-//     uint8 right_js[SEARCH_J_POINT_NUM];
-//     uint8 left_j_deltas[SEARCH_J_SEG_NUM];
-//     uint8 right_j_deltas[SEARCH_J_SEG_NUM];
-//     for (uint8 n = 0, i = SEARCH_J_START; n < SEARCH_J_POINT_NUM; n ++, i -= SEARCH_J_STEP) {
-//         int new_left_j, new_right_j;
-//         for (new_left_j = 0; new_left_j < MID_J; new_left_j ++) {
-//             if (image[i][new_left_j]) break;
-//         }
-//         for (new_right_j = MAX_J; new_right_j > MID_J; new_right_j --) {
-//             if (image[i][new_right_j]) break;
-//         }
-//         if (n) {
-//             left_j_deltas[n - 1] = new_left_j - left_j;
-//             right_j_deltas[n - 1] = new_right_j - right_j;
-//         }
-//     }
-// }
-
-
+#ifdef IMAGE_DEBUG
 const bool digits[10][15] = {
     {
         1, 1, 1,
@@ -159,6 +134,7 @@ const bool digits[10][15] = {
         1, 1, 1
     }
 };
+#endif
 
 double search_bound(Image image) {
     uint8 i_start = HEIGHT - 4;
@@ -168,7 +144,7 @@ double search_bound(Image image) {
 	uint8 left_valid_count = 0, right_valid_count = 0;
 	bool left_valid = false, right_valid = false;
     bool left_blind = false, right_blind = false;
-	uint8 secant_start_set = false;
+	bool secant_start_set = false;
 	uint8 mid_i_start, mid_j_start, mid_i_end, mid_j_end;
 	uint8 left_i_start, left_j_start, left_i_end, left_j_end;
 	uint8 right_i_start, right_j_start, right_i_end, right_j_end;
@@ -189,7 +165,9 @@ double search_bound(Image image) {
 			if (left_valid) {
                 if (j && left_j - j < 5 && (left_j == 0 || left_j - j > - 5)) {
 			        left_j = j;
+#ifdef IMAGE_DEBUG
                     image[i][j] = LEFT_BOUND;
+#endif
                 }
                 else if (! left_blind) {
                     if (left_i_start - i < 7) {
@@ -201,7 +179,9 @@ double search_bound(Image image) {
                         left_i_end = i + 1;
                         left_j_end = left_j;
                         left_m = (double) (left_j_end - left_j_start) / (double) (left_i_end - left_i_start);
+#ifdef IMAGE_DEBUG
                         image[i][j] = INVALID_LINE;
+#endif
                     }
                 }
             }
@@ -215,7 +195,9 @@ double search_bound(Image image) {
                         if (j < 0) break;
                         if (! image[i][j]) {
                             left_j = j + 1;
+#ifdef IMAGE_DEBUG
                             image[i][left_j] = LEFT_BOUND;
+#endif
                             bound_found = true;
                             break;
                         }
@@ -226,7 +208,9 @@ double search_bound(Image image) {
                         sint8 j = left_j_attempt + dj;
                         if (image[i][j]) {
                             left_j = j;
+#ifdef IMAGE_DEBUG
                             image[i][left_j] = LEFT_BOUND;
+#endif
                             bound_found = true;
                             break;
                         }
@@ -234,7 +218,9 @@ double search_bound(Image image) {
                 }
                 if (! bound_found) {
                     left_j = left_j_attempt;
+#ifdef IMAGE_DEBUG
                     image[i][left_j] = LEFT_BOUND_ATTEMPT;
+#endif
                 }
             }
 			break;
@@ -253,7 +239,9 @@ double search_bound(Image image) {
 			if (right_valid) {
                 if (MAX_J - j && right_j - j > - 5 && (right_j == MAX_J || right_j - j < 5)) {
 			        right_j = j;
+#ifdef IMAGE_DEBUG
                     image[i][j] = RIGHT_BOUND;
+#endif
                 }
                 else if (! right_blind) {
                     if (right_i_start - i < 7) {
@@ -266,7 +254,9 @@ double search_bound(Image image) {
                         right_j_end = right_j;
                         right_m = (double) (right_j_end - right_j_start) / (double) (right_i_end - right_i_start);
                         if (i == 90) printf("OK\n");
+#ifdef IMAGE_DEBUG
                         image[i][j] = INVALID_LINE;
+#endif
                     }
                 }
             }
@@ -280,7 +270,9 @@ double search_bound(Image image) {
                         if (j > MAX_J) break;
                         if (! image[i][j]) {
                             right_j = j - 1;
+#ifdef IMAGE_DEBUG
                             image[i][right_j] = RIGHT_BOUND;
+#endif
                             bound_found = true;
                             break;
                         }
@@ -288,10 +280,12 @@ double search_bound(Image image) {
                 }
                 else {
                     for (uint8 dj = 0; dj < 3; dj ++) {
-                        int8 j = right_j_attempt - dj;
+                        sint8 j = right_j_attempt - dj;
                         if (image[i][j]) {
                             right_j = j;
+#ifdef IMAGE_DEBUG
                             image[i][right_j] = RIGHT_BOUND;
+#endif
                             bound_found = true;
                             break;
                         }
@@ -299,47 +293,62 @@ double search_bound(Image image) {
                 }
                 if (! bound_found) {
                     right_j = right_j_attempt;
+#ifdef IMAGE_DEBUG
                     image[i][right_j] = RIGHT_BOUND_ATTEMPT;
+#endif
                 }
             }
 			break;
 		}
 		if (left_valid && right_valid) {
+#ifdef IMAGE_DEBUG
 		    if (! left_blind && ! right_blind) for (uint8 j = left_j + 1; j < right_j - 1; j ++) image[i][j] = ROAD;
+#endif
 			uint8 j_mid = (left_j + right_j) / 2;
 			if (! secant_start_set && i < SEC_I_START) {
 				secant_start_set = true;
 				mid_i_start = i;
 				mid_j_start = j_mid;
+#ifdef IMAGE_DEBUG
 				image[i][j_mid] = TERMINAL;
+#endif
 			}
 			else if (i == mid_i_start - SEC_I_DELTA) {
 				mid_i_end = i;
 				mid_j_end = j_mid;
+#ifdef IMAGE_DEBUG
 				image[i][j_mid] = TERMINAL;
+#endif
                 break;
 			}
+#ifdef IMAGE_DEBUG
 			else {
 				image[i][j_mid] = MID_LINE;
 			}
+#endif
 		}
 	}
 
-    if (! left_valid || ! right_valid) return 0;
+    double angle;
 
-	sint8 dj = mid_j_end - mid_j_start;
-	double phi = dj ? atan((double) SEC_I_DELTA / (double) dj) / PI * 180 : 90;
-    double angle = (phi < 0 ? - 90 : 90) - phi;
+    if (! left_valid || ! right_valid) {
+        angle = 0;
+    }
+    else {
+        sint8 dj = mid_j_end - mid_j_start;
+        double phi = dj ? atan((double) SEC_I_DELTA / (double) dj) / PI * 180 : 90;
+        angle = (phi < 0 ? - 90 : 90) - phi;
+    }
 
 #ifdef IMAGE_DEBUG
     for (int i = 0; i < 3; i ++) {
         for (int j = 0; j < 5; j ++) {
-            image[j + 5][i + 5] = digits[(int) angle / 10][j * 3 + i] * 255;
+            image[j + 5][i + 5] = digits[(int) angle / 10][j * 3 + i] * 5;
         }
     }
     for (int i = 0; i < 3; i ++) {
         for (int j = 0; j < 5; j ++) {
-            image[j + 5][i + 10] = digits[(int) angle % 10][j * 3 + i] * 255;
+            image[j + 5][i + 10] = digits[(int) angle % 10][j * 3 + i] * 5;
         }
     }
 #endif
