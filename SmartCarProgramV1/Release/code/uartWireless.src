@@ -1,0 +1,341 @@
+	; Module start
+	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
+	.compiler_invocation	"ctc -f cc13164a --dep-file=code/uartWireless.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc26xb -D__CPU_TC26XB__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc26xb -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01 -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\code -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Configurations -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Infra -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B\\\\_Reg -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Service -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If\\\\Ccu6If -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\StdIf -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Comm -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\General -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Math -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Time -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Asc -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Lin -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Spi -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6 -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Icu -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\PwmBc -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\PwmHl -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\TPwm -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Timer -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\TimerWithTrigger -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cif -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cif\\\\Cam -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cif\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\CStart -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Irq -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Trap -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Dma -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dsadc -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dsadc\\\\Dsadc -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dsadc\\\\Rdc -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dsadc\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dts -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dts\\\\Dts -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dts\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Emem -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Emem\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eray -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eray\\\\Eray -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eray\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eth -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eth\\\\Phy_Pef7071 -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eth\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fce -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fce\\\\Crc -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fce\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fft -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fft\\\\Fft -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fft\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12 -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\IncrEnc -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Pwm -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\PwmHl -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Timer -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tim -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tim\\\\In -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tom -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tom\\\\Pwm -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tom\\\\PwmHl -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tom\\\\Timer -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Trig -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Hssl -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Hssl\\\\Hssl -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Hssl\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\I2c -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\I2c\\\\I2c -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\I2c\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Iom -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Iom\\\\Driver -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Iom\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Msc -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Msc\\\\Msc -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Msc\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Multican -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Multican\\\\Can -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Multican\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Io -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5 -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5\\\\Psi5 -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5s -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5s\\\\Psi5s -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5s\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiMaster -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiSlave -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Sent -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Sent\\\\Sent -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Sent\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Smu -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Smu\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Timer -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Adc -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Impl -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\DataHandling -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\InternalMux -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_PinMap -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\zf_common -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\zf_components -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\zf_device -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\zf_driver -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\user -g2 -w544 -w557 -t4 --language=+volatile -N0 -O2 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o code/uartWireless.src ../code/uartWireless.c"
+	.compiler_name		"ctc"
+	;source	'../code/uartWireless.c'
+
+	
+$TC16X
+	
+	.sdecl	'.text.uartWireless.uart_wireless_send_image',code,cluster('uart_wireless_send_image')
+	.sect	'.text.uartWireless.uart_wireless_send_image'
+	.align	2
+	
+	.global	uart_wireless_send_image
+; Function uart_wireless_send_image
+.L6:
+uart_wireless_send_image:	.type	func
+	call	mt9v03x_init
+.L25:
+	mov	d8,#0
+	call	wireless_uart_init
+.L26:
+	jeq	d2,#0,.L2
+.L27:
+	movh.a	a4,#@his(.1.str)
+	lea	a4,[a4]@los(.1.str)
+	call	printf
+.L2:
+.L3:
+.L4:
+	movh.a	a15,#@his(mt9v03x_finish_flag)
+	ld.bu	d15,[a15]@los(mt9v03x_finish_flag)
+.L28:
+	jeq	d15,#0,.L4
+.L29:
+	movh.a	a4,#@his(mt9v03x_image)
+	lea	a4,[a4]@los(mt9v03x_image)
+.L30:
+	mov	d4,#22560
+	call	wireless_uart_send_image
+.L31:
+	mov	d4,#1000
+	call	system_delay_ms
+.L32:
+	movh.a	a15,#@his(mt9v03x_finish_flag)
+.L33:
+	st.b	[a15]@los(mt9v03x_finish_flag),d8
+.L34:
+	j	.L3
+.L16:
+	
+__uart_wireless_send_image_function_end:
+	.size	uart_wireless_send_image,__uart_wireless_send_image_function_end-uart_wireless_send_image
+.L15:
+	; End of function
+	
+	.sdecl	'.rodata.uartWireless..1.str',data,rom
+	.sect	'.rodata.uartWireless..1.str'
+.1.str:	.type	object
+	.size	.1.str,27
+	.byte	117,97,114,116,95,119,105,114
+	.byte	101,108,101,115,115,32,85,110
+	.byte	105,116,32,102,97,105,108,101
+	.byte	100,33
+	.space	1
+	.calls	'uart_wireless_send_image','mt9v03x_init'
+	.calls	'uart_wireless_send_image','wireless_uart_init'
+	.calls	'uart_wireless_send_image','printf'
+	.calls	'uart_wireless_send_image','wireless_uart_send_image'
+	.calls	'uart_wireless_send_image','system_delay_ms'
+	.extern	printf
+	.extern	wireless_uart_send_image
+	.extern	wireless_uart_init
+	.extern	mt9v03x_finish_flag
+	.extern	mt9v03x_image
+	.extern	mt9v03x_init
+	.extern	system_delay_ms
+	.extern	__printf_noarg
+	.calls	'uart_wireless_send_image','',0
+	.sdecl	'.debug_info',debug
+	.sect	'.debug_info'
+.L8:
+	.word	1028
+	.half	3
+	.word	.L9
+	.byte	4
+.L7:
+	.byte	1
+	.byte	'../code/uartWireless.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\Sync\\SmartCar\\SmartCarProgram01\\Release\\',0,12,1
+	.word	.L10
+	.byte	2
+	.byte	'int',0,4,5,2
+	.byte	'char',0,1,6,3
+	.word	169
+	.byte	4
+	.word	177
+	.byte	5
+	.word	182
+	.byte	6
+	.byte	'printf',0,1,143,1,16
+	.word	162
+	.byte	1,1,1,1,7,1,143,1,38
+	.word	187
+	.byte	8,1,143,1,50,0,2
+	.byte	'unsigned char',0,1,8,3
+	.word	227
+	.byte	4
+	.word	244
+	.byte	2
+	.byte	'unsigned long int',0,4,7,9
+	.byte	'wireless_uart_send_image',0,2,92,13,1,1,1,1,10
+	.byte	'image_addr',0,2,92,59
+	.word	249
+	.byte	10
+	.byte	'image_size',0,2,92,78
+	.word	254
+	.byte	0,11
+	.byte	'wireless_uart_init',0,2,98,13
+	.word	227
+	.byte	1,1,1,1,11
+	.byte	'mt9v03x_init',0,3,145,1,13
+	.word	227
+	.byte	1,1,1,1,9
+	.byte	'system_delay_ms',0,4,46,9,1,1,1,1,10
+	.byte	'time',0,4,46,45
+	.word	254
+	.byte	0,2
+	.byte	'short int',0,2,5,12
+	.byte	'__wchar_t',0,5,1,1
+	.word	442
+	.byte	2
+	.byte	'unsigned int',0,4,7,12
+	.byte	'__size_t',0,5,1,1
+	.word	473
+	.byte	12
+	.byte	'__ptrdiff_t',0,5,1,1
+	.word	162
+	.byte	13,1,4
+	.word	526
+	.byte	12
+	.byte	'__codeptr',0,5,1,1
+	.word	528
+	.byte	12
+	.byte	'__intptr_t',0,5,1,1
+	.word	162
+	.byte	12
+	.byte	'__uintptr_t',0,5,1,1
+	.word	473
+	.byte	2
+	.byte	'unsigned short int',0,2,7,12
+	.byte	'_iob_flag_t',0,1,82,25
+	.word	590
+	.byte	12
+	.byte	'uint8',0,6,105,29
+	.word	227
+	.byte	12
+	.byte	'uint16',0,6,109,29
+	.word	590
+	.byte	12
+	.byte	'uint32',0,6,113,29
+	.word	254
+	.byte	2
+	.byte	'unsigned long long int',0,8,7,12
+	.byte	'uint64',0,6,118,29
+	.word	676
+	.byte	12
+	.byte	'sint16',0,6,126,29
+	.word	442
+	.byte	2
+	.byte	'long int',0,4,5,12
+	.byte	'sint32',0,6,131,1,29
+	.word	732
+	.byte	2
+	.byte	'long long int',0,8,5,12
+	.byte	'sint64',0,6,138,1,29
+	.word	760
+	.byte	2
+	.byte	'float',0,4,4,12
+	.byte	'float32',0,6,167,1,29
+	.word	793
+	.byte	14
+	.byte	'void',0,4
+	.word	819
+	.byte	12
+	.byte	'pvoid',0,7,57,28
+	.word	825
+	.byte	12
+	.byte	'Ifx_TickTime',0,7,79,28
+	.word	760
+	.byte	2
+	.byte	'char',0,1,6,12
+	.byte	'int8',0,8,54,29
+	.word	865
+	.byte	12
+	.byte	'int16',0,8,55,29
+	.word	442
+	.byte	12
+	.byte	'int32',0,8,56,29
+	.word	162
+	.byte	12
+	.byte	'int64',0,8,57,29
+	.word	760
+	.byte	15
+	.word	227
+	.byte	12
+	.byte	'vuint8',0,8,59,29
+	.word	928
+	.byte	15
+	.word	227
+	.byte	16
+	.byte	'mt9v03x_finish_flag',0,3,136,1,18
+	.word	948
+	.byte	1,1,17,188,1
+	.word	227
+	.byte	18,187,1,0,17,160,176,1
+	.word	984
+	.byte	18,119,0,16
+	.byte	'mt9v03x_image',0,3,137,1,17
+	.word	995
+	.byte	1,1,0
+	.sdecl	'.debug_abbrev',debug
+	.sect	'.debug_abbrev'
+.L9:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,16,6,0,0,2,36,0,3,8,11,15,62,15,0,0,3,38,0,73,19,0,0,4,15,0,73,19
+	.byte	0,0,5,55,0,73,19,0,0,6,46,1,3,8,58,15,59,15,57,15,73,19,54,15,39,12,63,12,60,12,0,0,7,5,0,58,15,59,15
+	.byte	57,15,73,19,0,0,8,24,0,58,15,59,15,57,15,0,0,9,46,1,3,8,58,15,59,15,57,15,54,15,39,12,63,12,60,12,0,0
+	.byte	10,5,0,3,8,58,15,59,15,57,15,73,19,0,0,11,46,0,3,8,58,15,59,15,57,15,73,19,54,15,39,12,63,12,60,12,0,0
+	.byte	12,22,0,3,8,58,15,59,15,57,15,73,19,0,0,13,21,0,54,15,0,0,14,59,0,3,8,0,0,15,53,0,73,19,0,0,16,52,0,3
+	.byte	8,58,15,59,15,57,15,73,19,63,12,60,12,0,0,17,1,1,11,15,73,19,0,0,18,33,0,47,15,0,0,0
+	.sdecl	'.debug_line',debug
+	.sect	'.debug_line'
+.L10:
+	.word	.L18-.L17
+.L17:
+	.half	3
+	.word	.L20-.L19
+.L19:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1
+	.byte	'D:\\Infineon\\AURIX-Studio\\tools\\Compilers\\Tasking_1.1r8\\ctc\\include\\',0
+	.byte	'D:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\zf_device',0
+	.byte	'D:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\zf_driver',0
+	.byte	'D:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std',0
+	.byte	'D:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\zf_common',0,0
+	.byte	'stdio.h',0,1,0,0
+	.byte	'zf_device_wireless_uart.h',0,2,0,0
+	.byte	'zf_device_mt9v03x.h',0,2,0,0
+	.byte	'zf_driver_delay.h',0,3,0,0
+	.byte	'../code/uartWireless.c',0,0,0,0
+	.byte	'Platform_Types.h',0,4,0,0
+	.byte	'ifx_types.h',0,4,0,0
+	.byte	'zf_common_typedef.h',0,5,0,0,0
+.L20:
+.L18:
+	.sdecl	'.debug_info',debug,cluster('uart_wireless_send_image')
+	.sect	'.debug_info'
+.L11:
+	.word	221
+	.half	3
+	.word	.L12
+	.byte	4,1
+	.byte	'../code/uartWireless.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\Sync\\SmartCar\\SmartCarProgram01\\Release\\',0,12,1
+	.word	.L14,.L13
+	.byte	2
+	.word	.L7
+	.byte	3
+	.byte	'uart_wireless_send_image',0,1,9,6,1,1
+	.word	.L6,.L16,.L5
+	.byte	4
+	.word	.L6,.L16
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('uart_wireless_send_image')
+	.sect	'.debug_abbrev'
+.L12:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('uart_wireless_send_image')
+	.sect	'.debug_line'
+.L13:
+	.word	.L22-.L21
+.L21:
+	.half	3
+	.word	.L24-.L23
+.L23:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/uartWireless.c',0,0,0,0,0
+.L24:
+	.byte	5,17,7,0,5,2
+	.word	.L6
+	.byte	3,9,1,5,5,9
+	.half	.L25-.L6
+	.byte	3,1,1,5,26,1,5,5,9
+	.half	.L26-.L25
+	.byte	1,5,16,7,9
+	.half	.L27-.L26
+	.byte	3,1,1,5,12,9
+	.half	.L4-.L27
+	.byte	3,4,1,5,9,9
+	.half	.L28-.L4
+	.byte	1,5,39,7,9
+	.half	.L29-.L28
+	.byte	3,1,1,5,60,9
+	.half	.L30-.L29
+	.byte	1,5,29,9
+	.half	.L31-.L30
+	.byte	3,1,1,5,13,9
+	.half	.L32-.L31
+	.byte	3,1,1,5,32,9
+	.half	.L33-.L32
+	.byte	1,5,12,9
+	.half	.L34-.L33
+	.byte	3,123,1,5,1,9
+	.half	.L15-.L34
+	.byte	3,11,0,1,1
+.L22:
+	.sdecl	'.debug_ranges',debug,cluster('uart_wireless_send_image')
+	.sect	'.debug_ranges'
+.L14:
+	.word	-1,.L6,0,.L15-.L6,0,0
+	.sdecl	'.debug_loc',debug,cluster('uart_wireless_send_image')
+	.sect	'.debug_loc'
+.L5:
+	.word	-1,.L6,0,.L16-.L6
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_frame',debug
+	.sect	'.debug_frame'
+.L35:
+	.word	48
+	.word	-1
+	.byte	3,0,2,1,27,12,26,0,8,26,8,27,8,30,8,29,8,28,8,16,8,17,8,24,8,25,8,31,8,32,8,33,8,34,8,35,8,36,8,37,8,38
+	.byte	8,39
+	.sdecl	'.debug_frame',debug,cluster('uart_wireless_send_image')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L35,.L6,.L16-.L6
+	; Module end

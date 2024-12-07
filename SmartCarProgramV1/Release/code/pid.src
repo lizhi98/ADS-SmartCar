@@ -1,0 +1,1095 @@
+	; Module start
+	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
+	.compiler_invocation	"ctc -f cc32364a --dep-file=code/pid.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc26xb -D__CPU_TC26XB__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc26xb -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01 -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\code -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Configurations -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Infra -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B\\\\_Reg -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Service -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If\\\\Ccu6If -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\StdIf -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Comm -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\General -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Math -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Time -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Asc -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Lin -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Spi -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6 -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Icu -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\PwmBc -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\PwmHl -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\TPwm -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Timer -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\TimerWithTrigger -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cif -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cif\\\\Cam -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cif\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\CStart -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Irq -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Trap -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Dma -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dsadc -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dsadc\\\\Dsadc -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dsadc\\\\Rdc -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dsadc\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dts -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dts\\\\Dts -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dts\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Emem -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Emem\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eray -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eray\\\\Eray -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eray\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eth -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eth\\\\Phy_Pef7071 -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eth\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fce -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fce\\\\Crc -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fce\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fft -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fft\\\\Fft -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fft\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12 -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\IncrEnc -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Pwm -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\PwmHl -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Timer -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tim -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tim\\\\In -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tom -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tom\\\\Pwm -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tom\\\\PwmHl -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tom\\\\Timer -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Trig -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Hssl -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Hssl\\\\Hssl -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Hssl\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\I2c -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\I2c\\\\I2c -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\I2c\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Iom -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Iom\\\\Driver -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Iom\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Msc -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Msc\\\\Msc -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Msc\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Multican -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Multican\\\\Can -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Multican\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Io -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5 -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5\\\\Psi5 -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5s -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5s\\\\Psi5s -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5s\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiMaster -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiSlave -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Sent -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Sent\\\\Sent -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Sent\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Smu -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Smu\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Timer -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Adc -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Std -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Impl -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\DataHandling -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\InternalMux -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_PinMap -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\zf_common -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\zf_components -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\zf_device -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\zf_driver -ID:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\user -g2 -w544 -w557 -t4 --language=+volatile -N0 -O2 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o code/pid.src ../code/pid.c"
+	.compiler_name		"ctc"
+	;source	'../code/pid.c'
+
+	
+$TC16X
+	
+	.sdecl	'.text.pid.motor_make_same_with_seting',code,cluster('motor_make_same_with_seting')
+	.sect	'.text.pid.motor_make_same_with_seting'
+	.align	2
+	
+	.global	motor_make_same_with_seting
+; Function motor_make_same_with_seting
+.L20:
+motor_make_same_with_seting:	.type	func
+	movh.a	a15,#@his(motorLeftSetSpeed)
+	ld.h	d0,[a15]@los(motorLeftSetSpeed)
+.L92:
+	movh.a	a15,#@his(motorLeftSpeed)
+	ld.h	d1,[a15]@los(motorLeftSpeed)
+	jeq	d1,d0,.L2
+.L93:
+	sub	d15,d1,d0
+	abs	d2,d15
+.L94:
+	mov	d15,#100
+.L95:
+	jlt	d15,d2,.L3
+.L96:
+	jne	d0,#0,.L4
+.L3:
+	movh.a	a15,#@his(motorLeftBackwardPwmPresentDuty)
+	ld.w	d15,[a15]@los(motorLeftBackwardPwmPresentDuty)
+.L97:
+	jge	d1,d0,.L5
+.L98:
+	jeq	d15,#0,.L6
+.L99:
+	mov	d4,#80
+.L100:
+	mov	d5,#0
+	call	motor_pwm_set_duty
+.L6:
+	mov	d5,#25
+	j	.L7
+.L5:
+	jeq	d15,#0,.L8
+.L101:
+	mov	d4,#80
+.L102:
+	mov	d5,#0
+	call	motor_pwm_set_duty
+.L8:
+	mov	d5,#-25
+.L7:
+	mov	d4,#92
+	call	motor_pwm_plus_duty
+.L103:
+	movh.a	a15,#@his(motorRightSetSpeed)
+	ld.h	d0,[a15]@los(motorRightSetSpeed)
+.L104:
+	movh.a	a15,#@his(motorRightSpeed)
+	ld.h	d1,[a15]@los(motorRightSpeed)
+	jeq	d1,d0,.L9
+.L105:
+	sub	d15,d1,d0
+	abs	d2,d15
+.L106:
+	mov	d15,#50
+.L107:
+	jlt	d15,d2,.L10
+.L108:
+	jne	d0,#0,.L11
+.L10:
+	movh.a	a15,#@his(motorRightBackwardPwmPresentDuty)
+	ld.w	d15,[a15]@los(motorRightBackwardPwmPresentDuty)
+.L109:
+	jge	d1,d0,.L12
+.L110:
+	jeq	d15,#0,.L13
+.L111:
+	mov	d4,#98
+.L112:
+	mov	d5,#0
+	call	motor_pwm_set_duty
+.L13:
+	mov	d5,#25
+	j	.L14
+.L12:
+	jeq	d15,#0,.L15
+.L113:
+	mov	d4,#98
+.L114:
+	mov	d5,#0
+	call	motor_pwm_set_duty
+.L15:
+	mov	d5,#-25
+.L14:
+	mov	d4,#86
+.L115:
+	j	motor_pwm_plus_duty
+.L11:
+.L9:
+.L4:
+.L2:
+	ret
+.L69:
+	
+__motor_make_same_with_seting_function_end:
+	.size	motor_make_same_with_seting,__motor_make_same_with_seting_function_end-motor_make_same_with_seting
+.L39:
+	; End of function
+	
+	.sdecl	'.text.pid.steer_make_same_with_setting',code,cluster('steer_make_same_with_setting')
+	.sect	'.text.pid.steer_make_same_with_setting'
+	.align	2
+	
+	.global	steer_make_same_with_setting
+; Function steer_make_same_with_setting
+.L22:
+steer_make_same_with_setting:	.type	func
+	movh.a	a15,#@his(element_type)
+	ld.bu	d15,[a15]@los(element_type)
+.L120:
+	jne	d15,#0,.L16
+.L121:
+	movh.a	a15,#@his(steerSetAngle)
+	ld.b	d15,[a15]@los(steerSetAngle)
+	sha	d15,#1
+.L122:
+	addi	d4,d15,#780
+	j	.L17
+.L16:
+	jne	d15,#1,.L18
+.L123:
+	movh.a	a15,#@his(steerSetAngle)
+	ld.b	d15,[a15]@los(steerSetAngle)
+.L124:
+	mov	d4,#780
+.L125:
+	sha	d15,#1
+.L81:
+	sub	d4,d15
+.L18:
+.L17:
+	j	steer_set_duty
+.L70:
+	
+__steer_make_same_with_setting_function_end:
+	.size	steer_make_same_with_setting,__steer_make_same_with_setting_function_end-steer_make_same_with_setting
+.L44:
+	; End of function
+	
+	.sdecl	'.text.pid.motor_pid_calc',code,cluster('motor_pid_calc')
+	.sect	'.text.pid.motor_pid_calc'
+	.align	2
+	
+	.global	motor_pid_calc
+; Function motor_pid_calc
+.L24:
+motor_pid_calc:	.type	func
+	fcall	.cocofun_1
+.L82:
+	ret
+.L73:
+	
+__motor_pid_calc_function_end:
+	.size	motor_pid_calc,__motor_pid_calc_function_end-motor_pid_calc
+.L49:
+	; End of function
+	
+	.sdecl	'.text.pid..cocofun_1',code,cluster('.cocofun_1')
+	.sect	'.text.pid..cocofun_1'
+	.align	2
+; Function .cocofun_1
+.L26:
+.cocofun_1:	.type	func
+; Function body .cocofun_1, coco_iter:0
+	ld.w	d15,[a4]16
+.L145:
+	ld.w	d0,[a4]12
+.L146:
+	sub	d0,d15,d0
+	st.w	[a4]20,d0
+.L147:
+	ld.w	d15,[a4]
+.L148:
+	ld.w	d1,[a4]24
+.L149:
+	mul	d4,d15,d0
+	ld.w	d6,[a4]28
+.L150:
+	add	d15,d0,d1
+	ld.w	d5,[a4]4
+.L151:
+	add	d15,d6
+	ld.w	d2,[a4]8
+.L152:
+	madd	d15,d4,d5,d15
+.L153:
+	sub	d3,d0,d1
+.L154:
+	madd	d15,d15,d2,d3
+	st.w	[a4]32,d15
+.L155:
+	st.w	[a4]28,d1
+.L156:
+	st.w	[a4]24,d0
+.L157:
+	fret
+.L64:
+	; End of function
+	.sdecl	'.text.pid.steer_pid_calc',code,cluster('steer_pid_calc')
+	.sect	'.text.pid.steer_pid_calc'
+	.align	2
+	
+	.global	steer_pid_calc
+; Function steer_pid_calc
+.L28:
+steer_pid_calc:	.type	func
+	fcall	.cocofun_1
+.L83:
+	ret
+.L78:
+	
+__steer_pid_calc_function_end:
+	.size	steer_pid_calc,__steer_pid_calc_function_end-steer_pid_calc
+.L59:
+	; End of function
+	
+	.sdecl	'.text.pid.motor_pid_call',code,cluster('motor_pid_call')
+	.sect	'.text.pid.motor_pid_call'
+	.align	2
+	
+	.global	motor_pid_call
+; Function motor_pid_call
+.L30:
+motor_pid_call:	.type	func
+	movh.a	a15,#@his(left)
+	lea	a15,[a15]@los(left)
+	mov.aa	a4,a15
+	call	motor_pid_calc
+.L134:
+	movh.a	a12,#@his(right)
+	lea	a12,[a12]@los(right)
+	mov.aa	a4,a12
+	call	motor_pid_calc
+.L135:
+	mov	d4,#92
+	ld.w	d5,[a15]32
+	call	motor_pwm_set_duty
+.L136:
+	mov	d4,#86
+	ld.w	d5,[a12]32
+	j	motor_pwm_set_duty
+.L77:
+	
+__motor_pid_call_function_end:
+	.size	motor_pid_call,__motor_pid_call_function_end-motor_pid_call
+.L54:
+	; End of function
+	
+	.sdecl	'.data.pid.left',data,cluster('left')
+	.sect	'.data.pid.left'
+	.global	left
+	.align	4
+left:	.type	object
+	.size	left,36
+	.word	1
+	.space	32
+	.sdecl	'.data.pid.right',data,cluster('right')
+	.sect	'.data.pid.right'
+	.global	right
+	.align	4
+right:	.type	object
+	.size	right,36
+	.word	1
+	.space	32
+	.calls	'motor_make_same_with_seting','motor_pwm_set_duty'
+	.calls	'motor_make_same_with_seting','motor_pwm_plus_duty'
+	.calls	'steer_make_same_with_setting','steer_set_duty'
+	.calls	'motor_pid_call','motor_pid_calc'
+	.calls	'motor_pid_call','motor_pwm_set_duty'
+	.calls	'motor_pid_calc','.cocofun_1'
+	.calls	'steer_pid_calc','.cocofun_1'
+	.calls	'motor_make_same_with_seting','',0
+	.calls	'steer_make_same_with_setting','',0
+	.calls	'motor_pid_calc','',0
+	.calls	'.cocofun_1','',0
+	.calls	'steer_pid_calc','',0
+	.extern	motor_pwm_set_duty
+	.extern	motor_pwm_plus_duty
+	.extern	steer_set_duty
+	.extern	element_type
+	.extern	motorLeftSetSpeed
+	.extern	motorRightSetSpeed
+	.extern	motorLeftSpeed
+	.extern	motorRightSpeed
+	.extern	motorLeftBackwardPwmPresentDuty
+	.extern	motorRightBackwardPwmPresentDuty
+	.extern	steerSetAngle
+	.calls	'motor_pid_call','',0
+	.sdecl	'.debug_info',debug
+	.sect	'.debug_info'
+.L32:
+	.word	1307
+	.half	3
+	.word	.L33
+	.byte	4
+.L31:
+	.byte	1
+	.byte	'../code/pid.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\Sync\\SmartCar\\SmartCarProgram01\\Release\\',0,12,1
+	.word	.L34
+	.byte	2
+	.byte	'int',0,4,5,3
+	.byte	'__abs',0
+	.word	153
+	.byte	1,1,1,1,4
+	.word	153
+	.byte	0,2
+	.byte	'unsigned short int',0,2,7
+.L71:
+	.byte	2
+	.byte	'unsigned long int',0,4,7,5
+	.byte	'motor_pwm_set_duty',0,1,32,6,1,1,1,1,6
+	.byte	'motor',0,1,32,32
+	.word	181
+	.byte	6
+	.byte	'duty',0,1,32,45
+	.word	203
+	.byte	0,2
+	.byte	'short int',0,2,5,5
+	.byte	'motor_pwm_plus_duty',0,1,33,6,1,1,1,1,6
+	.byte	'motor',0,1,33,33
+	.word	181
+	.byte	6
+	.byte	'plus',0,1,33,45
+	.word	279
+	.byte	0,5
+	.byte	'steer_set_duty',0,2,22,6,1,1,1,1,6
+	.byte	'duty',0,2,22,28
+	.word	203
+	.byte	0
+.L80:
+	.byte	7
+	.byte	'MotorPIDConfig',0,3,33,8,36,8
+	.byte	'KP',0
+	.word	153
+	.byte	4,2,35,0,8
+	.byte	'KI',0
+	.word	153
+	.byte	4,2,35,4,8
+	.byte	'KD',0
+	.word	153
+	.byte	4,2,35,8,8
+	.byte	'current',0
+	.word	153
+	.byte	4,2,35,12,8
+	.byte	'target',0
+	.word	153
+	.byte	4,2,35,16,8
+	.byte	'error',0
+	.word	153
+	.byte	4,2,35,20,8
+	.byte	'lastError',0
+	.word	153
+	.byte	4,2,35,24,8
+	.byte	'last2Error',0
+	.word	153
+	.byte	4,2,35,28,8
+	.byte	'out',0
+	.word	153
+	.byte	4,2,35,32,0
+.L74:
+	.byte	9
+	.word	385
+	.byte	10
+	.byte	'__wchar_t',0,4,1,1
+	.word	279
+	.byte	2
+	.byte	'unsigned int',0,4,7,10
+	.byte	'__size_t',0,4,1,1
+	.word	565
+	.byte	10
+	.byte	'__ptrdiff_t',0,4,1,1
+	.word	153
+	.byte	11,1,9
+	.word	618
+	.byte	10
+	.byte	'__codeptr',0,4,1,1
+	.word	620
+	.byte	10
+	.byte	'__intptr_t',0,4,1,1
+	.word	153
+	.byte	10
+	.byte	'__uintptr_t',0,4,1,1
+	.word	565
+	.byte	10
+	.byte	'_iob_flag_t',0,5,82,25
+	.word	181
+	.byte	2
+	.byte	'unsigned char',0,1,8,10
+	.byte	'uint8',0,6,105,29
+	.word	702
+	.byte	10
+	.byte	'uint16',0,6,109,29
+	.word	181
+	.byte	10
+	.byte	'uint32',0,6,113,29
+	.word	203
+	.byte	2
+	.byte	'unsigned long long int',0,8,7,10
+	.byte	'uint64',0,6,118,29
+	.word	763
+	.byte	10
+	.byte	'sint16',0,6,126,29
+	.word	279
+	.byte	2
+	.byte	'long int',0,4,5,10
+	.byte	'sint32',0,6,131,1,29
+	.word	819
+	.byte	2
+	.byte	'long long int',0,8,5,10
+	.byte	'sint64',0,6,138,1,29
+	.word	847
+	.byte	2
+	.byte	'float',0,4,4,10
+	.byte	'float32',0,6,167,1,29
+	.word	880
+	.byte	12
+	.byte	'void',0,9
+	.word	906
+	.byte	10
+	.byte	'pvoid',0,7,57,28
+	.word	912
+	.byte	10
+	.byte	'Ifx_TickTime',0,7,79,28
+	.word	847
+	.byte	2
+	.byte	'char',0,1,6,10
+	.byte	'int8',0,8,54,29
+	.word	952
+	.byte	10
+	.byte	'int16',0,8,55,29
+	.word	279
+	.byte	10
+	.byte	'int32',0,8,56,29
+	.word	153
+	.byte	10
+	.byte	'int64',0,8,57,29
+	.word	847
+	.byte	13
+	.byte	'ElementType',0,9,15,14,1,14
+	.byte	'Normal',0,0,14
+	.byte	'Curve',0,1,0,10
+	.byte	'ElementType',0,9,18,3
+	.word	1015
+	.byte	15
+	.byte	'element_type',0,9,25,20
+	.word	1015
+	.byte	1,1,15
+	.byte	'motorLeftSetSpeed',0,3,20,15
+	.word	279
+	.byte	1,1,15
+	.byte	'motorRightSetSpeed',0,3,21,15
+	.word	279
+	.byte	1,1,15
+	.byte	'motorLeftSpeed',0,3,22,17
+	.word	279
+	.byte	1,1,15
+	.byte	'motorRightSpeed',0,3,23,17
+	.word	279
+	.byte	1,1,15
+	.byte	'motorLeftBackwardPwmPresentDuty',0,3,26,16
+	.word	203
+	.byte	1,1,15
+	.byte	'motorRightBackwardPwmPresentDuty',0,3,28,16
+	.word	203
+	.byte	1,1,15
+	.byte	'steerSetAngle',0,3,31,14
+	.word	952
+	.byte	1,1,0
+	.sdecl	'.debug_abbrev',debug
+	.sect	'.debug_abbrev'
+.L33:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,16,6,0,0,2,36,0,3,8,11,15,62,15,0,0,3,46,1,3,8,73,19,54,15,39,12
+	.byte	63,12,60,12,0,0,4,5,0,73,19,0,0,5,46,1,3,8,58,15,59,15,57,15,54,15,39,12,63,12,60,12,0,0,6,5,0,3,8,58
+	.byte	15,59,15,57,15,73,19,0,0,7,19,1,3,8,58,15,59,15,57,15,11,15,0,0,8,13,0,3,8,73,19,11,15,56,9,0,0,9,15,0
+	.byte	73,19,0,0,10,22,0,3,8,58,15,59,15,57,15,73,19,0,0,11,21,0,54,15,0,0,12,59,0,3,8,0,0,13,4,1,3,8,58,15,59
+	.byte	15,57,15,11,15,0,0,14,40,0,3,8,28,13,0,0,15,52,0,3,8,58,15,59,15,57,15,73,19,63,12,60,12,0,0,0
+	.sdecl	'.debug_line',debug
+	.sect	'.debug_line'
+.L34:
+	.word	.L85-.L84
+.L84:
+	.half	3
+	.word	.L87-.L86
+.L86:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1
+	.byte	'D:\\Infineon\\AURIX-Studio\\tools\\Compilers\\Tasking_1.1r8\\ctc\\include\\',0
+	.byte	'D:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std',0
+	.byte	'D:\\\\Sync\\\\SmartCar\\\\SmartCarProgram01\\\\libraries\\\\zf_common',0,0
+	.byte	'..\\code\\motor.h',0,0,0,0
+	.byte	'..\\code\\steer.h',0,0,0,0
+	.byte	'..\\code\\pid.h',0,0,0,0
+	.byte	'../code/pid.c',0,0,0,0
+	.byte	'stdio.h',0,1,0,0
+	.byte	'Platform_Types.h',0,2,0,0
+	.byte	'ifx_types.h',0,2,0,0
+	.byte	'zf_common_typedef.h',0,3,0,0
+	.byte	'..\\code\\image.h',0,0,0,0,0
+.L87:
+.L85:
+	.sdecl	'.debug_info',debug,cluster('motor_make_same_with_seting')
+	.sect	'.debug_info'
+.L35:
+	.word	216
+	.half	3
+	.word	.L36
+	.byte	4,1
+	.byte	'../code/pid.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\Sync\\SmartCar\\SmartCarProgram01\\Release\\',0,12,1
+	.word	.L38,.L37
+	.byte	2
+	.word	.L31
+	.byte	3
+	.byte	'motor_make_same_with_seting',0,1,17,6,1,1,1
+	.word	.L20,.L69,.L19
+	.byte	4
+	.word	.L20,.L69
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('motor_make_same_with_seting')
+	.sect	'.debug_abbrev'
+.L36:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('motor_make_same_with_seting')
+	.sect	'.debug_line'
+.L37:
+	.word	.L89-.L88
+.L88:
+	.half	3
+	.word	.L91-.L90
+.L90:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/pid.c',0,0,0,0,0
+.L91:
+	.byte	5,27,7,0,5,2
+	.word	.L20
+	.byte	3,18,1,5,9,9
+	.half	.L92-.L20
+	.byte	1,5,49,9
+	.half	.L93-.L92
+	.byte	1,5,92,9
+	.half	.L94-.L93
+	.byte	1,5,49,9
+	.half	.L95-.L94
+	.byte	1,5,117,7,9
+	.half	.L96-.L95
+	.byte	1,5,12,7,9
+	.half	.L3-.L96
+	.byte	3,4,1,5,5,9
+	.half	.L97-.L3
+	.byte	3,127,1,5,9,7,9
+	.half	.L98-.L97
+	.byte	3,1,1,5,32,7,9
+	.half	.L99-.L98
+	.byte	3,1,1,5,61,9
+	.half	.L100-.L99
+	.byte	1,5,57,9
+	.half	.L6-.L100
+	.byte	3,2,1,5,80,1,5,9,9
+	.half	.L5-.L6
+	.byte	3,2,1,5,32,7,9
+	.half	.L101-.L5
+	.byte	3,1,1,5,61,9
+	.half	.L102-.L101
+	.byte	1,5,57,9
+	.half	.L8-.L102
+	.byte	3,2,1,5,29,9
+	.half	.L7-.L8
+	.byte	1,5,57,1,5,28,9
+	.half	.L103-.L7
+	.byte	3,3,1,5,9,9
+	.half	.L104-.L103
+	.byte	1,5,51,9
+	.half	.L105-.L104
+	.byte	1,5,96,9
+	.half	.L106-.L105
+	.byte	1,5,51,9
+	.half	.L107-.L106
+	.byte	1,5,121,7,9
+	.half	.L108-.L107
+	.byte	1,5,12,7,9
+	.half	.L10-.L108
+	.byte	3,4,1,5,5,9
+	.half	.L109-.L10
+	.byte	3,127,1,5,9,7,9
+	.half	.L110-.L109
+	.byte	3,1,1,5,32,7,9
+	.half	.L111-.L110
+	.byte	3,1,1,5,62,9
+	.half	.L112-.L111
+	.byte	1,5,58,9
+	.half	.L13-.L112
+	.byte	3,2,1,5,81,1,5,9,9
+	.half	.L12-.L13
+	.byte	3,2,1,5,32,7,9
+	.half	.L113-.L12
+	.byte	3,1,1,5,62,9
+	.half	.L114-.L113
+	.byte	1,5,58,9
+	.half	.L15-.L114
+	.byte	3,2,1,5,29,9
+	.half	.L14-.L15
+	.byte	1,5,58,9
+	.half	.L115-.L14
+	.byte	1,5,1,7,9
+	.half	.L2-.L115
+	.byte	3,2,1,7,9
+	.half	.L39-.L2
+	.byte	0,1,1
+.L89:
+	.sdecl	'.debug_ranges',debug,cluster('motor_make_same_with_seting')
+	.sect	'.debug_ranges'
+.L38:
+	.word	-1,.L20,0,.L39-.L20,0,0
+	.sdecl	'.debug_info',debug,cluster('steer_make_same_with_setting')
+	.sect	'.debug_info'
+.L40:
+	.word	235
+	.half	3
+	.word	.L41
+	.byte	4,1
+	.byte	'../code/pid.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\Sync\\SmartCar\\SmartCarProgram01\\Release\\',0,12,1
+	.word	.L43,.L42
+	.byte	2
+	.word	.L31
+	.byte	3
+	.byte	'steer_make_same_with_setting',0,1,51,6,1,1,1
+	.word	.L22,.L70,.L21
+	.byte	4
+	.word	.L22,.L70
+	.byte	5
+	.byte	'duty',0,1,52,12
+	.word	.L71,.L72
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('steer_make_same_with_setting')
+	.sect	'.debug_abbrev'
+.L41:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,11,1,17,1,18,1,0,0,5,52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('steer_make_same_with_setting')
+	.sect	'.debug_line'
+.L42:
+	.word	.L117-.L116
+.L116:
+	.half	3
+	.word	.L119-.L118
+.L118:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/pid.c',0,0,0,0,0
+.L119:
+	.byte	5,8,7,0,5,2
+	.word	.L22
+	.byte	3,52,1,5,5,9
+	.half	.L120-.L22
+	.byte	1,5,16,7,9
+	.half	.L121-.L120
+	.byte	3,1,1,5,34,9
+	.half	.L122-.L121
+	.byte	1,5,54,1,5,11,9
+	.half	.L16-.L122
+	.byte	3,1,1,5,17,7,9
+	.half	.L123-.L16
+	.byte	3,1,1,5,37,9
+	.half	.L124-.L123
+	.byte	1,5,16,9
+	.half	.L125-.L124
+	.byte	1,5,20,9
+	.half	.L17-.L125
+	.byte	3,3,1,5,1,7,9
+	.half	.L44-.L17
+	.byte	3,1,0,1,1
+.L117:
+	.sdecl	'.debug_ranges',debug,cluster('steer_make_same_with_setting')
+	.sect	'.debug_ranges'
+.L43:
+	.word	-1,.L22,0,.L44-.L22,0,0
+	.sdecl	'.debug_info',debug,cluster('motor_pid_calc')
+	.sect	'.debug_info'
+.L45:
+	.word	215
+	.half	3
+	.word	.L46
+	.byte	4,1
+	.byte	'../code/pid.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\Sync\\SmartCar\\SmartCarProgram01\\Release\\',0,12,1
+	.word	.L48,.L47
+	.byte	2
+	.word	.L31
+	.byte	3
+	.byte	'motor_pid_calc',0,1,62,6,1,1,1
+	.word	.L24,.L73,.L23
+	.byte	4
+	.byte	'pid',0,1,62,44
+	.word	.L74,.L75
+	.byte	5
+	.word	.L76
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('motor_pid_calc')
+	.sect	'.debug_abbrev'
+.L46:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,85,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('motor_pid_calc')
+	.sect	'.debug_line'
+.L47:
+	.word	.L127-.L126
+.L126:
+	.half	3
+	.word	.L129-.L128
+.L128:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/pid.c',0,0,0,0,0
+.L129:
+	.byte	5,22,7,0,5,2
+	.word	.L24
+	.byte	3,62,1,5,1,9
+	.half	.L82-.L24
+	.byte	3,4,1,7,9
+	.half	.L49-.L82
+	.byte	0,1,1
+.L127:
+	.sdecl	'.debug_ranges',debug,cluster('motor_pid_calc')
+	.sect	'.debug_ranges'
+.L48:
+	.word	-1,.L24,0,.L49-.L24,0,0
+.L76:
+	.word	-1,.L24,0,.L73-.L24,-1,.L26,0,.L64-.L26,0,0
+	.sdecl	'.debug_info',debug,cluster('motor_pid_call')
+	.sect	'.debug_info'
+.L50:
+	.word	202
+	.half	3
+	.word	.L51
+	.byte	4,1
+	.byte	'../code/pid.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\Sync\\SmartCar\\SmartCarProgram01\\Release\\',0,12,1
+	.word	.L53,.L52
+	.byte	2
+	.word	.L31
+	.byte	3
+	.byte	'motor_pid_call',0,1,75,6,1,1
+	.word	.L30,.L77,.L29
+	.byte	4
+	.word	.L30,.L77
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('motor_pid_call')
+	.sect	'.debug_abbrev'
+.L51:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('motor_pid_call')
+	.sect	'.debug_line'
+.L52:
+	.word	.L131-.L130
+.L130:
+	.half	3
+	.word	.L133-.L132
+.L132:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/pid.c',0,0,0,0,0
+.L133:
+	.byte	5,21,7,0,5,2
+	.word	.L30
+	.byte	3,203,0,1,5,44,9
+	.half	.L134-.L30
+	.byte	1,5,24,9
+	.half	.L135-.L134
+	.byte	3,1,1,5,57,1,5,24,9
+	.half	.L136-.L135
+	.byte	3,1,1,5,58,1,5,1,9
+	.half	.L54-.L136
+	.byte	3,1,0,1,1
+.L131:
+	.sdecl	'.debug_ranges',debug,cluster('motor_pid_call')
+	.sect	'.debug_ranges'
+.L53:
+	.word	-1,.L30,0,.L54-.L30,0,0
+	.sdecl	'.debug_info',debug,cluster('steer_pid_calc')
+	.sect	'.debug_info'
+.L55:
+	.word	219
+	.half	3
+	.word	.L56
+	.byte	4,1
+	.byte	'../code/pid.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\Sync\\SmartCar\\SmartCarProgram01\\Release\\',0,12,1
+	.word	.L58,.L57
+	.byte	2
+	.word	.L31
+	.byte	3
+	.byte	'steer_pid_calc',0,1,68,6,1,1,1
+	.word	.L28,.L78,.L27
+	.byte	4
+	.byte	'pid',0,1,68,44
+	.word	.L74,.L79
+	.byte	5
+	.word	.L28,.L78
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('steer_pid_calc')
+	.sect	'.debug_abbrev'
+.L56:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('steer_pid_calc')
+	.sect	'.debug_line'
+.L57:
+	.word	.L138-.L137
+.L137:
+	.half	3
+	.word	.L140-.L139
+.L139:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/pid.c',0,0,0,0,0
+.L140:
+	.byte	5,22,7,0,5,2
+	.word	.L28
+	.byte	3,196,0,1,5,1,9
+	.half	.L83-.L28
+	.byte	3,4,1,7,9
+	.half	.L59-.L83
+	.byte	0,1,1
+.L138:
+	.sdecl	'.debug_ranges',debug,cluster('steer_pid_calc')
+	.sect	'.debug_ranges'
+.L58:
+	.word	-1,.L28,0,.L59-.L28,0,0
+	.sdecl	'.debug_info',debug,cluster('.cocofun_1')
+	.sect	'.debug_info'
+.L60:
+	.word	187
+	.half	3
+	.word	.L61
+	.byte	4,1
+	.byte	'../code/pid.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\Sync\\SmartCar\\SmartCarProgram01\\Release\\',0,12,1
+	.word	.L63,.L62
+	.byte	2
+	.word	.L31
+	.byte	3
+	.byte	'.cocofun_1',0,1,62,6,1
+	.word	.L26,.L64,.L25
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('.cocofun_1')
+	.sect	'.debug_abbrev'
+.L61:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,0,3,8,58,15,59,15,57,15,54,15
+	.byte	17,1,18,1,64,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('.cocofun_1')
+	.sect	'.debug_line'
+.L62:
+	.word	.L142-.L141
+.L141:
+	.half	3
+	.word	.L144-.L143
+.L143:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/pid.c',0,0,0,0,0
+.L144:
+	.byte	5,22,7,0,5,2
+	.word	.L26
+	.byte	3,62,1,5,36,9
+	.half	.L145-.L26
+	.byte	1,5,31,9
+	.half	.L146-.L145
+	.byte	1,5,17,1,5,22,9
+	.half	.L147-.L146
+	.byte	3,1,1,5,134,1,9
+	.half	.L148-.L147
+	.byte	1,5,28,9
+	.half	.L149-.L148
+	.byte	1,5,89,1,5,67,9
+	.half	.L150-.L149
+	.byte	1,5,47,1,5,84,9
+	.half	.L151-.L150
+	.byte	1,5,110,1,5,42,9
+	.half	.L152-.L151
+	.byte	1,5,129,1,9
+	.half	.L153-.L152
+	.byte	1,5,104,9
+	.half	.L154-.L153
+	.byte	1,5,17,1,5,21,9
+	.half	.L155-.L154
+	.byte	3,1,1,9
+	.half	.L156-.L155
+	.byte	3,1,1,9
+	.half	.L64-.L156
+	.byte	0,1,1,5,22,0,5,2
+	.word	.L26
+	.byte	3,196,0,1,5,36,9
+	.half	.L145-.L26
+	.byte	1,5,31,9
+	.half	.L146-.L145
+	.byte	1,5,17,1,5,22,9
+	.half	.L147-.L146
+	.byte	3,1,1,5,134,1,9
+	.half	.L148-.L147
+	.byte	1,5,28,9
+	.half	.L149-.L148
+	.byte	1,5,89,1,5,67,9
+	.half	.L150-.L149
+	.byte	1,5,47,1,5,84,9
+	.half	.L151-.L150
+	.byte	1,5,110,1,5,42,9
+	.half	.L152-.L151
+	.byte	1,5,129,1,9
+	.half	.L153-.L152
+	.byte	1,5,104,9
+	.half	.L154-.L153
+	.byte	1,5,17,1,5,21,9
+	.half	.L155-.L154
+	.byte	3,1,1,9
+	.half	.L156-.L155
+	.byte	3,1,1,9
+	.half	.L157-.L156
+	.byte	3,122,1,7,9
+	.half	.L64-.L157
+	.byte	0,1,1
+.L142:
+	.sdecl	'.debug_ranges',debug,cluster('.cocofun_1')
+	.sect	'.debug_ranges'
+.L63:
+	.word	-1,.L26,0,.L64-.L26,0,0
+	.sdecl	'.debug_info',debug,cluster('left')
+	.sect	'.debug_info'
+.L65:
+	.word	171
+	.half	3
+	.word	.L66
+	.byte	4,1
+	.byte	'../code/pid.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\Sync\\SmartCar\\SmartCarProgram01\\Release\\',0,12,1,2
+	.word	.L31
+	.byte	3
+	.byte	'left',0,4,10,1
+	.word	.L80
+	.byte	1,5,3
+	.word	left
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('left')
+	.sect	'.debug_abbrev'
+.L66:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('right')
+	.sect	'.debug_info'
+.L67:
+	.word	172
+	.half	3
+	.word	.L68
+	.byte	4,1
+	.byte	'../code/pid.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\Sync\\SmartCar\\SmartCarProgram01\\Release\\',0,12,1,2
+	.word	.L31
+	.byte	3
+	.byte	'right',0,4,11,1
+	.word	.L80
+	.byte	1,5,3
+	.word	right
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('right')
+	.sect	'.debug_abbrev'
+.L68:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_loc',debug,cluster('.cocofun_1')
+	.sect	'.debug_loc'
+.L25:
+	.word	-1,.L26,0,.L64-.L26
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('motor_make_same_with_seting')
+	.sect	'.debug_loc'
+.L19:
+	.word	-1,.L20,0,.L69-.L20
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('motor_pid_calc')
+	.sect	'.debug_loc'
+.L23:
+	.word	-1,.L24,0,.L73-.L24
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L75:
+	.word	-1,.L24,.L26-.L24,.L64-.L24
+	.half	1
+	.byte	100
+	.word	.L82-.L24,.L73-.L24
+	.half	1
+	.byte	100
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('motor_pid_call')
+	.sect	'.debug_loc'
+.L29:
+	.word	-1,.L30,0,.L77-.L30
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('steer_make_same_with_setting')
+	.sect	'.debug_loc'
+.L72:
+	.word	-1,.L22,.L81-.L22,.L70-.L22
+	.half	1
+	.byte	84
+	.word	0,0
+.L21:
+	.word	-1,.L22,0,.L70-.L22
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('steer_pid_calc')
+	.sect	'.debug_loc'
+.L79:
+	.word	-1,.L28,.L26-.L28,.L64-.L28
+	.half	1
+	.byte	100
+	.word	.L83-.L28,.L78-.L28
+	.half	1
+	.byte	100
+	.word	0,0
+.L27:
+	.word	-1,.L28,0,.L78-.L28
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_frame',debug
+	.sect	'.debug_frame'
+.L158:
+	.word	48
+	.word	-1
+	.byte	3,0,2,1,27,12,26,0,8,26,8,27,8,30,8,29,8,28,8,16,8,17,8,24,8,25,8,31,8,32,8,33,8,34,8,35,8,36,8,37,8,38
+	.byte	8,39
+	.sdecl	'.debug_frame',debug,cluster('motor_make_same_with_seting')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L158,.L20,.L69-.L20
+	.sdecl	'.debug_frame',debug,cluster('steer_make_same_with_setting')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L158,.L22,.L70-.L22
+	.sdecl	'.debug_frame',debug,cluster('motor_pid_calc')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L158,.L24,.L73-.L24
+	.byte	8,18,8,19,8,21,8,22,8,23,0,0
+	.sdecl	'.debug_frame',debug,cluster('steer_pid_calc')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L158,.L28,.L78-.L28
+	.byte	8,18,8,19,8,21,8,22,8,23,0,0
+	.sdecl	'.debug_frame',debug,cluster('motor_pid_call')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L158,.L30,.L77-.L30
+	.sdecl	'.debug_frame',debug
+	.sect	'.debug_frame'
+.L159:
+	.word	52
+	.word	-1
+	.byte	3,0,2,1,40,12,26,0,7,26,9,40,27,155,0,8,30,8,29,8,28,8,16,8,17,8,24,8,25,8,31,8,32,8,33,8,34,8,35,8,36
+	.byte	8,37,8,38,8,39,0
+	.sdecl	'.debug_frame',debug,cluster('.cocofun_1')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L159,.L26,.L64-.L26
+	.byte	8,18,8,19,8,20,8,21,8,22,8,23
+	; Module end
