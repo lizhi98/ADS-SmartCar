@@ -4,6 +4,7 @@
         "${workspaceRoot}"
     ],
     "files.associations": {
-        "zf_device_type.h": "c"
+        "zf_device_type.h": "c",
+        "zf_common_headfile.h": "c"
     }
 }

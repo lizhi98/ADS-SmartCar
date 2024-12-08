@@ -1,3 +1,4 @@
+#include "cpu0_main.h"
 #include "zf_common_headfile.h"
 #pragma section all "cpu0_dsram"
 // 将本语句与#pragma section all restore语句之间的全局变量都放在CPU0的RAM中
@@ -12,7 +13,8 @@ int core0_main(void)
     clock_init();                   // 获取时钟频率<务必保留>
     debug_init();                   // 初始化默认调试串口
     // 此处编写用户代码 例如外设初始化代码等
-    screen_init();
+    system_delay_init();
+    screen_init()
     
     
 
