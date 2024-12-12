@@ -47,10 +47,11 @@ extern ObjectData objectData;
 void screen_init(void);
 void screen_clear(void);
 void screen_show_image(ImageBase image);
+//留出图像位置
 void screen_show_text(text);
 
+void screen_show_menu(void);
 void screen_show_objects(void);
-// void screen_show_image(ImageBase image);
-// void screen_show_object(RenderObject object);
+void screen_wrong(void);
 
 #endif

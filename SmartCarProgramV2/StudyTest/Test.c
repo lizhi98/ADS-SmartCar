@@ -1,9 +1,7 @@
 #include<stdio.h>
-#include<stdlib.h>
 
 int main(void){
-
-        
-
-    return 0;
+    int a[2] = {1,3};
+    int *p = &a[0];
+    printf("%d",++(*p));
 }

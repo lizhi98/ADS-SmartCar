@@ -14,7 +14,7 @@ int core0_main(void)
     debug_init();                   // 初始化默认调试串口
     // 此处编写用户代码 例如外设初始化代码等
     system_delay_init();
-    screen_init()
+    screen_init();
     
     
 

@@ -5,6 +5,8 @@
     ],
     "files.associations": {
         "zf_device_type.h": "c",
-        "zf_common_headfile.h": "c"
+        "zf_common_headfile.h": "c",
+        "zf_device_mt9v03x.h": "c",
+        "zf_driver_soft_spi.h": "c"
     }
 }
