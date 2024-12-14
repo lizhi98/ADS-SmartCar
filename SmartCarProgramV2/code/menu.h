@@ -1,7 +1,6 @@
 #ifndef CODE_MENU_H_
 #define CODE_MENU_H_
 
-#include<zf_device_ips200.h>
 #include"screen.h"
 #include"key.h"
 
@@ -20,7 +19,8 @@ typedef enum{
 }Location;
 
 typedef enum {
-    GO=1,           GO_AND_SHOW_CONFIG,     SPEED,          PID,    //主菜单
+    init,
+    GO,             GO_AND_SHOW_CONFIG,     SPEED,          PID,    //主菜单
     BACK,                                                       //返回到主菜单
     MOTOR_SPEED_K,  NORMOL_SPEED_RAW,       CURVE_SPEED_RAW,        //速度调节菜单
     KP,             KI,                     KD,                 //PID调节菜单
@@ -38,8 +38,8 @@ void show_pid_menu(void);
 
 void menu_update(void);
 void menu_jump(Pages target);
-void edit_config(keyIndex key);
+void edit_config(KeyIndex key);
 
-void key_control(keyIndex key);
+void key_control(KeyIndex key);
 
 #endif

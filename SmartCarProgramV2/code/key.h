@@ -2,7 +2,6 @@
 #define CODE_KEY_H_
 
 #include<zf_driver_gpio.h>
-#include "menu.h"
 
 #define KEY_LEFT_PIN    P20_6   // 一般用于减小数值
 #define KEY_RIGHT_PIN   P20_7   // 一般用于增加数值
@@ -11,9 +10,9 @@
 
 typedef enum{
     DECREASE, INCREASE,   DOWN,   OK,
-}keyIndex;
+}KeyIndex;
 
-void key_init(void);
+void key_init_(void);
 void key_close(void);
 
 #endif

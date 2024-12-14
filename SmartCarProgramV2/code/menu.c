@@ -1,10 +1,10 @@
 #include"menu.h"
 
 //屏幕选项指针位置 1-10 分别为第几行,默认为第一行
-static Location     pointerLine = 1;    //默认为第一行
-static Pages        currentPage = PAGE_MAIN; //默认为主菜单
-static OptionIndex  currentChoice      = 0;    //默认为一个不存在的索引
-static uint8        wrongFlag   = 0;
+static Location     pointerLine     = 1;            //默认为第一行
+static Pages        currentPage     = PAGE_MAIN;    //默认为主菜单
+static OptionIndex  currentChoice   = init;         //默认为init
+static uint8        wrongFlag       = 0;
 void show_main_menu(void){
     ips200_show_string(100, LINE_GAP*MENU_LINE,                 "MENU");
     ips200_show_string(10,  LINE_GAP*GO_LINE,                   "GO");
@@ -66,10 +66,12 @@ void menu_jump(Pages target){
         pointerLine = BACK_LINE;
         currentChoice      = BACK;
         currentPage = PAGE_SPEED_CONFIG;
+        break;
     case PID:
         pointerLine = BACK_LINE;
         currentChoice      = BACK;
         currentPage = PAGE_PID_CONFIG;
+        break;
     default:
         wrongFlag = 1;
         screen_wrong();
@@ -79,7 +81,7 @@ void menu_jump(Pages target){
     
 }
 
-void edit_config(keyIndex key){
+void edit_config(KeyIndex key){
     if (wrongFlag ==1) return;
     
     switch (currentChoice)
@@ -117,7 +119,7 @@ void edit_config(keyIndex key){
     menu_update();
 }
 
-void key_control(keyIndex key){
+void key_control(KeyIndex key){
     switch (key)
     {
     case OK:
@@ -154,6 +156,7 @@ void key_control(keyIndex key){
                 pointerLine ++;
                 menu_update();
             }
+            break;
     default:
         screen_wrong();
         break;

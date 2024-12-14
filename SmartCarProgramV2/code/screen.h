@@ -1,7 +1,10 @@
 #ifndef _CODE_SCREEN_H
 #define _CODE_SCREEN_H
 
-#include<zf_device_ips200.h>
+#include <zf_device_ips200.h>
+#include <zf_device_mt9v03x.h>
+#include <zf_common_font.h>
+#include <string.h>
 
 #define ON  1
 #define OFF 0
