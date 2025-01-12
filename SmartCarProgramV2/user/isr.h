@@ -38,15 +38,7 @@
 
 #include "zf_common_headfile.h"
 
-
-
-
-
-
-
-
-
-
+#include "code/key.h"
 
 #endif
 

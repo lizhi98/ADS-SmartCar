@@ -81,84 +81,84 @@ void menu_jump(Pages target){
     
 }
 
-void edit_config(KeyIndex key){
-    if (wrongFlag ==1) return;
-    
-    switch (currentChoice)
-    {
-    case MOTOR_SPEED_K:
-        if(key == INCREASE) ; 
-        if(key == DECREASE) ;
-        break;
-    case NORMOL_SPEED_RAW:
-        //这里写调节直道速度
-        if(key == INCREASE) ; 
-        if(key == DECREASE) ;
-        break;
-    case CURVE_SPEED_RAW:
-        if(key == INCREASE) ; 
-        if(key == DECREASE) ;
-        break;
-    case KP:
-        if(key == INCREASE) ; 
-        if(key == DECREASE) ;
-        break;
-    case KI:
-        if(key == INCREASE) ; 
-        if(key == DECREASE) ;
-        break;
-    case KD:
-        if(key == INCREASE) ; 
-        if(key == DECREASE) ;
-        break;
-    default:
-        wrongFlag = 1;
-        screen_wrong();
-        break;
-    }
-    menu_update();
-}
-
-void key_control(KeyIndex key){
-    switch (key)
-    {
-    case OK:
-            switch (currentChoice)
-            {
-            case BACK:
-                menu_jump(PAGE_MAIN);
-                break;
-            case SPEED:
-                menu_jump(PAGE_SPEED_CONFIG);
-                break;
-            case PID:
-                menu_jump(PAGE_PID_CONFIG);
-                break;
-            default:
-                // screen_wrong();
-                //由于可能会误触了确定键，所以此处不再报错，使用时小心一些
-                break;
-            }
-            break;
-    case INCREASE:
-    case DECREASE:
-        edit_config(key);
-        break;
-    case DOWN:
-            if (currentChoice == PID||
-                currentChoice ==CURVE_SPEED_RAW||
-                currentChoice==KD)
-            {
-                menu_jump(currentPage);
-            }else
-            {
-                currentChoice ++;
-                pointerLine ++;
-                menu_update();
-            }
-            break;
-    default:
-        screen_wrong();
-        break;
-    }
-}
+//void edit_config(KeyIndex key){
+//    if (wrongFlag ==1) return;
+//
+//    switch (currentChoice)
+//    {
+//    case MOTOR_SPEED_K:
+//        if(key == INCREASE) ;
+//        if(key == DECREASE) ;
+//        break;
+//    case NORMOL_SPEED_RAW:
+//        //这里写调节直道速度
+//        if(key == INCREASE) ;
+//        if(key == DECREASE) ;
+//        break;
+//    case CURVE_SPEED_RAW:
+//        if(key == INCREASE) ;
+//        if(key == DECREASE) ;
+//        break;
+//    case KP:
+//        if(key == INCREASE) ;
+//        if(key == DECREASE) ;
+//        break;
+//    case KI:
+//        if(key == INCREASE) ;
+//        if(key == DECREASE) ;
+//        break;
+//    case KD:
+//        if(key == INCREASE) ;
+//        if(key == DECREASE) ;
+//        break;
+//    default:
+//        wrongFlag = 1;
+//        screen_wrong();
+//        break;
+//    }
+//    menu_update();
+//}
+//
+//void key_control(KeyIndex key){
+//    switch (key)
+//    {
+//    case OK:
+//            switch (currentChoice)
+//            {
+//            case BACK:
+//                menu_jump(PAGE_MAIN);
+//                break;
+//            case SPEED:
+//                menu_jump(PAGE_SPEED_CONFIG);
+//                break;
+//            case PID:
+//                menu_jump(PAGE_PID_CONFIG);
+//                break;
+//            default:
+//                // screen_wrong();
+//                //由于可能会误触了确定键，所以此处不再报错，使用时小心一些
+//                break;
+//            }
+//            break;
+//    case INCREASE:
+//    case DECREASE:
+//        edit_config(key);
+//        break;
+//    case DOWN:
+//            if (currentChoice == PID||
+//                currentChoice ==CURVE_SPEED_RAW||
+//                currentChoice==KD)
+//            {
+//                menu_jump(currentPage);
+//            }else
+//            {
+//                currentChoice ++;
+//                pointerLine ++;
+//                menu_update();
+//            }
+//            break;
+//    default:
+//        screen_wrong();
+//        break;
+//    }
+//}

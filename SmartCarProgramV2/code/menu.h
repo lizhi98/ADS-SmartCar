@@ -38,8 +38,8 @@ void show_pid_menu(void);
 
 void menu_update(void);
 void menu_jump(Pages target);
-void edit_config(KeyIndex key);
+//void edit_config(KeyIndex key);
 
-void key_control(KeyIndex key);
+//void key_control(KeyIndex key);
 
 #endif
