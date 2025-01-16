@@ -11,38 +11,31 @@
 #define PID_STEER_INIT_KI 0
 #define PID_STEER_INIT_KD 0
 
-#define pid_set_motor_left_kp(kp)   pid_set_kp(kp, &motor_left_pid)
-#define pid_set_motor_left_ki(ki)   pid_set_ki(ki, &motor_left_pid)
-#define pid_set_motor_left_kd(kd)   pid_set_kd(kd, &motor_left_pid)
-#define pid_set_motor_right_kp(kp)  pid_set_kp(kp, &motor_right_pid)
-#define pid_set_motor_right_ki(ki)  pid_set_ki(ki, &motor_right_pid)
-#define pid_set_motor_right_kd(kd)  pid_set_kd(kd, &motor_right_pid)
-
-#define pid_set_steer_kp(kp)    pid_set_kp(kp, &steer_pid)
-#define pid_set_steer_ki(ki)    pid_set_ki(ki, &steer_pid)
-#define pid_set_steer_kd(kd)    pid_set_kd(kd, &steer_pid)
-
-typedef struct _pid
+typedef struct _pid_config
 {
-    int KP;
-    int KI;
-    int KD;
+    float KP;
+    float KI;
+    float KD;
+} PIDConfig;
+
+typedef struct _pid_calc
+{
     int current;
-    double target;
+    int target;
     int error;
     int lastError;
     int last2Error;
     int out;
-} pid;
+} PIDCalc;
 
-void pid_set_kp(int kp, pid* pid);
-void pid_set_ki(int ki, pid* pid);
-void pid_set_kd(int kd, pid* pid);
+extern PIDConfig    motor_pid_config;
+extern PIDConfig    steer_pid_config;
 
-void pid_p_plus(int16 delta, pid* pid);
-void pid_i_plus(int16 delta, pid* pid);
-void pid_d_plus(int16 delta, pid* pid);
+extern PIDCalc      motor_left_pid_calc;
+extern PIDCalc      motor_right_pid_calc;
+extern PIDCalc      steer_pid_calc;
 
+void pid_calc(PIDConfig * pid_config,PIDCalc * pid_calc);
 void pid_init(void);
 
 #endif // CODE_PID_H_

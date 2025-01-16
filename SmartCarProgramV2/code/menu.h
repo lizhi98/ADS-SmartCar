@@ -2,10 +2,18 @@
 #define CODE_MENU2_H
 
 #include "screen.h"
+#include "key.h"
+
 
 #define LINE_GAP 15
 
 #define MENU_ITEM_COUNT 16
+
+#define MENU_SET_DALAY 100
+
+#define MENU_SET_PID_PER_PLUS 0.2f
+#define MENU_SET_SPEED_PER_PLUS 200u
+#define MENU_SET_IMAGE_PER_PLUS 0.1f
 // 第一个调节页面菜单索引
 #define MENU_SETTING_PAGE_START_MENU_ITEM_INDEX KP
 
@@ -40,7 +48,7 @@ void menu_last_item(MenuItem item);
 
 
 void menu_show_pointer(void);
-void menu_show(MenuIndex startIndex,MenuIndex endIndex);
+void menu_items_show_with_pointer(MenuIndex startIndex,MenuIndex endIndex);
 // 菜单显示函数
 void menu_show_main(void);
 void menu_show_settings(void);

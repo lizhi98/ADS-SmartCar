@@ -11,6 +11,8 @@
         "screen.h": "c",
         "menu.h": "c",
         "key.h": "c",
-        "zf_driver_gpio.h": "c"
+        "zf_driver_gpio.h": "c",
+        "pid.h": "c",
+        "zf_driver_delay.h": "c"
     }
 }

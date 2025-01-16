@@ -1,5 +1,11 @@
 #include "menu.h"
+#include "pid.h"
+#include "motor.h"
+#include "steer.h"
+//#include 
 #include "string.h"
+#include "zf_driver_delay.h"
+
 
 MenuItem menu_items[MENU_ITEM_COUNT] = {
     // index          next,                   back
@@ -51,8 +57,11 @@ void menu_init(void){
     // }
 }
 
+void menu_show_pointer(void){
+    screen_show_string(0, (menu_current_index - menu_items[menu_current_index].thisPageStart + 1) * LINE_GAP, ">");
+}
 // 菜单项目显示函数
-void menu_show(MenuIndex startIndex,MenuIndex endIndex){
+void menu_items_show_with_pointer(MenuIndex startIndex,MenuIndex endIndex){
     screen_clear();
     menu_show_pointer();
     screen_show_string(30, 0, "Menu");
@@ -60,29 +69,31 @@ void menu_show(MenuIndex startIndex,MenuIndex endIndex){
         screen_show_string(10, (i - startIndex + 1) * LINE_GAP, menu_names[i]);
     }
 }
-void menu_show_pointer(void){
-    screen_show_string(0, (menu_current_index - menu_items[menu_current_index].thisPageStart + 1) * LINE_GAP, ">");
+// 菜单显示函数
+void menu_show(void){
+    menu_items_show_with_pointer(menu_items[menu_current_index].thisPageStart, menu_items[menu_current_index].thisPageEnd);
 }
+
 // 菜单显示函数
 void menu_show_main(void){
     menu_current_index = START;
-    menu_show(START, SETTINGS);
+    menu_show();
 }
 void menu_show_settings(void){
     menu_current_index = PID;
-    menu_show(PID, IMAGE);
+    menu_show();
 }
 void menu_show_pid(void){
     menu_current_index = KP;
-    menu_show(KP, KD);
+    menu_show();
 }
 void menu_show_speed(void){
     menu_current_index = NORMAL_SPEED;
-    menu_show(NORMAL_SPEED, CURVE_SPEED);
+    menu_show();
 }
 void menu_show_image(void){
     menu_current_index = IMAGE1;
-    menu_show(IMAGE1, IMAGE5);
+    menu_show();
 }
 
 // 车启动类函数
@@ -96,17 +107,72 @@ void menu_start_with_info(void){
 }
 
 // 设置项目函数
-void menu_set_pid_p(void){
+
+void menu_set_int_items(int * items,int per_plus,char * item_name){
+    key_all_available();
     screen_clear();
-    screen_show_string(0, 0, "KP");
+    screen_show_string(0, 0, item_name);
+    char str[10];
+    while (1)
+    {
+        if(key_any_pressed){
+            if(key_state_get(KEY_INCREASE) == PRESSED){
+                *items += per_plus;
+                key_state_set(KEY_INCREASE, AVAILABLE);
+            }else if(key_state_get(KEY_DECREASE) == PRESSED){
+                *items -= per_plus;
+                key_state_set(KEY_DECREASE, AVAILABLE);
+            }else{
+                key_all_available();
+                break;
+            }
+            key_any_pressed = 0;
+        }
+
+        sprintf(str, "%9.1f", (float)(*items));
+        screen_show_string(0, LINE_GAP, str);
+        system_delay_ms(MENU_SET_DALAY);
+    }
+}
+
+void menu_set_float_items(float * items,float per_plus,char * item_name){
+    key_all_available();
+    screen_clear();
+    screen_show_string(0, 0, item_name);
+    char str[10];
+    while (1)
+    {
+        if(key_any_pressed){
+            if(key_state_get(KEY_INCREASE) == PRESSED){
+                *items += per_plus;
+                key_state_set(KEY_INCREASE, AVAILABLE);
+            }else if(key_state_get(KEY_DECREASE) == PRESSED){
+                *items -= per_plus;
+                key_state_set(KEY_DECREASE, AVAILABLE);
+            }else{
+                key_all_available();
+                break;
+            }
+            key_any_pressed = 0;
+        }
+
+        sprintf(str, "%9.1f", (float)(*items));
+        screen_show_string(0, LINE_GAP, str);
+        system_delay_ms(MENU_SET_DALAY);
+    }
+}
+
+void menu_set_pid_p(void){
+    menu_set_float_items(&motor_pid_config.KP, MENU_SET_PID_PER_PLUS , "MOTOR_KP");
+    menu_show_pid();
 }
 void menu_set_pid_i(void){
-    screen_clear();
-    screen_show_string(0, 0, "KI");
+    menu_set_float_items(&motor_pid_config.KI, MENU_SET_PID_PER_PLUS , "MOTOR_KI");
+    menu_show_pid();
 }
 void menu_set_pid_d(void){
-    screen_clear();
-    screen_show_string(0, 0, "KD");
+    menu_set_float_items(&motor_pid_config.KD, MENU_SET_PID_PER_PLUS , "MOTOR_KD");
+    menu_show_pid();
 }
 
 void menu_set_speed_normal(void){
@@ -146,7 +212,7 @@ void menu_select_next(void){
     }else{
         menu_current_index++;
     }
-    menu_show(menu_items[menu_current_index].thisPageStart, menu_items[menu_current_index].thisPageEnd);
+    menu_items_show_with_pointer(menu_items[menu_current_index].thisPageStart, menu_items[menu_current_index].thisPageEnd);
 }
 void menu_select_last(void){
     if(menu_current_index - 1 < menu_items[menu_current_index].thisPageStart){
@@ -154,7 +220,7 @@ void menu_select_last(void){
     }else{
         menu_current_index--;
     }
-    menu_show(menu_items[menu_current_index].thisPageStart, menu_items[menu_current_index].thisPageEnd);
+    menu_items_show_with_pointer(menu_items[menu_current_index].thisPageStart, menu_items[menu_current_index].thisPageEnd);
 }
 void menu_ok(void){
     if (menu_items[menu_current_index].next!=NULL)
