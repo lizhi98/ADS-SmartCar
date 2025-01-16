@@ -8,6 +8,6 @@
 #ifndef CODE_ASSERT_H_
 #define CODE_ASSERT_H_
 
-
+void wrong(void);
 
 #endif /* CODE_ASSERT_H_ */

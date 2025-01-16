@@ -5,4 +5,7 @@
  *      Author: lizhi
  */
 
+void wrong(void){
+    while(1);
+}
 

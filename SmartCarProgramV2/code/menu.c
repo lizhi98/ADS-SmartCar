@@ -1,164 +1,170 @@
-#include"menu.h"
+#include "menu.h"
+#include "string.h"
 
-//屏幕选项指针位置 1-10 分别为第几行,默认为第一行
-static Location     pointerLine     = 1;            //默认为第一行
-static Pages        currentPage     = PAGE_MAIN;    //默认为主菜单
-static OptionIndex  currentChoice   = init;         //默认为init
-static uint8        wrongFlag       = 0;
-void show_main_menu(void){
-    ips200_show_string(100, LINE_GAP*MENU_LINE,                 "MENU");
-    ips200_show_string(10,  LINE_GAP*GO_LINE,                   "GO");
-    ips200_show_string(10,  LINE_GAP*GO_AND_SHOW_CONFIG_LINE,   "GO_AND_SHOW_CONFIG");
-    ips200_show_string(10,  LINE_GAP*SPEED_LINE,                "SPEED");
-    ips200_show_string(10,  LINE_GAP*PID_LINE,                  "PID");
-    ips200_show_string(0,   LINE_GAP*pointerLine,               "->");
-}
-void show_speed_menu(void){
-    ips200_show_string(100, LINE_GAP*MENU_LINE,                 "MENU");
-    ips200_show_string(10,  LINE_GAP*BACK_LINE,                 "BACK");
-    ips200_show_string(10,  LINE_GAP*MOTOR_SPEED_K_LINE,        "speed_K");
-    ips200_show_string(10,  LINE_GAP*NORMOL_SPEED_LINE,         "NormolSpeedRaw");
-    ips200_show_string(10,  LINE_GAP*CURVE_SPEED_LINE,          "CurveSpeedRaw");
-    ips200_show_string(0,   LINE_GAP*pointerLine,               "->");
-}
-void show_pid_menu(void){
-    ips200_show_string(100, LINE_GAP*MENU_LINE,                 "MENU");
-    ips200_show_string(10,  LINE_GAP*BACK_LINE,                 "BACK");
-    ips200_show_string(10,  LINE_GAP*KP_LINE,                   "KP");
-    ips200_show_string(10,  LINE_GAP*KI_LINE,                   "KI");
-    ips200_show_string(10,  LINE_GAP*KD_LINE,                   "KD");
-    ips200_show_string(0,   LINE_GAP*pointerLine,               "->");
-}
+MenuItem menu_items[MENU_ITEM_COUNT] = {
+    // index          next,                   back
+    // MAIN
+    {START,           menu_start,             NULL,   START, SETTINGS},
+    {START_WITH_INFO, menu_start_with_info,   NULL,   START, SETTINGS},
+    {SETTINGS,        menu_show_settings,     NULL,   START, SETTINGS},
+    // SETTINGS
+    {PID,             menu_show_pid,          menu_show_main, PID, IMAGE},
+    {SPEED,           menu_show_speed,        menu_show_main, PID, IMAGE},
+    {IMAGE,           menu_show_image,        menu_show_main, PID, IMAGE},
+    // PID
+    {KP,              menu_set_pid_p,         menu_show_settings,   KP, KD},
+    {KI,              menu_set_pid_i,         menu_show_settings,   KP, KD},
+    {KD,              menu_set_pid_d,         menu_show_settings,   KP, KD},
+    // SPEED
+    {NORMAL_SPEED,    menu_set_speed_normal,  menu_show_settings,   NORMAL_SPEED, CURVE_SPEED},
+    {CURVE_SPEED,     menu_set_speed_curve,   menu_show_settings,   NORMAL_SPEED, CURVE_SPEED},
+    // IMAGE
+    {IMAGE1,          menu_set_image1,        menu_show_settings,   IMAGE1, IMAGE5},
+    {IMAGE2,          menu_set_image2,        menu_show_settings,   IMAGE1, IMAGE5},
+    {IMAGE3,          menu_set_image3,        menu_show_settings,   IMAGE1, IMAGE5},
+    {IMAGE4,          menu_set_image4,        menu_show_settings,   IMAGE1, IMAGE5},
+    {IMAGE5,          menu_set_image5,        menu_show_settings,   IMAGE1, IMAGE5},
+};
+const char * menu_names[MENU_ITEM_COUNT] = {
+    // MAIN
+    "START",        "START_WITH_INFO",      "SETTINGS",
+    // SETTINGS
+    "PID",          "SPEED",                "IMAGE",
+    // PID
+    "KP",           "KI",                   "KD",
+    // SPEED
+    "NORMAL_SPEED", "CURVE_SPEED",
+    // IMAGE
+    "IMAGE1",       "IMAGE2",               "IMAGE3",   "IMAGE4",   "IMAGE5",
+};
 
-void menu_update(void){
-    if (wrongFlag ==1) return;
+MenuIndex   menu_current_index;
+
+void menu_init(void){
     
+    // 清屏
     screen_clear();
-    switch (currentPage)
-    {
-    case PAGE_MAIN:
-        show_main_menu();
-        break;
-    case PAGE_SPEED_CONFIG:
-        show_speed_menu();
-        break;
-    case PAGE_PID_CONFIG:
-        show_pid_menu();
-        break;
-    default:
-        wrongFlag = 1;
-        screen_wrong();
-        break;
-    }
+    // 显示默认菜单
+    menu_show_main();
+    // while(TRUE){
+
+    // }
 }
 
-void menu_jump(Pages target){
-    if (wrongFlag ==1) return;
-    
-    switch (target)
-    {
-    case PAGE_MAIN:
-        pointerLine = GO_LINE;
-        currentChoice      = GO;
-        currentPage = PAGE_MAIN;
-        break;
-    case SPEED:
-        pointerLine = BACK_LINE;
-        currentChoice      = BACK;
-        currentPage = PAGE_SPEED_CONFIG;
-        break;
-    case PID:
-        pointerLine = BACK_LINE;
-        currentChoice      = BACK;
-        currentPage = PAGE_PID_CONFIG;
-        break;
-    default:
-        wrongFlag = 1;
-        screen_wrong();
-        break;
+// 菜单项目显示函数
+void menu_show(MenuIndex startIndex,MenuIndex endIndex){
+    screen_clear();
+    menu_show_pointer();
+    screen_show_string(30, 0, "Menu");
+    for(int i = startIndex; i <= endIndex; i++){
+        screen_show_string(10, (i - startIndex + 1) * LINE_GAP, menu_names[i]);
     }
-    menu_update();
-    
+}
+void menu_show_pointer(void){
+    screen_show_string(0, (menu_current_index - menu_items[menu_current_index].thisPageStart + 1) * LINE_GAP, ">");
+}
+// 菜单显示函数
+void menu_show_main(void){
+    menu_current_index = START;
+    menu_show(START, SETTINGS);
+}
+void menu_show_settings(void){
+    menu_current_index = PID;
+    menu_show(PID, IMAGE);
+}
+void menu_show_pid(void){
+    menu_current_index = KP;
+    menu_show(KP, KD);
+}
+void menu_show_speed(void){
+    menu_current_index = NORMAL_SPEED;
+    menu_show(NORMAL_SPEED, CURVE_SPEED);
+}
+void menu_show_image(void){
+    menu_current_index = IMAGE1;
+    menu_show(IMAGE1, IMAGE5);
 }
 
-//void edit_config(KeyIndex key){
-//    if (wrongFlag ==1) return;
-//
-//    switch (currentChoice)
-//    {
-//    case MOTOR_SPEED_K:
-//        if(key == INCREASE) ;
-//        if(key == DECREASE) ;
-//        break;
-//    case NORMOL_SPEED_RAW:
-//        //这里写调节直道速度
-//        if(key == INCREASE) ;
-//        if(key == DECREASE) ;
-//        break;
-//    case CURVE_SPEED_RAW:
-//        if(key == INCREASE) ;
-//        if(key == DECREASE) ;
-//        break;
-//    case KP:
-//        if(key == INCREASE) ;
-//        if(key == DECREASE) ;
-//        break;
-//    case KI:
-//        if(key == INCREASE) ;
-//        if(key == DECREASE) ;
-//        break;
-//    case KD:
-//        if(key == INCREASE) ;
-//        if(key == DECREASE) ;
-//        break;
-//    default:
-//        wrongFlag = 1;
-//        screen_wrong();
-//        break;
-//    }
-//    menu_update();
-//}
-//
-//void key_control(KeyIndex key){
-//    switch (key)
-//    {
-//    case OK:
-//            switch (currentChoice)
-//            {
-//            case BACK:
-//                menu_jump(PAGE_MAIN);
-//                break;
-//            case SPEED:
-//                menu_jump(PAGE_SPEED_CONFIG);
-//                break;
-//            case PID:
-//                menu_jump(PAGE_PID_CONFIG);
-//                break;
-//            default:
-//                // screen_wrong();
-//                //由于可能会误触了确定键，所以此处不再报错，使用时小心一些
-//                break;
-//            }
-//            break;
-//    case INCREASE:
-//    case DECREASE:
-//        edit_config(key);
-//        break;
-//    case DOWN:
-//            if (currentChoice == PID||
-//                currentChoice ==CURVE_SPEED_RAW||
-//                currentChoice==KD)
-//            {
-//                menu_jump(currentPage);
-//            }else
-//            {
-//                currentChoice ++;
-//                pointerLine ++;
-//                menu_update();
-//            }
-//            break;
-//    default:
-//        screen_wrong();
-//        break;
-//    }
-//}
+// 车启动类函数
+void menu_start(void){
+    screen_clear();
+    screen_show_string(0, 0, "PRESS ANY KEY TO STOP");
+}
+void menu_start_with_info(void){
+    screen_clear();
+    screen_show_string(0, 0, "PLEASE WAIT...");
+}
+
+// 设置项目函数
+void menu_set_pid_p(void){
+    screen_clear();
+    screen_show_string(0, 0, "KP");
+}
+void menu_set_pid_i(void){
+    screen_clear();
+    screen_show_string(0, 0, "KI");
+}
+void menu_set_pid_d(void){
+    screen_clear();
+    screen_show_string(0, 0, "KD");
+}
+
+void menu_set_speed_normal(void){
+    screen_clear();
+    screen_show_string(0, 0, "NORMAL_SPEED");
+}
+void menu_set_speed_curve(void){
+    screen_clear();
+    screen_show_string(0, 0, "CURVE_SPEED");
+}
+
+void menu_set_image1(void){
+    screen_clear();
+    screen_show_string(0, 0, "IMAGE1");
+}
+void menu_set_image2(void){
+    screen_clear();
+    screen_show_string(0, 0, "IMAGE2");
+}
+void menu_set_image3(void){
+    screen_clear();
+    screen_show_string(0, 0, "IMAGE3");
+}
+void menu_set_image4(void){
+    screen_clear();
+    screen_show_string(0, 0, "IMAGE4");
+}
+void menu_set_image5(void){
+    screen_clear();
+    screen_show_string(0, 0, "IMAGE5");
+}
+
+// 调用执行函数
+void menu_select_next(void){
+    if(menu_current_index + 1 > menu_items[menu_current_index].thisPageEnd){
+        menu_current_index = menu_items[menu_current_index].thisPageStart;
+    }else{
+        menu_current_index++;
+    }
+    menu_show(menu_items[menu_current_index].thisPageStart, menu_items[menu_current_index].thisPageEnd);
+}
+void menu_select_last(void){
+    if(menu_current_index - 1 < menu_items[menu_current_index].thisPageStart){
+        menu_current_index = menu_items[menu_current_index].thisPageEnd;
+    }else{
+        menu_current_index--;
+    }
+    menu_show(menu_items[menu_current_index].thisPageStart, menu_items[menu_current_index].thisPageEnd);
+}
+void menu_ok(void){
+    if (menu_items[menu_current_index].next!=NULL)
+    {   
+        menu_items[menu_current_index].next();
+    }
+}
+void menu_back(void){
+    if (menu_items[menu_current_index].back!=NULL)
+    {
+        menu_items[menu_current_index].back();
+    }
+}

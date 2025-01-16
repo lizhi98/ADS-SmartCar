@@ -1,45 +1,77 @@
-#ifndef CODE_MENU_H_
-#define CODE_MENU_H_
+#ifndef CODE_MENU2_H
+#define CODE_MENU2_H
 
-#include"screen.h"
-#include"key.h"
+#include "screen.h"
 
-#define LINE_GAP 30
+#define LINE_GAP 15
 
-//定义选项位置 0行固定为"MENU" 
-typedef enum{
-    //===================BACK AND "MENU"==========
-    MENU_LINE,            BACK_LINE,
-    //===================Main MENU================
-    GO_LINE=1,            GO_AND_SHOW_CONFIG_LINE,    SPEED_LINE,         PID_LINE,               
-    //===================SPEED MENU===============
-    MOTOR_SPEED_K_LINE=2, NORMOL_SPEED_LINE,          CURVE_SPEED_LINE,        
-    //===================PID MENU=================
-    KP_LINE=2,            KI_LINE,                    KD_LINE,                 
-}Location;
+#define MENU_ITEM_COUNT 16
+// 第一个调节页面菜单索引
+#define MENU_SETTING_PAGE_START_MENU_ITEM_INDEX KP
 
-typedef enum {
-    init,
-    GO,             GO_AND_SHOW_CONFIG,     SPEED,          PID,    //主菜单
-    BACK,                                                       //返回到主菜单
-    MOTOR_SPEED_K,  NORMOL_SPEED_RAW,       CURVE_SPEED_RAW,        //速度调节菜单
-    KP,             KI,                     KD,                 //PID调节菜单
-}OptionIndex;
 
-typedef enum{
-    PAGE_MAIN,
-    PAGE_SPEED_CONFIG,
-    PAGE_PID_CONFIG,
-}Pages;
 
-void show_main_menu(void);
-void show_speed_menu(void);
-void show_pid_menu(void);
+typedef enum _MenuIndex{
+    // MAIN
+    START,              START_WITH_INFO ,   SETTINGS,
+    // SETTINGS
+    PID,                SPEED,              IMAGE,
+    // PID
+    KP,                 KI,                 KD,
+    // SPEED
+    NORMAL_SPEED,       CURVE_SPEED,
+    // IMAGE
+    IMAGE1,             IMAGE2,             IMAGE3,        IMAGE4,      IMAGE5,
+} MenuIndex;
 
-void menu_update(void);
-void menu_jump(Pages target);
-//void edit_config(KeyIndex key);
+typedef struct _MenuItem{
+    MenuIndex   index;
+    void        (*next)(void);
+    void        (*back)(void);
+    MenuIndex   thisPageStart;
+    MenuIndex   thisPageEnd;
+} MenuItem;
 
-//void key_control(KeyIndex key);
+extern  MenuIndex   menu_current_index;
+extern  MenuItem    menu_items[MENU_ITEM_COUNT];
+
+void menu_next_item(MenuItem item);
+void menu_last_item(MenuItem item);
+
+
+void menu_show_pointer(void);
+void menu_show(MenuIndex startIndex,MenuIndex endIndex);
+// 菜单显示函数
+void menu_show_main(void);
+void menu_show_settings(void);
+void menu_show_pid(void);
+void menu_show_speed(void);
+void menu_show_image(void);
+
+// 车启动类函数
+void menu_start(void);
+void menu_start_with_info(void);
+
+// 设置项目函数
+void menu_set_pid_p(void);
+void menu_set_pid_i(void);
+void menu_set_pid_d(void);
+
+void menu_set_speed_normal(void);
+void menu_set_speed_curve(void);
+
+void menu_set_image1(void);
+void menu_set_image2(void);
+void menu_set_image3(void);
+void menu_set_image4(void);
+void menu_set_image5(void);
+
+// 调用执行函数
+void menu_select_next(void);
+void menu_select_last(void);
+void menu_ok(void);
+void menu_back(void);
+
+void menu_init(void);
 
 #endif
