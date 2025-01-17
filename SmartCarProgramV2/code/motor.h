@@ -29,8 +29,8 @@
 #define MOTOR_PWM_DUTY_MAX                  (PWM_DUTY_MAX * 0.5)    //电机PWM占空比最大值
 #define MOTOR_PWM_DUTY_MIN                  (0)                     //电机PWM占空比最小值，过小可能电机无法驱动[需要修改]
 
-#define MOTOR_INIT_NORMAL_SPEED              80                    //电机直道初始速度
-#define MOTOR_INIT_CURVE_SPEED              80                    //电机弯道初始速度
+#define MOTOR_INIT_NORMAL_SPEED             80                    //电机直道初始速度
+#define MOTOR_INIT_CURVE_SPEED              60                    //电机弯道初始速度
 
 extern int motor_normal_speed;
 extern int motor_curve_speed;
