@@ -36,7 +36,7 @@ void process_image(Image image) {
     }
     otsu_binarize_image(image_buffer, otsu_threshold);
 	search_result = search(image_buffer);
-	element_type = Curve;
+	element_type = Curve; // TODO
 }
 
 uint8 otsu_calc_threshold(Image image, uint8 min, uint8 max) {
@@ -86,6 +86,9 @@ const uint8 INVALID_BOUND_COUNT_MAX = 5;
 const uint8 BOUND_COUNT_EX = 16; // BOUND_COUNT + INVALID_BOUND_COUNT_MAX + 1
 const uint8 BOUND_Y_MIN = 95; // BOUND_Y_BEGIN - BOUND_COUNT - INVALID_BOUND_COUNT_MAX
 
+const float
+OFFSET_MIN = 1.5;
+
 const uint8 STD_ROAD_HALF_WIDTHS[] = {
     83,     82,     81,     80,
     79,     78,     78,     77,
@@ -106,12 +109,20 @@ const uint8 STD_ROAD_HALF_WIDTHS[] = {
     23,     22,     21,     20,
 };
 
+const float OFFSET_WEIGHT_K = 0.08;
+
+inline float offset_weight(uint8 offset_i) {
+    return 1 - offset_i * OFFSET_WEIGHT_K;
+}
+
 SearchResult search(Image image) {
     uint8 x_lefts[16 /*BOUND_COUNT_EX*/], x_rights[16 /*BOUND_COUNT_EX*/], ys[16 /*BOUND_COUNT_EX*/];
     uint8 x_left = x_lefts[0] = 0, x_right = x_rights[0] = MAX_X;
     uint8 left_invalid_count = 0, right_invalid_count = 0;
-    int offset_sum = 0, offset_count = 0, offset_both_begin = 0;
+    float offset_sum = 0, offset_weight_sum = 0;
+    uint8 offset_count = 0, offset_both_begin = 0;
     Track track = Both;
+
     for (uint8 y = BOUND_Y_BEGIN; offset_count < BOUND_COUNT && y >= BOUND_Y_MIN; y --) {
         if (track != Right) {
             while (x_left < MID_X && image[y][x_left] == EMPTY) x_left ++;
@@ -171,11 +182,16 @@ SearchResult search(Image image) {
         image[ys[i]][x_mid] = MID_LINE;
 #endif
 
-        offset_sum += x_mid - MID_X;
+        float w = offset_weight(i);
+        offset_sum += (x_mid - MID_X) * w;
+        offset_weight_sum += w;
     }
 
     SearchResult result = { 0 };
-    if (offset_count) result.offset = (float) offset_sum / offset_count;
+    if (offset_count) {
+        result.offset = offset_sum / offset_weight_sum;
+        if (abs(result.offset) < OFFSET_MIN) result.offset = 0;
+    }
 #ifdef IMAGE_DEBUG
     result.track = track;
 #endif

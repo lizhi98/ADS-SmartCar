@@ -22,10 +22,12 @@ void pid_init(void){
 }
 
 void pid_start_calc(void){
-    pit_ms_init(PID_PIT_CH,PID_CALC_INTERVAL);
+    pit_ms_init(PID_PIT_CH_MOTOR,PID_CALC_INTERVAL_MOTOR);
+    pit_ms_init(PID_PIT_CH_STEER,PID_CALC_INTERVAL_STEER);
 }
 void pid_stop_calc_and_clear(void){
-    pit_close(PID_PIT_CH);
+    pit_close(PID_PIT_CH_MOTOR);
+    //pit_close(PID_PIT_CH_STEER);
     motor_left_pid_calc.integral = 0;
     motor_left_pid_calc.error = 0;
     motor_left_pid_calc.lastError = 0;
@@ -99,8 +101,7 @@ int motor_calc(PIDConfig *pid_config , PIDCalc *pid_calc) {
     return pid_calc->out = (int) (pout + iout);
 }
 
-
-int steer_calc(PIDConfig *pid_config , PIDCalc *pd_calc){
+float steer_calc(PIDConfig *pid_config , PIDCalc *pd_calc){
     // 存储旧的error
     pd_calc->lastError = pd_calc->error;
     // 新的error
@@ -110,8 +111,8 @@ int steer_calc(PIDConfig *pid_config , PIDCalc *pd_calc){
     // p
     float pout = pid_config->KP * pd_calc->error;
     // d
-    float dout = pid_config->KD * ((pd_calc->error - pd_calc->lastError));
+    float dout = pid_config->KD * (pd_calc->error - pd_calc->lastError);
 
-    return pd_calc->out = (int)(pout + dout);
+    return pd_calc->out = (pout + dout);
 }
 

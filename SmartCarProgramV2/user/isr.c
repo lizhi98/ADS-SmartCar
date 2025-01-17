@@ -19,8 +19,7 @@ IFX_INTERRUPT(cc60_pit_ch1_isr, 0, CCU6_0_CH1_ISR_PRIORITY)
 {
     interrupt_global_enable(0);                     // 开启中断嵌套
     // ############################################
-    
-    steer_plus_duty(steer_calc(&steer_pid_config, &steer_pid_calc));             // 舵机PID计算
+
     motor_pwm_set_duty(MOTOR_LEFT_FORWARD_PWM_PIN,  motorLeftForwardPwmPresentDuty  + motor_calc(&motor_pid_config, &motor_left_pid_calc));
     motor_pwm_set_duty(MOTOR_RIGHT_FORWARD_PWM_PIN, motorRightForwardPwmPresentDuty + motor_calc(&motor_pid_config, &motor_right_pid_calc));
     // ############################################
@@ -31,7 +30,8 @@ IFX_INTERRUPT(cc60_pit_ch1_isr, 0, CCU6_0_CH1_ISR_PRIORITY)
 IFX_INTERRUPT(cc61_pit_ch0_isr, 0, CCU6_1_CH0_ISR_PRIORITY)
 {
     interrupt_global_enable(0);                     // 开启中断嵌套
-
+    //steer_plus_duty(steer_calc(&steer_pid_config, &steer_pid_calc));             // 舵机PID计算
+    steer_set_duty(STEER_PWM_DUTY_MID + steer_calc(&steer_pid_config, &steer_pid_calc));             // 舵机PID计算
     pit_clear_flag(CCU61_CH0);
 }
 

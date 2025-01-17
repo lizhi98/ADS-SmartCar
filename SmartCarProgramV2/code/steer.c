@@ -12,7 +12,7 @@ uint32   steerPresentDuty;
 void steer_init(void){
     pwm_init(STEER_PWM_PIN, STEER_PWM_FREQ_STD, STEER_PWM_DUTY_MID);
     steerPresentDuty = STEER_PWM_DUTY_MID;
-    steer_print_duty();
+    //steer_print_duty();
 }
 
 //强烈不建议使用，逐飞没有提供更改频率的接口，需要重新初始化

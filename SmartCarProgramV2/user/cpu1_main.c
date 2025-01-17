@@ -29,12 +29,13 @@ void core1_main(void)
     system_start();
     uint32 timeTemp;
     uint8 delay_time_need_flag = 1;
+    uint8 runed_flag = 0;
     while (TRUE)
     {
         // 此处编写需要循环执行的代码
         if (run_flag)
         {   
-
+            runed_flag = 1;
             if(delay_time_need_flag){
                 pid_set_motor_target(motor_nomal_speed);
                 system_delay_ms(1000);
@@ -54,7 +55,10 @@ void core1_main(void)
         }else
         {
             motor_make_unpower();
-            pid_stop_calc_and_clear();
+            if(runed_flag){
+                pid_stop_calc_and_clear();
+                runed_flag = 0;
+            }
             delay_time_need_flag = 1;
         }
 
