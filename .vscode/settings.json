@@ -9,7 +9,9 @@
         "isr.h": "c",
         "zf_common_headfile.h": "c",
         "bsp.h": "c",
-        "motor.h": "c"
+        "motor.h": "c",
+        "limits": "c",
+        "*.tcc": "c"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }

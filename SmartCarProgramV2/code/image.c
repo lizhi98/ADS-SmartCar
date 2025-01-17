@@ -142,10 +142,10 @@ SearchResult search(Image image) {
 
     for (uint8 y = BOUND_Y_BEGIN; offset_count < BOUND_COUNT && y >= BOUND_Y_MIN; y --) {
         if (track != Right) {
-            while (x_left < X_MID && image[y][x_left] == EMPTY) x_left ++;
+            while (x_left < X_MAX && image[y][x_left] == EMPTY) x_left ++;
             uint8 x_left_min = x_left > BOUND_X_BACK_MAX ? x_left - BOUND_X_BACK_MAX : 0;
             while (x_left > x_left_min && image[y][x_left - 1] == ROAD) x_left --;
-            if (x_left == X_MID) {
+            if (x_left == X_MAX) {
                 x_left = x_lefts[offset_count];
                 continue;
             }
@@ -166,10 +166,10 @@ SearchResult search(Image image) {
         }
 
         if (track != Left) {
-            while (x_right > X_MID && image[y][x_right] == EMPTY) x_right --;
+            while (x_right > 0 && image[y][x_right] == EMPTY) x_right --;
             uint8 x_right_max = x_right + BOUND_X_BACK_MAX < X_MAX ? x_right + BOUND_X_BACK_MAX : X_MAX;
             while (x_right < x_right_max && image[y][x_right + 1] == ROAD) x_right ++;
-            if (x_right == X_MID) {
+            if (x_right == 0) {
                 x_right = x_rights[offset_count];
                 continue;
             }
@@ -203,15 +203,19 @@ SearchResult search(Image image) {
 #endif
 
     if (track != None) {
-        for (uint8 i = 1, x_mid; i <= offset_count; i ++) {
+        int x_mid;
+        for (uint8 i = 1; i <= offset_count; i ++) {
             if (track == Both) x_mid = (x_lefts[i] + x_rights[i]) >> 1;
             else {
                 uint8 road_i = Y_MAX - ys[i];
-                if (track == Left) x_mid = x_lefts[i] + STD_ROAD_HALF_WIDTHS[road_i];
-                else x_mid = x_rights[i] - STD_ROAD_HALF_WIDTHS[road_i];
+                printf("ys[i = %d] = %d, road[i] = %d\n", i, ys[i], STD_ROAD_HALF_WIDTHS[road_i]);
+                if (track == Left)
+                    x_mid = x_lefts[i] + STD_ROAD_HALF_WIDTHS[road_i];
+                else
+                    x_mid = x_rights[i] - STD_ROAD_HALF_WIDTHS[road_i];
             }
 #ifdef IMAGE_DEBUG
-            image[ys[i]][x_mid] = MID_LINE;
+            if (x_mid >= 0 && x_mid <= X_MAX) image[ys[i]][x_mid] = MID_LINE;
 #endif
             float w = get_offset_weight(i);
             offset_sum += (x_mid - X_MID) * w;
