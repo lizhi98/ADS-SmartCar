@@ -1,13 +1,26 @@
-#include "../SmartCarProgram01/code/image.h"
-#include "./Data/curve_1.c"
 #include <stdio.h>
 #include <math.h>
+#include <time.h>
 
-const int COLORS[] = { '0', '7', '2', '2', '1', '3', '5', '6', '6' };
+#ifndef IMAGE_DEBUG
+    #define IMAGE_DEBUG
+#endif
+
+#define int unsigned char
+    #include "./Data/curve_1.c" // FAKE DATA
+#undef int
+
+#include "../SmartCarProgramV2/code/image.h"
+
+const int COLORS[] = { '0', '7', '2', '3' };
+const char *TRACK_DISPLAY[] = { "Left", "Right", "Both" };
 
 int main() {
-    binarize_image_otsu(image);
-	double k = search_bound(image);
+    clock_t start_time = clock();
+    uint8 threshold = otsu_calc_threshold(image, OTSU_THRESHOLD_MIN, OTSU_THRESHOLD_MAX);
+    otsu_binarize_image(image, threshold);
+	SearchResult search_result = search(image);
+    clock_t end_time = clock();
 
     for (int i = 0; i < HEIGHT; i ++) {
         for (int j = 0; j < WIDTH; j ++) {
@@ -15,7 +28,10 @@ int main() {
         }
         printf("\n");
     }
-	printf("[angle = %lf°]\n", k);
+	printf("[threshold = %d]\n", threshold);
+    printf("[offset = %f]\n", search_result.offset);
+    printf("[time = %dms]\n", (end_time - start_time) * 1000 / CLOCKS_PER_SEC);
+    printf("[track = %s]\n", TRACK_DISPLAY[search_result.track]);
 
     return 0;
 }

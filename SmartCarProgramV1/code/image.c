@@ -8,9 +8,12 @@ double angle = 0;
 
 void process_image(Image image) {
     binarize_image_otsu(image);
-	angle = search_bound(image);
+	angle = process_midline(image);
 	element_type =Curve;//  fabs(angle) < 100 ? Normal : Curve;
 }
+
+const OTSU_SCAN_LOWERBOUND = 0;
+const OTSU_SCAN_UPPERBOUND = 255;
 
 void binarize_image_otsu(Image image) {
     double var_max = 0;
@@ -136,7 +139,7 @@ const bool digits[10][15] = {
 };
 #endif
 
-double search_bound(Image image) {
+double process_midline(Image image) {
     int i_start = HEIGHT - 4;
 	int i_end = HEIGHT * 2 / 3;
 	int mid_j = WIDTH / 2;

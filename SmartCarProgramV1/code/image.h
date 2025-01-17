@@ -20,7 +20,7 @@ typedef enum ElementType {
 void process_image(Image image);
 
 void binarize_image_otsu(Image image);
-double search_bound(Image image);
+double process_midline(Image image);
 
 extern ElementType element_type;
 extern double angle;

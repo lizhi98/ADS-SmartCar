@@ -1,6 +1,7 @@
 .vscode
 .metadata
 Debug
+Release
 Test/Image
 *.launch
 node_modules
