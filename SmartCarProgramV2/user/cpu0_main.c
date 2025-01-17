@@ -108,7 +108,7 @@ MENU_START_WITH_INFO:
             if(info_items[i].index <= MENU_START_WITH_INFO_ITEMS_LAST_INT){
                 sprintf(temp, "%s:%8d", info_items[i].name,   *info_items[i].value.int_value);
             }else{
-                sprintf(temp, "%s:%8.1f", info_items[i].name, *info_items[i].value.float_value);
+                sprintf(temp, "%s:%8.2f", info_items[i].name, *info_items[i].value.float_value);
             }
             // 测试用
             // (*info_items[0].value.int_value) ++;

@@ -32,18 +32,6 @@ MenuItem menu_items[MENU_ITEM_COUNT] = {
     {"IMAGE4" ,         IMAGE4,          menu_set_image4,        menu_show_settings,       OTSU_K_MIN, IMAGE5},
     {"IMAGE5",          IMAGE5,          menu_set_image5,        menu_show_settings,       OTSU_K_MIN, IMAGE5},
 };
-// const char * menu_names[MENU_ITEM_COUNT] = {
-//     // MAIN
-//     "START",        "START_WITH_INFO",      "SETTINGS",
-//     // SETTINGS
-//     "PID",          "SPEED",                "IMAGE",
-//     // PID
-//     "MOTOR_KP",           "MOTOR_KI",                   "MOTOR_KD",
-//     // SPEED
-//     "NORMAL_SPEED", "CURVE_SPEED",
-//     // IMAGE
-//     "OTSU_K_MIN",       "OTSU_K_MAX",        "IMAGE3",   "IMAGE4",   "IMAGE5",
-// };
 
 // 测试用
 int a;
