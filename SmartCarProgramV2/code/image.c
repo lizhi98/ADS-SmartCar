@@ -119,12 +119,12 @@ SearchResult search(Image image) {
     if (image[Y_MAX][0] != ROAD) {
         uint8 CURR = ROAD;
         uint8 change_count = 0;
-        for (uint8 x = 1; x < WIDTH_F23; x ++) {
+        for (uint8 x = 1; x < X_MAX; x ++) {
             if (image[Y_MAX][x] != CURR) {
                 CURR = image[Y_MAX][x];
                 change_count ++;
             }
-            if (change_count > 5) {
+            if (change_count > 9) {
                 SearchResult result = { 0 };
                 result.element_type = Zebra;
                 return result;
@@ -228,15 +228,12 @@ SearchResult search(Image image) {
         }
     }
 
-    if (track == Left) {
+    if (track == Left)
         result.element_type = CurveLeft;
-    }
-    else if (track == Right) {
+    else if (track == Right)
         result.element_type = CurveRight;
-    }
-    else {
+    else
         result.element_type = Normal;
-    }
 
     return result;
 }
