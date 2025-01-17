@@ -4,7 +4,7 @@
 #include "steer.h"
 #include "string.h"
 #include "zf_driver_delay.h"
-
+extern uint32 time_per_image;
 MenuItem menu_items[MENU_ITEM_COUNT] = {
     // name             index            next,                   back   thisPageStart   thisPageEnd
     // MAIN
@@ -56,6 +56,7 @@ InfoItem    info_items[MENU_START_WITH_INFO_ITEMS_COUNT] = {
     {L_PID_OUT,"L_PID_OUT", .value.int_value = &motor_left_pid_calc.out},
     {R_PID_OUT,"R_PID_OUT", .value.int_value = &motor_right_pid_calc.out},
     {STEER_PID_OUT,"STEER_PID_OUT", .value.int_value = &steer_pid_calc.out},
+    {TIME,"TIME", .value.int_value = &time_per_image},
 };
 
 MenuIndex   menu_current_index;

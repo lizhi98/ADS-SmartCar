@@ -7,36 +7,40 @@ ElementType element_type = Normal;
 SearchResult search_result;
 
 int OSTU_COUNTER_MAX = 10;
-int OTSU_THRESHOLD_MIN = 50;
-int OTSU_THRESHOLD_MAX = 80;
-int OTSU_COMPRESS_RATIO = 1;
+uint8 OTSU_THRESHOLD_MIN = 50;
+uint8 OTSU_THRESHOLD_MAX = 80;
+int OTSU_COMPRESS_RATIO = 2;
+int OTSU_COMPRESS_RATIO_SQUARE = 4; // OTSU_COMPRESS_RATIO * OTSU_COMPRESS_RATIO;
 int OTSU_THRESHOLD_DELTA = 4;
 
-int otsu_counter = 0;
-int otsu_threshold = 0;
+uint8 otsu_counter = 0;
+uint8 otsu_threshold = 0;
+
+uint8 image_buffer[HEIGHT][REAL_WIDTH] = { 0 };
 
 void process_image(Image image) {
+    memcpy(image_buffer, image, sizeof (uint8) * REAL_WIDTH * HEIGHT);
     if (otsu_counter) {
         otsu_counter --;
     }
     else {
         if (otsu_threshold) otsu_threshold = otsu_calc_threshold(
-            image,
+            image_buffer,
             otsu_threshold - OTSU_THRESHOLD_DELTA,
             otsu_threshold + OTSU_THRESHOLD_DELTA // WARNING: Untested
         );
         else otsu_threshold = otsu_calc_threshold(
-            image, OTSU_THRESHOLD_MIN, OTSU_THRESHOLD_MAX
+            image_buffer, OTSU_THRESHOLD_MIN, OTSU_THRESHOLD_MAX
         );
         otsu_counter = OSTU_COUNTER_MAX;
     }
-    otsu_binarize_image(image, otsu_threshold);
-	search_result = search(image);
+    otsu_binarize_image(image_buffer, otsu_threshold);
+	search_result = search(image_buffer);
 	element_type = Curve;
 }
 
 uint8 otsu_calc_threshold(Image image, uint8 min, uint8 max) {
-    int PIXEL_COUNT = HEIGHT * WIDTH / pow(OTSU_COMPRESS_RATIO, 2);
+    int OTSU_PIXEL_COUNT = HEIGHT * WIDTH / OTSU_COMPRESS_RATIO_SQUARE;
     double var_max = 0;
     uint8 k_best;
     for (uint8 k = min; k <= max; k ++) {
@@ -50,12 +54,12 @@ uint8 otsu_calc_threshold(Image image, uint8 min, uint8 max) {
                 s += image[i][j];
             }
         }
-        double p1 = (double) c / PIXEL_COUNT;
+        double p1 = (double) c / OTSU_PIXEL_COUNT;
         if (p1 == 0) continue;
         if (p1 == 1) break;
 
-        double mg = (double) s / PIXEL_COUNT;
-        double m = (double) sm / PIXEL_COUNT;
+        double mg = (double) s / OTSU_PIXEL_COUNT;
+        double m = (double) sm / OTSU_PIXEL_COUNT;
         double var = pow(mg * p1 - m, 2) / (p1 * (1 - p1));
         if (var > var_max) {
             var_max = var;
@@ -79,8 +83,8 @@ const uint8 MID_LINE = 3;
 const uint8 BOUND_Y_BEGIN = 110;
 const uint8 BOUND_COUNT = 10;
 const uint8 INVALID_BOUND_COUNT_MAX = 5;
-const uint8 BOUND_COUNT_EX = BOUND_COUNT + INVALID_BOUND_COUNT_MAX + 1;
-const uint8 BOUND_Y_MIN = BOUND_Y_BEGIN - BOUND_COUNT - INVALID_BOUND_COUNT_MAX;
+const uint8 BOUND_COUNT_EX = 16; // BOUND_COUNT + INVALID_BOUND_COUNT_MAX + 1
+const uint8 BOUND_Y_MIN = 95; // BOUND_Y_BEGIN - BOUND_COUNT - INVALID_BOUND_COUNT_MAX
 
 const uint8 STD_ROAD_HALF_WIDTHS[] = {
     83,     82,     81,     80,
@@ -103,7 +107,7 @@ const uint8 STD_ROAD_HALF_WIDTHS[] = {
 };
 
 SearchResult search(Image image) {
-    uint8 x_lefts[BOUND_COUNT_EX], x_rights[BOUND_COUNT_EX], ys[BOUND_COUNT_EX];
+    uint8 x_lefts[16 /*BOUND_COUNT_EX*/], x_rights[16 /*BOUND_COUNT_EX*/], ys[16 /*BOUND_COUNT_EX*/];
     uint8 x_left = x_lefts[0] = 0, x_right = x_rights[0] = MAX_X;
     uint8 left_invalid_count = 0, right_invalid_count = 0;
     int offset_sum = 0, offset_count = 0, offset_both_begin = 0;

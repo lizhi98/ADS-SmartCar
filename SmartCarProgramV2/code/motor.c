@@ -71,8 +71,8 @@ void motor_pwm_record(pwm_channel_enum motor, int duty){
 
 //============高级函数===============
 void motor_start(void){
-    motor_pwm_set_duty(MOTOR_LEFT_FORWARD_PWM_PIN,  motor_nomal_speed);
-    motor_pwm_set_duty(MOTOR_RIGHT_FORWARD_PWM_PIN, motor_nomal_speed);
+    motor_pwm_set_duty(MOTOR_LEFT_FORWARD_PWM_PIN,  1000);
+    motor_pwm_set_duty(MOTOR_RIGHT_FORWARD_PWM_PIN, 1000);
 }
 void motor_make_unpower(void){
     motor_pwm_set_duty(MOTOR_LEFT_FORWARD_PWM_PIN,  	0u);

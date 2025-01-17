@@ -11,14 +11,14 @@
 
 #define MENU_SET_DALAY 100
 
-#define MENU_SET_PID_PER_PLUS 0.01f
+#define MENU_SET_PID_PER_PLUS 0.1f
 #define MENU_SET_SPEED_PER_PLUS 10u
 #define MENU_SET_IMAGE_PER_PLUS 1u
 
 // 第一个调节页面菜单索引
 // #define MENU_SETTING_PAGE_START_MENU_ITEM_INDEX MOTOR_KP
-#define MENU_START_WITH_INFO_ITEMS_COUNT 6
-#define MENU_START_WITH_INFO_ITEMS_LAST_INT R_PID_OUT
+#define MENU_START_WITH_INFO_ITEMS_COUNT 7
+#define MENU_START_WITH_INFO_ITEMS_LAST_INT TIME
 
 typedef enum _InfoIndex{
     L_SPEED,
@@ -27,6 +27,7 @@ typedef enum _InfoIndex{
     L_PID_OUT,
     R_PID_OUT,
     STEER_PID_OUT,
+    TIME,
 } InfoIndex;
 
 typedef enum _MenuIndex{

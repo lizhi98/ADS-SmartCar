@@ -2,6 +2,7 @@
 #include "motor.h"
 #include "steer.h"
 #include "encoder.h"
+#include "image.h"
 #include "zf_driver_pit.h"
 
 PIDConfig    motor_pid_config;
@@ -78,7 +79,7 @@ int pid_calc(PIDConfig * pid_config , PIDCalc * pid_calc){
 }
 
 
-int pi_calc(PIDConfig *pid_config , PIDCalc *pid_calc) {
+int motor_calc(PIDConfig *pid_config , PIDCalc *pid_calc) {
     // 计算新的error
     pid_calc->error = pid_calc->target - pid_calc->current;
     // 计算out
@@ -99,17 +100,17 @@ int pi_calc(PIDConfig *pid_config , PIDCalc *pid_calc) {
 }
 
 
-int pd_calc(PIDConfig *pid_config , PIDCalc *pd_calc){
+int steer_calc(PIDConfig *pid_config , PIDCalc *pd_calc){
     // 存储旧的error
-    pd_calc->last2Error = pd_calc->lastError;
     pd_calc->lastError = pd_calc->error;
-    // 计算新的error
-    pd_calc->error = pd_calc->target - pd_calc->current;
+    // 新的error
+    pd_calc->error = search_result.offset;
+    //pd_calc->error = 0 ;
     // 计算out
     // p
     float pout = pid_config->KP * pd_calc->error;
     // d
-    float dout = pid_config->KD * ((pd_calc->error - pd_calc->lastError) + (pd_calc->lastError - pd_calc->last2Error));
+    float dout = pid_config->KD * ((pd_calc->error - pd_calc->lastError));
 
     return pd_calc->out = (int)(pout + dout);
 }

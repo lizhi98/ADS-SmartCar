@@ -8,7 +8,9 @@
     #define int8 char
 #endif
 
+#ifndef PI
 #define PI 3.14159265
+#endif
 #define HEIGHT 120
 #define REAL_WIDTH 188
 #define WIDTH 187
@@ -42,10 +44,11 @@ void otsu_binarize_image(Image image, uint8 threshould);
 SearchResult search(Image image);
 
 extern ElementType element_type;
-extern double angle;
+extern SearchResult search_result;
+extern uint8 otsu_threshold;
 
-extern int OTSU_THRESHOLD_MIN;
-extern int OTSU_THRESHOLD_MAX;
+extern uint8 OTSU_THRESHOLD_MIN;
+extern uint8 OTSU_THRESHOLD_MAX;
 extern int OSTU_COUNTER_MAX;
 extern int OTSU_COMPRESS_RATIO;
 

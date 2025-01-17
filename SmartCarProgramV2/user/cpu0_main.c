@@ -6,10 +6,10 @@
 #include "motor.h"
 #include "encoder.h"
 #include "pid.h"
-
+#include "image.h"
+extern uint8 image_process_finish;
 uint8 run_flag = FALSE;
-
-#define DELAY_TIME 99
+#define DELAY_TIME 20
 
 #pragma section all "cpu0_dsram"
 
@@ -80,7 +80,7 @@ MENU_START:
     while (TRUE)
     {   // 判断是否有返回操作
         // 延迟10ms防止定时中断和CPU1的程序争抢key_any_pressed
-        system_delay_ms(DELAY_TIME);
+        // system_delay_ms(DELAY_TIME);
         if(key_any_pressed)
         {
             run_flag = FALSE;
@@ -100,7 +100,7 @@ MENU_START_WITH_INFO:
     {
         // 判断是否有返回操作
         // 延迟10ms防止定时中断和CPU1的程序争抢key_any_pressed
-        system_delay_ms(DELAY_TIME);
+        //system_delay_ms(1);
         
         // 显示信息
         for (size_t i = 0; i < MENU_START_WITH_INFO_ITEMS_COUNT; i++)
@@ -113,6 +113,16 @@ MENU_START_WITH_INFO:
             // 测试用
             // (*info_items[0].value.int_value) ++;
             screen_show_string(0, LINE_GAP * (i+1), temp);
+        }
+        if(image_process_finish){
+            ips200_show_gray_image(
+                0, LINE_GAP * (MENU_START_WITH_INFO_ITEMS_COUNT + 1),
+                mt9v03x_image,
+                MT9V03X_W, MT9V03X_H, MT9V03X_W, MT9V03X_H,
+                otsu_threshold
+            );
+            image_process_finish = 0;
+            mt9v03x_finish_flag = 0;
         }
         
         if(key_any_pressed)
