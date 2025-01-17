@@ -2,6 +2,8 @@
 #include <math.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 ElementType element_type = Normal;
 SearchResult search_result;
@@ -80,14 +82,14 @@ const uint8 ROAD = 1;
 const uint8 BOUND = 2;
 const uint8 MID_LINE = 3;
 
-const uint8 BOUND_Y_BEGIN = 110;
-const uint8 BOUND_COUNT = 10;
-const uint8 INVALID_BOUND_COUNT_MAX = 5;
-const uint8 BOUND_COUNT_EX = 16; // BOUND_COUNT + INVALID_BOUND_COUNT_MAX + 1
-const uint8 BOUND_Y_MIN = 95; // BOUND_Y_BEGIN - BOUND_COUNT - INVALID_BOUND_COUNT_MAX
+#define BOUND_Y_BEGIN 110
+#define BOUND_COUNT 10
+#define INVALID_BOUND_COUNT_MAX 5
+#define BOUND_COUNT_EX 16 // BOUND_COUNT + INVALID_BOUND_COUNT_MAX + 1
+#define BOUND_Y_MIN 95 // BOUND_Y_BEGIN - BOUND_COUNT - INVALID_BOUND_COUNT_MAX
+#define BOUND_X_BACK_MAX 4
 
-const float
-OFFSET_MIN = 1.5;
+const float OFFSET_MIN = 1.0;
 
 const uint8 STD_ROAD_HALF_WIDTHS[] = {
     83,     82,     81,     80,
@@ -109,14 +111,12 @@ const uint8 STD_ROAD_HALF_WIDTHS[] = {
     23,     22,     21,     20,
 };
 
-const float OFFSET_WEIGHT_K = 0.08;
-
-inline float offset_weight(uint8 offset_i) {
-    return 1 - offset_i * OFFSET_WEIGHT_K;
+float get_offset_weight(uint8 y) {
+    return 1.0 - (BOUND_Y_BEGIN - y) * 0.2;
 }
 
 SearchResult search(Image image) {
-    uint8 x_lefts[16 /*BOUND_COUNT_EX*/], x_rights[16 /*BOUND_COUNT_EX*/], ys[16 /*BOUND_COUNT_EX*/];
+    uint8 x_lefts[BOUND_COUNT_EX], x_rights[BOUND_COUNT_EX], ys[BOUND_COUNT_EX];
     uint8 x_left = x_lefts[0] = 0, x_right = x_rights[0] = MAX_X;
     uint8 left_invalid_count = 0, right_invalid_count = 0;
     float offset_sum = 0, offset_weight_sum = 0;
@@ -126,15 +126,19 @@ SearchResult search(Image image) {
     for (uint8 y = BOUND_Y_BEGIN; offset_count < BOUND_COUNT && y >= BOUND_Y_MIN; y --) {
         if (track != Right) {
             while (x_left < MID_X && image[y][x_left] == EMPTY) x_left ++;
-            while (x_left > 0 && image[y][x_left - 1] == ROAD) x_left --;
+            uint8 x_left_max = x_left > BOUND_X_BACK_MAX ? x_left - BOUND_X_BACK_MAX : 0;
+            while (x_left > x_left_max && image[y][x_left - 1] == ROAD) x_left --;
             if (x_left == MID_X) {
                 x_left = x_lefts[offset_count];
                 continue;
             }
-            if (x_left == 0) {
+            if (x_left == x_left_max) {
                 left_invalid_count ++;
                 if (left_invalid_count > INVALID_BOUND_COUNT_MAX) {
-                    if (track == Left) break;
+                    if (track == Left) {
+                        track = None;
+                        break;
+                    }
                     track = Right;
                 }
             }
@@ -146,15 +150,19 @@ SearchResult search(Image image) {
 
         if (track != Left) {
             while (x_right > MID_X && image[y][x_right] == EMPTY) x_right --;
-            while (x_right < MAX_X && image[y][x_right + 1] == ROAD) x_right ++;
+            uint8 x_right_max = x_right + BOUND_X_BACK_MAX < MAX_X ? x_right + BOUND_X_BACK_MAX : MAX_X;
+            while (x_right < x_right_max && image[y][x_right + 1] == ROAD) x_right ++;
             if (x_right == MID_X) {
                 x_right = x_rights[offset_count];
                 continue;
             }
-            if (x_right == MAX_X) {
+            if (x_right == x_right_max) {
                 right_invalid_count ++;
                 if (right_invalid_count > INVALID_BOUND_COUNT_MAX) {
-                    if (track == Right) break;
+                    if (track == Right) {
+                        track = None;
+                        break;
+                    }
                     track = Left;
                 }
             }
@@ -171,30 +179,33 @@ SearchResult search(Image image) {
         offset_count ++;
     }
 
-    for (uint8 i = 1, x_mid; i <= offset_count; i ++) {
-        if (track == Both) x_mid = (x_lefts[i] + x_rights[i]) >> 1;
-        else {
-            uint8 road_i = MAX_Y - ys[i];
-            if (track == Left) x_mid = x_lefts[i] + STD_ROAD_HALF_WIDTHS[road_i];
-            else x_mid = x_rights[i] - STD_ROAD_HALF_WIDTHS[road_i];
-        }
-#ifdef IMAGE_DEBUG
-        image[ys[i]][x_mid] = MID_LINE;
-#endif
-
-        float w = offset_weight(i);
-        offset_sum += (x_mid - MID_X) * w;
-        offset_weight_sum += w;
-    }
-
     SearchResult result = { 0 };
-    if (offset_count) {
-        result.offset = offset_sum / offset_weight_sum;
-        if (abs(result.offset) < OFFSET_MIN) result.offset = 0;
-    }
+
 #ifdef IMAGE_DEBUG
     result.track = track;
 #endif
+
+    if (track != None) {
+        for (uint8 i = 1, x_mid; i <= offset_count; i ++) {
+            if (track == Both) x_mid = (x_lefts[i] + x_rights[i]) >> 1;
+            else {
+                uint8 road_i = MAX_Y - ys[i];
+                if (track == Left) x_mid = x_lefts[i] + STD_ROAD_HALF_WIDTHS[road_i];
+                else x_mid = x_rights[i] - STD_ROAD_HALF_WIDTHS[road_i];
+            }
+#ifdef IMAGE_DEBUG
+            image[ys[i]][x_mid] = MID_LINE;
+#endif
+            float w = get_offset_weight(i);
+            offset_sum += (x_mid - MID_X) * w;
+            offset_weight_sum += w;
+        }
+
+        if (offset_count) {
+            result.offset = offset_sum / offset_weight_sum;
+            if (abs(result.offset) < OFFSET_MIN) result.offset = 0;
+        }
+    }
 
     return result;
 }
