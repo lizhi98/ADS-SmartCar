@@ -55,7 +55,7 @@ void core1_main(void)
         }else
         {
             motor_make_unpower();
-            if(runed_flag){
+            if(runed_flag){  // 注意和上面的run_flag区分
                 pid_stop_calc_and_clear();
                 runed_flag = 0;
             }
