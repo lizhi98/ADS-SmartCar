@@ -4,5 +4,5 @@ for f in $@; do
 	if [[ $? != 0 ]]; then
 		break
 	fi
-	sleep ${INTERVAL:-0.33}
+	sleep ${INTERVAL:-0}
 done

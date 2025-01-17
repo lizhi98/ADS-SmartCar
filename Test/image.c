@@ -13,7 +13,7 @@
 #include "../SmartCarProgramV2/code/image.h"
 
 const int COLORS[] = { '0', '7', '2', '3' };
-const char *TRACK_DISPLAY[] = { "Left", "Right", "Both" };
+const char *TRACK_DISPLAY[] = { "None", "Left", "Right", "Both" };
 
 int main() {
     clock_t start_time = clock();

@@ -26,9 +26,10 @@ typedef enum ElementType_t {
 } ElementType;
 
 typedef enum Track_t {
+    None,
     Left,
     Right,
-    Both,
+    Both
 } Track;
 
 typedef struct MidlineResult_t {
