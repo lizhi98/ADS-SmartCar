@@ -52,33 +52,33 @@ void pid_set_steer_target(int duty){
     steer_pid_calc.target = 1.0 * duty;
 }
 
-int pid_calc(PIDConfig * pid_config , PIDCalc * pid_calc){
-    // 存储旧的error
-    pid_calc->last2Error = pid_calc->lastError;
-    pid_calc->lastError = pid_calc->error;
-    // 计算新的error
-    pid_calc->error = pid_calc->target - pid_calc->current;
-    // 计算out
-    // p
-    float pout = pid_config->KP * pid_calc->error;
-    // i
-    pid_calc->integral += pid_calc->error;
-    // 积分限幅
-    if (pid_calc->integral > PID_MOTOR_MAX_INTEGRAL) {
-        pid_calc->integral = PID_MOTOR_MAX_INTEGRAL;
-    }
-    else if (pid_calc->integral < -PID_MOTOR_MAX_INTEGRAL) {
-        pid_calc->integral = -PID_MOTOR_MAX_INTEGRAL;
-    }
-    float iout = pid_config->KI * pid_calc->integral;
-    // d
-    float dout = pid_config->KD * ( (pid_calc->error - pid_calc->lastError) + (pid_calc->lastError - pid_calc->last2Error) );
-
-    pid_calc->out = (int)(pout + iout + dout);
-    // 计算输出
-    return (int)(pout + iout + dout);
-
-}
+//int pid_calc(PIDConfig * pid_config , PIDCalc * pid_calc){
+//    // 存储旧的error
+//    pid_calc->last2Error = pid_calc->lastError;
+//    pid_calc->lastError = pid_calc->error;
+//    // 计算新的error
+//    pid_calc->error = pid_calc->target - pid_calc->current;
+//    // 计算out
+//    // p
+//    float pout = pid_config->KP * pid_calc->error;
+//    // i
+//    pid_calc->integral += pid_calc->error;
+//    // 积分限幅
+//    if (pid_calc->integral > PID_MOTOR_MAX_INTEGRAL) {
+//        pid_calc->integral = PID_MOTOR_MAX_INTEGRAL;
+//    }
+//    else if (pid_calc->integral < -PID_MOTOR_MAX_INTEGRAL) {
+//        pid_calc->integral = -PID_MOTOR_MAX_INTEGRAL;
+//    }
+//    float iout = pid_config->KI * pid_calc->integral;
+//    // d
+//    float dout = pid_config->KD * ( (pid_calc->error - pid_calc->lastError) + (pid_calc->lastError - pid_calc->last2Error) );
+//
+//    pid_calc->out = (int)(pout + iout + dout);
+//    // 计算输出
+//    return (int)(pout + iout + dout);
+//
+//}
 
 
 int motor_calc(PIDConfig *pid_config , PIDCalc *pid_calc) {
