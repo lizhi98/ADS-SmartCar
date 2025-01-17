@@ -27,9 +27,10 @@ void core1_main(void)
     cpu_wait_event_ready();                 // 等待所有核心初始化完毕
     mt9v03x_init();
     system_start();
-    uint32 timeTemp;
+    uint32 time_start;
     uint8 delay_time_need_flag = 1;
     uint8 has_run_flag = 0;
+    uint8 rapid_clock = 500;
     while (TRUE)
     {
         // 此处编写需要循环执行的代码
@@ -44,10 +45,15 @@ void core1_main(void)
                 delay_time_need_flag = 0;
             }
 
+            if (rapid_clock) {
+                pid_set_motor_target((-- rapid_clock ? 1.5 : 1) * motor_normal_speed);
+            }
+            
+
             if (mt9v03x_finish_flag && !image_process_finish) {
-                timeTemp = system_getval_ms();
+                time_start = system_getval_ms();
                 process_image(mt9v03x_image);
-                time_per_image = system_getval_ms() - timeTemp;
+                time_per_image = system_getval_ms() - time_start;
                 if (search_result.element_type == Zebra) run_flag = 0;
                 image_process_finish = 1;
             }
