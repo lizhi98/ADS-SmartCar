@@ -49,12 +49,15 @@ void core1_main(void)
                 timeTemp = system_getval_ms();
                 process_image(mt9v03x_image);
                 time_per_image = system_getval_ms() - timeTemp;
+                if(search_result.element_type == ZEBRA){
+                    goto stop;
+                }
                 image_process_finish = 1;
             }
             
         }else
         {
-            motor_make_unpower();
+stop:       motor_make_unpower();
             if(runed_flag){  // 注意和上面的run_flag区分
                 pid_stop_calc_and_clear();
                 runed_flag = 0;
