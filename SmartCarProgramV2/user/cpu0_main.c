@@ -2,9 +2,14 @@
 #include "screen.h"
 #include "key.h"
 #include "menu.h"
+#include "steer.h"
+#include "motor.h"
+#include "encoder.h"
 #include "pid.h"
 
 uint8 run_flag = FALSE;
+
+#define DELAY_TIME 99
 
 #pragma section all "cpu0_dsram"
 
@@ -17,8 +22,13 @@ int core0_main(void)
     system_delay_init();
     screen_init();
     key_init_();
-    // 此处编写用户代码 例如外设初始化代码等
+    encoder_init();
+    steer_init();
+    motor_all_init();
+
     cpu_wait_event_ready();         // 等待所有核心初始化完毕
+
+    pid_init();
 
 MENU:
     // 菜单初始化
@@ -28,7 +38,7 @@ MENU:
     while (TRUE)
     {
         // 此处编写需要循环执行的代码
-
+        system_delay_ms(DELAY_TIME);
         // 菜单程序
         // 程序刚开始执行时为主菜单
         // 判断是否有按键按下
@@ -70,7 +80,7 @@ MENU_START:
     while (TRUE)
     {   // 判断是否有返回操作
         // 延迟10ms防止定时中断和CPU1的程序争抢key_any_pressed
-        system_delay_ms(10);
+        system_delay_ms(DELAY_TIME);
         if(key_any_pressed)
         {
             run_flag = FALSE;
@@ -84,16 +94,35 @@ MENU_START_WITH_INFO:
     // 车启动
     run_flag = TRUE;
     key_any_pressed = 0;
-    // 延迟10ms防止定时中断和CPU1的程序争抢key_any_pressed
-    system_delay_ms(10);
+
+    char temp[24];
     while (TRUE)
-    {   // 判断是否有返回操作
+    {
+        // 判断是否有返回操作
+        // 延迟10ms防止定时中断和CPU1的程序争抢key_any_pressed
+        system_delay_ms(DELAY_TIME);
+        
+        // 显示信息
+        for (size_t i = 0; i < MENU_START_WITH_INFO_ITEMS_COUNT; i++)
+        {
+            if(info_items[i].index <= MENU_START_WITH_INFO_ITEMS_LAST_INT){
+                sprintf(temp, "%s:%8d", info_items[i].name,   *info_items[i].value.int_value);
+            }else{
+                sprintf(temp, "%s:%8.1f", info_items[i].name, *info_items[i].value.float_value);
+            }
+            // 测试用
+            // (*info_items[0].value.int_value) ++;
+            screen_show_string(0, LINE_GAP * (i+1), temp);
+        }
+        
         if(key_any_pressed)
         {
             run_flag = FALSE;
             goto MENU;
         }
     }
+
+
 }
 
 

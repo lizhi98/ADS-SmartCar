@@ -8,12 +8,22 @@
 IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
 {
     interrupt_global_enable(0);                     // 开启中断嵌套
+    // ############################################
+    encoder_get_speed();                            // 速度计算
+    encoder_all_clear();                            // 清除编码器计数
+    // ############################################
     pit_clear_flag(CCU60_CH0);
 }
 
 IFX_INTERRUPT(cc60_pit_ch1_isr, 0, CCU6_0_CH1_ISR_PRIORITY)
 {
     interrupt_global_enable(0);                     // 开启中断嵌套
+    // ############################################
+    //steer_plus_duty(pid_calc(&steer_pid_config, &steer_pid_calc));             // 舵机PID计算
+    
+    motor_pwm_set_duty(MOTOR_LEFT_FORWARD_PWM_PIN,  motorLeftForwardPwmPresentDuty  + pi_calc(&motor_pid_config, &motor_left_pid_calc));
+    motor_pwm_set_duty(MOTOR_RIGHT_FORWARD_PWM_PIN, motorRightForwardPwmPresentDuty + pi_calc(&motor_pid_config, &motor_right_pid_calc));
+    // ############################################
     pit_clear_flag(CCU60_CH1);
 }
 
@@ -29,8 +39,8 @@ IFX_INTERRUPT(cc61_pit_ch1_isr, 0, CCU6_1_CH1_ISR_PRIORITY)
     interrupt_global_enable(0);                     // 开启中断嵌套
     // ############################################
     key_all_scan();                                 // 按键扫描
-    pit_clear_flag(CCU61_CH1);
     // ############################################
+    pit_clear_flag(CCU61_CH1);
 }
 // **************************** PIT中断函数 ****************************
 

@@ -50,7 +50,7 @@ void steer_set_duty(uint32 duty){
  *          1. 若预期占空比超过了左极限，则会赋值左极限
  *          2. 若预期占空比小于右极限，则会赋值右极限
  */
-void steer_plus_duty(int16 plusDuty){
+void steer_plus_duty(int plusDuty){
     steer_set_duty(steerPresentDuty + plusDuty);
 }
 

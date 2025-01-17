@@ -2,46 +2,60 @@
 #include "pid.h"
 #include "motor.h"
 #include "steer.h"
-//#include 
 #include "string.h"
 #include "zf_driver_delay.h"
 
-
 MenuItem menu_items[MENU_ITEM_COUNT] = {
-    // index          next,                   back
+    // name             index            next,                   back   thisPageStart   thisPageEnd
     // MAIN
-    {START,           menu_start,             NULL,   START, SETTINGS},
-    {START_WITH_INFO, menu_start_with_info,   NULL,   START, SETTINGS},
-    {SETTINGS,        menu_show_settings,     NULL,   START, SETTINGS},
+    {"START",           START,           menu_start,             NULL,              START,         SETTINGS},
+    {"START_WITH_INFO", START_WITH_INFO, menu_start_with_info,   NULL,              START,         SETTINGS},
+    {"SETTINGS",        SETTINGS,        menu_show_settings,     NULL,              START,         SETTINGS},
     // SETTINGS
-    {PID,             menu_show_pid,          menu_show_main, PID, IMAGE},
-    {SPEED,           menu_show_speed,        menu_show_main, PID, IMAGE},
-    {IMAGE,           menu_show_image,        menu_show_main, PID, IMAGE},
+    {"PID",             PID,             menu_show_pid,          menu_show_main,    PID, IMAGE},
+    {"SPEED",           SPEED,           menu_show_speed,        menu_show_main,    PID, IMAGE},
+    {"IMAGE",           IMAGE,           menu_show_image,        menu_show_main,    PID, IMAGE},
     // PID
-    {KP,              menu_set_pid_p,         menu_show_settings,   KP, KD},
-    {KI,              menu_set_pid_i,         menu_show_settings,   KP, KD},
-    {KD,              menu_set_pid_d,         menu_show_settings,   KP, KD},
+    {"MOTOR_KP",        MOTOR_KP,        menu_set_motor_pid_p,   menu_show_settings,   MOTOR_KP, STEER_KD},
+    {"MOTOR_KI",        MOTOR_KI,        menu_set_motor_pid_i,   menu_show_settings,   MOTOR_KP, STEER_KD},
+    {"MOTOR_KD",        MOTOR_KD,        menu_set_motor_pid_d,   menu_show_settings,   MOTOR_KP, STEER_KD},
+    {"STEER_KP",        STEER_KP,        menu_set_steer_pid_p,   menu_show_settings,   MOTOR_KP, STEER_KD},
+    {"STEER_KI",        STEER_KI,        menu_set_steer_pid_i,   menu_show_settings,   MOTOR_KP, STEER_KD},
+    {"STEER_KD",        STEER_KD,        menu_set_steer_pid_d,   menu_show_settings,   MOTOR_KP, STEER_KD},
     // SPEED
-    {NORMAL_SPEED,    menu_set_speed_normal,  menu_show_settings,   NORMAL_SPEED, CURVE_SPEED},
-    {CURVE_SPEED,     menu_set_speed_curve,   menu_show_settings,   NORMAL_SPEED, CURVE_SPEED},
+    {"NORMAL_SPEED",    NORMAL_SPEED,    menu_set_speed_normal,  menu_show_settings,   NORMAL_SPEED, CURVE_SPEED},
+    {"CURVE_SPEED",     CURVE_SPEED,     menu_set_speed_curve,   menu_show_settings,   NORMAL_SPEED, CURVE_SPEED},
     // IMAGE
-    {IMAGE1,          menu_set_image1,        menu_show_settings,   IMAGE1, IMAGE5},
-    {IMAGE2,          menu_set_image2,        menu_show_settings,   IMAGE1, IMAGE5},
-    {IMAGE3,          menu_set_image3,        menu_show_settings,   IMAGE1, IMAGE5},
-    {IMAGE4,          menu_set_image4,        menu_show_settings,   IMAGE1, IMAGE5},
-    {IMAGE5,          menu_set_image5,        menu_show_settings,   IMAGE1, IMAGE5},
+    {"OTSU_K_MIN",      OTSU_K_MIN,      menu_set_otsu_k_min,    menu_show_settings,   OTSU_K_MIN, IMAGE5},
+    {"OTSU_K_MAX",      OTSU_K_MAX,      menu_set_otsu_k_max,    menu_show_settings,   OTSU_K_MIN, IMAGE5},
+    {"IMAGE3",          IMAGE3,          menu_set_image3,        menu_show_settings,       OTSU_K_MIN, IMAGE5},
+    {"IMAGE4" ,         IMAGE4,          menu_set_image4,        menu_show_settings,       OTSU_K_MIN, IMAGE5},
+    {"IMAGE5",          IMAGE5,          menu_set_image5,        menu_show_settings,       OTSU_K_MIN, IMAGE5},
 };
-const char * menu_names[MENU_ITEM_COUNT] = {
-    // MAIN
-    "START",        "START_WITH_INFO",      "SETTINGS",
-    // SETTINGS
-    "PID",          "SPEED",                "IMAGE",
-    // PID
-    "KP",           "KI",                   "KD",
-    // SPEED
-    "NORMAL_SPEED", "CURVE_SPEED",
-    // IMAGE
-    "IMAGE1",       "IMAGE2",               "IMAGE3",   "IMAGE4",   "IMAGE5",
+// const char * menu_names[MENU_ITEM_COUNT] = {
+//     // MAIN
+//     "START",        "START_WITH_INFO",      "SETTINGS",
+//     // SETTINGS
+//     "PID",          "SPEED",                "IMAGE",
+//     // PID
+//     "MOTOR_KP",           "MOTOR_KI",                   "MOTOR_KD",
+//     // SPEED
+//     "NORMAL_SPEED", "CURVE_SPEED",
+//     // IMAGE
+//     "OTSU_K_MIN",       "OTSU_K_MAX",        "IMAGE3",   "IMAGE4",   "IMAGE5",
+// };
+
+// 测试用
+int a;
+
+InfoItem    info_items[MENU_START_WITH_INFO_ITEMS_COUNT] = {
+    {L_SPEED,   "L_SPEED",    .value.int_value = &motor_left_pid_calc.current},
+    {R_SPEED,   "R_SPEED",    .value.int_value = &motor_right_pid_calc.current},
+    {STEER_DUTY,"STEER_DUTY", .value.int_value = (int *)&steerPresentDuty},
+    // {ELE,       "ELE",        .value.int_value = &a},
+    {L_PID_OUT,"L_PID_OUT", .value.int_value = &motor_left_pid_calc.out},
+    {R_PID_OUT,"R_PID_OUT", .value.int_value = &motor_right_pid_calc.out},
+    {STEER_PID_OUT,"STEER_PID_OUT", .value.int_value = &steer_pid_calc.out},
 };
 
 MenuIndex   menu_current_index;
@@ -66,7 +80,7 @@ void menu_items_show_with_pointer(MenuIndex startIndex,MenuIndex endIndex){
     menu_show_pointer();
     screen_show_string(30, 0, "Menu");
     for(int i = startIndex; i <= endIndex; i++){
-        screen_show_string(10, (i - startIndex + 1) * LINE_GAP, menu_names[i]);
+        screen_show_string(10, (i - startIndex + 1) * LINE_GAP, menu_items[i].name);
     }
 }
 // 菜单显示函数
@@ -84,7 +98,7 @@ void menu_show_settings(void){
     menu_show();
 }
 void menu_show_pid(void){
-    menu_current_index = KP;
+    menu_current_index = MOTOR_KP;
     menu_show();
 }
 void menu_show_speed(void){
@@ -92,7 +106,7 @@ void menu_show_speed(void){
     menu_show();
 }
 void menu_show_image(void){
-    menu_current_index = IMAGE1;
+    menu_current_index = OTSU_K_MIN;
     menu_show();
 }
 
@@ -103,11 +117,10 @@ void menu_start(void){
 }
 void menu_start_with_info(void){
     screen_clear();
-    screen_show_string(0, 0, "PLEASE WAIT...");
+    screen_show_string(30, 0, "INFO");
 }
 
 // 设置项目函数
-
 void menu_set_int_items(int * items,int per_plus,char * item_name){
     key_all_available();
     screen_clear();
@@ -162,35 +175,51 @@ void menu_set_float_items(float * items,float per_plus,char * item_name){
     }
 }
 
-void menu_set_pid_p(void){
+// =============PID================
+void menu_set_motor_pid_p(void){
     menu_set_float_items(&motor_pid_config.KP, MENU_SET_PID_PER_PLUS , "MOTOR_KP");
     menu_show_pid();
 }
-void menu_set_pid_i(void){
+void menu_set_motor_pid_i(void){
     menu_set_float_items(&motor_pid_config.KI, MENU_SET_PID_PER_PLUS , "MOTOR_KI");
     menu_show_pid();
 }
-void menu_set_pid_d(void){
+void menu_set_motor_pid_d(void){
     menu_set_float_items(&motor_pid_config.KD, MENU_SET_PID_PER_PLUS , "MOTOR_KD");
     menu_show_pid();
 }
 
-void menu_set_speed_normal(void){
-    screen_clear();
-    screen_show_string(0, 0, "NORMAL_SPEED");
+void menu_set_steer_pid_p(void){
+    menu_set_float_items(&steer_pid_config.KP, MENU_SET_PID_PER_PLUS , "STEER_KP");
+    menu_show_pid();
 }
-void menu_set_speed_curve(void){
-    screen_clear();
-    screen_show_string(0, 0, "CURVE_SPEED");
+void menu_set_steer_pid_i(void){
+    menu_set_float_items(&steer_pid_config.KI, MENU_SET_PID_PER_PLUS , "STEER_KI");
+    menu_show_pid();
+}
+void menu_set_steer_pid_d(void){
+    menu_set_float_items(&steer_pid_config.KD, MENU_SET_PID_PER_PLUS , "STEER_KD");
+    menu_show_pid();
 }
 
-void menu_set_image1(void){
-    screen_clear();
-    screen_show_string(0, 0, "IMAGE1");
+// =============SPEED================
+void menu_set_speed_normal(void){
+    menu_set_int_items(&motor_nomal_speed, MENU_SET_SPEED_PER_PLUS , "NOMAL_SPEED");
+    menu_show_speed();
 }
-void menu_set_image2(void){
-    screen_clear();
-    screen_show_string(0, 0, "IMAGE2");
+void menu_set_speed_curve(void){
+    menu_set_int_items(&motor_curve_speed, MENU_SET_SPEED_PER_PLUS , "CURVE_SPEED");
+    menu_show_speed();
+}
+
+// =============IMAGE================
+void menu_set_otsu_k_min(void){
+    //menu_set_int_items(&OTSU_K_MIN, MENU_SET_IMAGE_PER_PLUS , "OTSU_K_MIN");
+    menu_show_image();
+}
+void menu_set_otsu_k_max(void){
+    //menu_set_int_items(&OTSU_K_MAX, MENU_SET_IMAGE_PER_PLUS , "OTSU_K_MAX");
+    menu_show_image();
 }
 void menu_set_image3(void){
     screen_clear();

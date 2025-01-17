@@ -39,6 +39,10 @@
 #include "zf_common_headfile.h"
 
 #include "code/key.h"
+#include "code/encoder.h"
+#include "code/motor.h"
+#include "code/pid.h"
+#include "code/steer.h"
 
 #endif
 

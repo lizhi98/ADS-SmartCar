@@ -13,6 +13,13 @@
         "key.h": "c",
         "zf_driver_gpio.h": "c",
         "pid.h": "c",
-        "zf_driver_delay.h": "c"
+        "zf_driver_delay.h": "c",
+        "string.h": "c",
+        "isr.h": "c",
+        "steer.h": "c",
+        "motor.h": "c",
+        "encoder.h": "c",
+        "zf_driver_encoder.h": "c",
+        "zf_driver_pit.h": "c"
     }
 }
