@@ -4,7 +4,12 @@
         "zf_common_typedef.h": "c",
         "stdbool.h": "c",
         "math.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "string.h": "c",
+        "isr.h": "c",
+        "zf_common_headfile.h": "c",
+        "bsp.h": "c",
+        "motor.h": "c"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }

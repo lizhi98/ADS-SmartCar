@@ -29,7 +29,7 @@ void motor_all_init(){
    	motorRightBackwardPwmPresentDuty    =   MOTOR_RIGHT_BACKWARD_PWM_INIT_DUTY;
 }
 //!!!!!!!!!!!!!!!!!没有 正反转PWM同时设置的禁止保护!!!!!!!!!!!!
-void motor_pwm_set_duty(uint16 motor,uint32 duty){
+void motor_pwm_set_duty(uint16 motor, uint32 duty){
     if(duty == 0u){
         pwm_set_duty(motor, 0);
         motor_pwm_record(motor, 0);
@@ -46,18 +46,18 @@ void motor_pwm_set_duty(uint16 motor,uint32 duty){
 }
 void motor_pwm_plus_duty(uint16 motor,int16 plus){
     switch(motor){
-        case MOTOR_LEFT_FORWARD_PWM_PIN :   motor_pwm_set_duty(MOTOR_LEFT_FORWARD_PWM_PIN,  (uint32)(motorLeftForwardPwmPresentDuty    + plus)  );break;
-        case MOTOR_LEFT_BACKWARD_PWM_PIN :  motor_pwm_set_duty(MOTOR_LEFT_BACKWARD_PWM_PIN, (uint32)(motorLeftBackwardPwmPresentDuty   + plus)  );break;
-        case MOTOR_RIGHT_FORWARD_PWM_PIN :  motor_pwm_set_duty(MOTOR_RIGHT_FORWARD_PWM_PIN, (uint32)(motorRightForwardPwmPresentDuty   + plus)  );break;
-        case MOTOR_RIGHT_BACKWARD_PWM_PIN : motor_pwm_set_duty(MOTOR_RIGHT_BACKWARD_PWM_PIN,(uint32)(motorRightBackwardPwmPresentDuty  + plus)  );break;
+        case MOTOR_LEFT_FORWARD_PWM_PIN:   motor_pwm_set_duty(MOTOR_LEFT_FORWARD_PWM_PIN,   (uint32)(motorLeftForwardPwmPresentDuty    + plus)); break;
+        case MOTOR_LEFT_BACKWARD_PWM_PIN:  motor_pwm_set_duty(MOTOR_LEFT_BACKWARD_PWM_PIN,  (uint32)(motorLeftBackwardPwmPresentDuty   + plus)); break;
+        case MOTOR_RIGHT_FORWARD_PWM_PIN:  motor_pwm_set_duty(MOTOR_RIGHT_FORWARD_PWM_PIN,  (uint32)(motorRightForwardPwmPresentDuty   + plus)); break;
+        case MOTOR_RIGHT_BACKWARD_PWM_PIN: motor_pwm_set_duty(MOTOR_RIGHT_BACKWARD_PWM_PIN, (uint32)(motorRightBackwardPwmPresentDuty  + plus)); break;
     }
 }
 void motor_pwm_record(uint16 motor, uint32 duty){
     switch(motor){
-        case MOTOR_LEFT_FORWARD_PWM_PIN :   motorLeftForwardPwmPresentDuty     = duty;break;
-        case MOTOR_LEFT_BACKWARD_PWM_PIN :  motorLeftBackwardPwmPresentDuty    = duty;break;
-        case MOTOR_RIGHT_FORWARD_PWM_PIN :  motorRightForwardPwmPresentDuty    = duty;break;
-        case MOTOR_RIGHT_BACKWARD_PWM_PIN : motorRightBackwardPwmPresentDuty   = duty;break;
+        case MOTOR_LEFT_FORWARD_PWM_PIN:   motorLeftForwardPwmPresentDuty     = duty; break;
+        case MOTOR_LEFT_BACKWARD_PWM_PIN:  motorLeftBackwardPwmPresentDuty    = duty; break;
+        case MOTOR_RIGHT_FORWARD_PWM_PIN:  motorRightForwardPwmPresentDuty    = duty; break;
+        case MOTOR_RIGHT_BACKWARD_PWM_PIN: motorRightBackwardPwmPresentDuty   = duty; break;
     }
 }
 

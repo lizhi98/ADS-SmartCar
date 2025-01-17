@@ -193,7 +193,7 @@ void menu_set_steer_pid_d(void){
 
 // =============SPEED================
 void menu_set_speed_normal(void){
-    menu_set_int_items(&motor_nomal_speed, MENU_SET_SPEED_PER_PLUS , "NOMAL_SPEED");
+    menu_set_int_items(&motor_normal_speed, MENU_SET_SPEED_PER_PLUS , "NORMAL_SPEED");
     menu_show_speed();
 }
 void menu_set_speed_curve(void){

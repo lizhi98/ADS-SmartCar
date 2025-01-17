@@ -5,11 +5,10 @@
 #include <string.h>
 #include <stdlib.h>
 
-ElementType element_type = Normal;
 SearchResult search_result;
 
 int OSTU_COUNTER_MAX = 10;
-uint8 OTSU_THRESHOLD_MIN = 50;
+uint8 OTSU_THRESHOLD_MIN = 60;
 uint8 OTSU_THRESHOLD_MAX = 80;
 int OTSU_COMPRESS_RATIO = 2;
 int OTSU_COMPRESS_RATIO_SQUARE = 4; // OTSU_COMPRESS_RATIO * OTSU_COMPRESS_RATIO;
@@ -38,7 +37,6 @@ void process_image(Image image) {
     }
     otsu_binarize_image(image_buffer, otsu_threshold);
 	search_result = search(image_buffer);
-	element_type = Curve; // TODO
 }
 
 uint8 otsu_calc_threshold(Image image, uint8 min, uint8 max) {
@@ -121,18 +119,19 @@ SearchResult search(Image image) {
     uint8 left_invalid_count = 0, right_invalid_count = 0;
     float offset_sum = 0, offset_weight_sum = 0;
     uint8 offset_count = 0, offset_both_begin = 0;
+
     Track track = Both;
 
     for (uint8 y = BOUND_Y_BEGIN; offset_count < BOUND_COUNT && y >= BOUND_Y_MIN; y --) {
         if (track != Right) {
             while (x_left < MID_X && image[y][x_left] == EMPTY) x_left ++;
-            uint8 x_left_max = x_left > BOUND_X_BACK_MAX ? x_left - BOUND_X_BACK_MAX : 0;
-            while (x_left > x_left_max && image[y][x_left - 1] == ROAD) x_left --;
+            uint8 x_left_min = x_left > BOUND_X_BACK_MAX ? x_left - BOUND_X_BACK_MAX : 0;
+            while (x_left > x_left_min && image[y][x_left - 1] == ROAD) x_left --;
             if (x_left == MID_X) {
                 x_left = x_lefts[offset_count];
                 continue;
             }
-            if (x_left == x_left_max) {
+            if (x_left == x_left_min) {
                 left_invalid_count ++;
                 if (left_invalid_count > INVALID_BOUND_COUNT_MAX) {
                     if (track == Left) {
@@ -205,6 +204,16 @@ SearchResult search(Image image) {
             result.offset = offset_sum / offset_weight_sum;
             if (abs(result.offset) < OFFSET_MIN) result.offset = 0;
         }
+    }
+
+    if (track == Left) {
+        result.element_type = CurveLeft;
+    }
+    else if (track == Right) {
+        result.element_type = CurveRight;
+    }
+    else {
+        result.element_type = Normal;
     }
 
     return result;

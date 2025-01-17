@@ -22,7 +22,8 @@ typedef uint8 (*Image)[REAL_WIDTH];
 
 typedef enum ElementType_t {
     Normal,
-    Curve,
+    CurveLeft,
+    CurveRight,
 } ElementType;
 
 typedef enum Track_t {
@@ -34,6 +35,7 @@ typedef enum Track_t {
 
 typedef struct MidlineResult_t {
     float offset;
+    ElementType element_type;
 #ifdef IMAGE_DEBUG
     Track track;
 #endif
@@ -44,7 +46,6 @@ uint8 otsu_calc_threshold(Image image, uint8 min, uint8 max);
 void otsu_binarize_image(Image image, uint8 threshould);
 SearchResult search(Image image);
 
-extern ElementType element_type;
 extern SearchResult search_result;
 extern uint8 otsu_threshold;
 

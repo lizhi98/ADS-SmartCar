@@ -37,7 +37,7 @@ void core1_main(void)
         {   
             runed_flag = 1;
             if(delay_time_need_flag){
-                pid_set_motor_target(motor_nomal_speed);
+                pid_set_motor_target(motor_normal_speed);
                 system_delay_ms(1000);
                 motor_start();
                 pid_start_calc();

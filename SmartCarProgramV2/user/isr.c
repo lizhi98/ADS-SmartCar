@@ -1,5 +1,6 @@
 #include "isr_config.h"
 #include "isr.h"
+#include "image.h"
 
 // 对于TC系列默认是不支持中断嵌套的，希望支持中断嵌套需要在中断内使用 interrupt_global_enable(0); 来开启中断嵌套
 // 简单点说实际上进入中断后TC系列的硬件自动调用了 interrupt_global_disable(); 来拒绝响应任何的中断，因此需要我们自己手动调用 interrupt_global_enable(0); 来开启中断的响应。
@@ -30,7 +31,16 @@ IFX_INTERRUPT(cc60_pit_ch1_isr, 0, CCU6_0_CH1_ISR_PRIORITY)
 IFX_INTERRUPT(cc61_pit_ch0_isr, 0, CCU6_1_CH0_ISR_PRIORITY)
 {
     interrupt_global_enable(0);                     // 开启中断嵌套
-    //steer_plus_duty(steer_calc(&steer_pid_config, &steer_pid_calc));             // 舵机PID计算
+
+    uint32 base_duty;
+    ElementType el = search_result.element_type;
+    if (el == Normal)
+        base_duty = STEER_PWM_DUTY_MID;
+    else if (el == CurveLeft)
+        base_duty = STEER_PWM_DUTY_MID - STEER_PWM_DUTY_CURVE_DELTA;
+    else if (el == CurveRight)
+        base_duty = STEER_PWM_DUTY_MID + STEER_PWM_DUTY_CURVE_DELTA;
+
     steer_set_duty(STEER_PWM_DUTY_MID + steer_calc(&steer_pid_config, &steer_pid_calc));             // 舵机PID计算
     pit_clear_flag(CCU61_CH0);
 }

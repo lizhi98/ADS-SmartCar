@@ -14,6 +14,7 @@
 
 const int COLORS[] = { '0', '7', '2', '3' };
 const char *TRACK_DISPLAY[] = { "None", "Left", "Right", "Both" };
+const char *ELEMENT_DISPLAY[] = { "Normal", "CurveLeft", "CurveRight" };
 
 int main() {
     clock_t start_time = clock();
@@ -32,6 +33,7 @@ int main() {
     printf("[offset = %f]\n", search_result.offset);
     printf("[time = %dms]\n", (end_time - start_time) * 1000 / CLOCKS_PER_SEC);
     printf("[track = %s]\n", TRACK_DISPLAY[search_result.track]);
+    printf("[element = %s]\n", ELEMENT_DISPLAY[search_result.element_type]);
 
     return 0;
 }

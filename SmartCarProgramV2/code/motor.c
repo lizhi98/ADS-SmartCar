@@ -4,7 +4,7 @@
  *  Created on: 2024年11月23日
  *      Author: lizhi
  */
-#include"motor.h"
+#include "motor.h"
 
 int 	motorLeftForwardPwmPresentDuty;
 int 	motorLeftBackwardPwmPresentDuty;
@@ -13,7 +13,7 @@ int 	motorRightBackwardPwmPresentDuty;
 
 // int16 	motorLeftSetSpeed;
 // int16 	motorRightSetSpeed;
-int motor_nomal_speed = MOTOR_INIT_NOMAL_SPEED;
+int motor_normal_speed = MOTOR_INIT_NORMAL_SPEED;
 int motor_curve_speed = MOTOR_INIT_CURVE_SPEED;
 
 //==================基础函数=====================
