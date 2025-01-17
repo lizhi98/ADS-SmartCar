@@ -29,14 +29,13 @@ void core1_main(void)
     system_start();
     uint32 timeTemp;
     uint8 delay_time_need_flag = 1;
-    uint8 runed_flag = 0;
+    uint8 has_run_flag = 0;
     while (TRUE)
     {
         // 此处编写需要循环执行的代码
-        if (run_flag)
-        {   
-            runed_flag = 1;
-            if(delay_time_need_flag){
+        if (run_flag) {   
+            has_run_flag = 1;
+            if (delay_time_need_flag) {
                 pid_set_motor_target(motor_normal_speed);
                 system_delay_ms(1000);
                 motor_start();
@@ -45,22 +44,20 @@ void core1_main(void)
                 delay_time_need_flag = 0;
             }
 
-            if(mt9v03x_finish_flag && !image_process_finish){
+            if (mt9v03x_finish_flag && !image_process_finish) {
                 timeTemp = system_getval_ms();
                 process_image(mt9v03x_image);
                 time_per_image = system_getval_ms() - timeTemp;
-                if(search_result.element_type == ZEBRA){
-                    goto stop;
-                }
+                if (search_result.element_type == Zebra) run_flag = 0;
                 image_process_finish = 1;
             }
             
-        }else
-        {
-stop:       motor_make_unpower();
-            if(runed_flag){  // 注意和上面的run_flag区分
+        }
+        else {
+            motor_make_unpower();
+            if (has_run_flag) {  // 注意和上面的run_flag区分
                 pid_stop_calc_and_clear();
-                runed_flag = 0;
+                has_run_flag = 0;
             }
             delay_time_need_flag = 1;
         }
