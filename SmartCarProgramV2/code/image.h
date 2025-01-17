@@ -14,9 +14,9 @@
 #define HEIGHT 120
 #define REAL_WIDTH 188
 #define WIDTH 187
-#define MID_X 93
-#define MAX_X 186
-#define MAX_Y 119
+#define X_MID 93
+#define X_MAX 186
+#define Y_MAX 119
 
 typedef uint8 (*Image)[REAL_WIDTH];
 
@@ -24,6 +24,7 @@ typedef enum ElementType_t {
     Normal,
     CurveLeft,
     CurveRight,
+    Zebra,
 } ElementType;
 
 typedef enum Track_t {
