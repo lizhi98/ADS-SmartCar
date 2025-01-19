@@ -33,14 +33,12 @@ MenuItem menu_items[MENU_ITEM_COUNT] = {
     {"IMAGE5",          IMAGE5,          menu_set_image5,        menu_show_settings,       OTSU_K_MIN, IMAGE5},
 };
 
-// 测试用
-int a;
+
 
 InfoItem    info_items[MENU_START_WITH_INFO_ITEMS_COUNT] = {
     {L_SPEED,   "L_SPEED",    .value.int_value = &motor_left_pid_calc.current},
     {R_SPEED,   "R_SPEED",    .value.int_value = &motor_right_pid_calc.current},
     {STEER_DUTY,"STEER_DUTY", .value.int_value = (int *)&steerPresentDuty},
-    // {ELE,       "ELE",        .value.int_value = &a},
     {L_PID_OUT,"L_PID_OUT", .value.int_value = &motor_left_pid_calc.out},
     {R_PID_OUT,"R_PID_OUT", .value.int_value = &motor_right_pid_calc.out},
     {STEER_PID_OUT,"STEER_PID_OUT", .value.int_value = &steer_pid_calc.out},

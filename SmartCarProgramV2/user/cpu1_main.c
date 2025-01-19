@@ -30,7 +30,7 @@ void core1_main(void)
     uint32 time_start;
     uint8 delay_time_need_flag = 1;
     uint8 has_run_flag = 0;
-    uint8 rapid_clock = 500;
+    uint8 rapid_clock = 1000;
     while (TRUE)
     {
         // 此处编写需要循环执行的代码

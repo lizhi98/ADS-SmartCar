@@ -80,7 +80,7 @@ MENU_START:
     while (TRUE)
     {   // 判断是否有返回操作
         // 延迟10ms防止定时中断和CPU1的程序争抢key_any_pressed
-        // system_delay_ms(DELAY_TIME);
+        system_delay_ms(DELAY_TIME);
         if(key_any_pressed)
         {
             run_flag = FALSE;
